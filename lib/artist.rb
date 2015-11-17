@@ -24,9 +24,7 @@ class Artist
   end
 
   def self.find_or_create_by_name(artist_name)
-    self.all.select do |artist| 
-      return artist if artist.name == artist_name
-    end
+    self.all.select { |artist| return artist if artist.name == artist_name }
     Artist.new(artist_name)
   end
 
