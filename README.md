@@ -3,13 +3,13 @@
 ## Objective
 
 1. Gain a deeper understanding of object relations.
-2. Build classes that interact with one another through associations and behavior. 
+2. Build classes that interact with one another through associations and behavior.
 
 ## Instructions
 
-This is a test-driven lab. Use the test file and test output to understand what is being asked of you as you follow the guidelines below. 
+This is a test-driven lab. Use the test file and test output to understand what is being asked of you as you follow the guidelines below.
 
-In this lab, we'll be dealing with an `Artist` class, a `Song` class, and an `Mp3Importer` class. 
+In this lab, we'll be dealing with an `Artist` class, a `Song` class, and an `Mp3Importer` class.
 
 Because of the relationships between your classes, the `Artist` tests, i.e. the tests in `spec/artist_spec.rb`, rely on some code in the `Song` class and vice versa. So, as you proceed through solving this lab, you will go back and forth between coding in `Artist` and `Song`.
 
@@ -26,9 +26,9 @@ You will be building an `Artist` class, a `Song` class, and an `Mp3Importer` cla
 Thinking about it this way will get us started. Let's take a deeper look.
 
 ###`Mp3Importer` class
-Let's start with the Mp3 Importer. Build an `Mp3Importer` class that parses a directory of files and sends the filenames to a song class to create a library of music with artists that are unique. To do this, you'll need two methods: `Mp3Importer#files` and `Mp3Importer#import`. Your `MP3Importer` class should also have a `path` attribute that gets set on initialization. 
+Let's start with the Mp3 Importer. Build an `MP3Importer` class that parses a directory of files and sends the filenames to a song class to create a library of music with artists that are unique. To do this, you'll need two methods: `MP3Importer#files` and `MP3Importer#import`. Your `MP3Importer` class should also have a `path` attribute that gets set on initialization.
 
-You should write code that responds to `Mp3Importer.new('./db/mp3s').import`. Google around for how to get a list of files in a directory! Make sure you only get `.mp3` files.
+You should write code that responds to `MP3Importer.new('./db/mp3s').import`. Google around for how to get a list of files in a directory! Make sure you only get `.mp3` files.
 
 Since we have to send the filenames to the `Song` class, we'll end up calling the following code in the `#import` method: `Song.new_by_filename(filename-goes-here)`. This will send us to the `Song` class, specifically `Song#new_by_filename`.
 
@@ -40,7 +40,7 @@ This method will do three things:
 
 2. From here, we will create a new song instance using the string we gathered from the filename.
 
-3. We'll also want to associate that new song with an artist. To do this we'll use a helper method: `#artist_name=()`. 
+3. We'll also want to associate that new song with an artist. To do this we'll use a helper method: `#artist_name=()`.
 
 You may have seen something similar in the past where we have the instance of the artist. If we had the artist object, we could simply assign the artist to the song with some code that looks like this: `our_song_instance.artist = our_artist_instance`. Since we only have the artist name as a string (not an instance of the Artist class), we'll create a method that takes in the name and gets the artist object. Let's call this `#artist_name=(name)`.
 
@@ -49,18 +49,18 @@ This method will do two things. Both of these things will involve collaboration 
 
 1. Turn the artists name as a string into an artist object
 
-	First we need to get the instance of the Artist class that represents that artist. There are two possibilities here: 
-	
+	First we need to get the instance of the Artist class that represents that artist. There are two possibilities here:
+
 	1. Either we have to create that artist instance
   2. Or it already exists and we have to find that artist instance.
-	
+
 	To achieve this, we'll need to collaborate with the Artist class. We want to send the artist's name (a string--remember we are getting this from the parsed filename) to the Artist class to achieve the functionality described above in #1 and #2. Let's call this method `Artist.find_or_create_by_name(artists-name-here)`.
 
 2. Assign the song to the artist (Since an artist has many songs, we'll want to make this association)
 
 	 Now that we have the artist instance, we'll want to again collaborate with the `Artist` class by calling on the `Artist#add_song(some-song)` method.
 
-###`Artist` class 
+###`Artist` class
 It will probably be useful to create a couple of helper methods to assist with the methods below.
 
 ####`Artist.find_or_create_by_name(name)`
