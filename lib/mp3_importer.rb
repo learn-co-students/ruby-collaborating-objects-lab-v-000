@@ -8,8 +8,15 @@ class MP3Importer
 
 
   def files
-    @files = Dir.chdir(@path){|path| Dir.glob("*.mp3")}
+    Dir.chdir(@path){|path| Dir.glob("*.mp3")}
   end
 
+  def import
+    self.files.each {|file|
+      Song.new_by_filename(file)
+
+    }
+
+  end
 
 end
