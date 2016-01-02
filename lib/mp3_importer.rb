@@ -11,6 +11,7 @@ class MP3Importer
 		@path_array
 	end
 	def import
+		self.files
 		@path_array.each do |x|
 			Song.new_by_filename(x)
 		end
