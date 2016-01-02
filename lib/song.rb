@@ -6,10 +6,10 @@ class Song
 	end
 	
 	def self.new_by_filename(file_name)
-		new_name = file_name.scan(/(?>-)[\w\s]*(?=-)/).strip
-		new_artist = file_name.scan(/^[\w\s]*(?=-)/).strip
-		name = self.new(new_name)
-		self.artist=Artist.new(new_artist)
+		name = self.new(file_name.split(" - ")[1].strip)
+		name.artist = Artist.find_or_create_by_name(file_name.split(" - ").[0].strip)
+		name.artist.add_song(name)
+		name
 	end
 	
 end

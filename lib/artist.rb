@@ -3,6 +3,7 @@ class Artist
 		@@all
 	end
 	attr_accessor :name
+	attr reader :songs
 	@@all=[]
 	def initialize(name)
 		@name = name
@@ -22,6 +23,12 @@ class Artist
 			@@all.detect { |x| x.name == new_name }
 		else
 			name = self.new(new_name)
+			name.save
+			name
 		end
+	end
+	
+	def print_songs
+		@songs.each { |x| puts x}
 	end
 end
