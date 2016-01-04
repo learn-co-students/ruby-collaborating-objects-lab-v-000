@@ -3,7 +3,6 @@ class MP3Importer
   
   def initialize(path)
     @path = path
-    @songs = []
   end
 
   def files
@@ -11,7 +10,7 @@ class MP3Importer
   end
 
   def import
-     files.each { |file_name| songs << Song.new_by_filename(file_name) }
+     files.each { |file_name| Song.new_by_filename(file_name) }
   end
 end
 
