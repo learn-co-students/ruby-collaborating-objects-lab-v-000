@@ -22,8 +22,8 @@ class Artist
   end
 
   def self.find_or_create_by_name(name)
-    index = self.all.find_index { |artist| artist.name = name }
-    index ? self.all[index] : self.new(name)
+    result = self.all.find { |artist| artist.name = name }
+    result ? result : self.new(name)
   end
 
   def print_songs

@@ -11,7 +11,6 @@ class Song
     song = self.new(song_attributes[1])
     song.artist_name = song_attributes[0]
     song
-    # binding.pry
   end
 
   def artist_name=(name)
