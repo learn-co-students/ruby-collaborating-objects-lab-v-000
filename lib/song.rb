@@ -14,17 +14,8 @@ class Song
   end
 
   def artist_name=(name)
-    index = Artist.all.find_index { |artist| artist.name == name }
-    if index
-      artist = Artist.all[index]
-      artist.add_song(self)
-      self.artist = artist
-    else
-      artist = Artist.new(name)
-      artist.add_song(self)
-      self.artist = artist
-      artist.save
-    end
+    self.artist = Artist.find_or_create_by_name(name)
+    self.artist.add_song(self)
   end
 
 end
