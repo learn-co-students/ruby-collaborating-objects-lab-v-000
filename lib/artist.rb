@@ -1,3 +1,5 @@
+require 'pry'
+
 class Artist
 
   attr_accessor :name, :songs
@@ -29,16 +31,19 @@ class Artist
     @@all
   end
 
+
   def self.find_or_create_by_name(name)
-    self.all.find do |artist_instance|
-      if artist_instance.name == name
-        artist_instance
-      else
-        artist = Artist.new(name)
-        artist.save
-        artist
-      end
+    artist = (self.all.find { |artist_instance| artist_instance.name == name})
+    if artist == nil
+      artist = Artist.new(name)
     end
+      artist
   end
 
+
 end
+
+
+
+
+
