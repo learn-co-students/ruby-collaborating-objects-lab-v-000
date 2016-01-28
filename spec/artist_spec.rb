@@ -1,6 +1,6 @@
-describe 'Artist' do 
+describe 'Artist' do
   let(:artist) {Artist.new('Michael Jackson')}
-  
+
   describe '#initialize with #name' do
     it 'accepts a name for the song' do
       expect(artist.name).to eq('Michael Jackson')
@@ -14,8 +14,8 @@ describe 'Artist' do
     end
   end
 
-  describe '#songs' do 
-    it 'keeps track of an artist\'s songs' do 
+  describe '#songs' do
+    it 'keeps track of an artist\'s songs' do
       song_one = Song.new("Rock With You")
       song_two = Song.new("Smooth Criminal")
       artist.add_song(song_one)
@@ -44,9 +44,9 @@ describe 'Artist' do
     end
   end
 
-  describe '#print_songs' do 
+  describe '#print_songs' do
     it 'lists all of the artist\'s songs' do
-      dirty_diana = Song.new("Dirty Diana") 
+      dirty_diana = Song.new("Dirty Diana")
       billie_jean = Song.new("Billie Jean")
       artist.add_song(dirty_diana)
       artist.add_song(billie_jean)
