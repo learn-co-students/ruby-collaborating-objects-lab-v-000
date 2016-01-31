@@ -14,7 +14,7 @@ class Artist
 	end
 	
 	def save
-		@@all << self unless @@all.detect {|artist| artist.name == @name}
+		@@all << self unless self.class.find(self.name)
 	end
 	
 	def self.all
@@ -22,8 +22,15 @@ class Artist
 	end
 	
 	def self.find_or_create_by_name(name)
-		artist = @@all.detect {|artist| artist.name == name}
-		artist.nil? ? Artist.new(name) : artist
+		self.find(name)? self.find(name) : self.create(name)
+	end
+	
+	def self.create(name)
+		self.new(name).tap {|artist| artist.save}
+	end
+	
+	def self.find(name)
+		self.all.find {|artist| artist.name == name}
 	end
 	
 	def print_songs
