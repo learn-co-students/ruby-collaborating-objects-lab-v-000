@@ -7,14 +7,15 @@ class Song
 
   def self.new_by_filename(file_name)
     info = file_name.split(" - ")
-
+    name = info[1]
+    artist = info[0]
+    #you can't call self.new(name) EVEN IF you defined the name variable in #initialize because it is a new local variable within the scope of this specific method. so had to define name = info[1]
     song = self.new(name)
-    song.name = info[1]
-    song.artist_name = info[0]
+    song.artist_name = artist
     song
   end
 
   def artist_name=(name)
-    self.artist.nil? ? self.artist = Artist.new(name) : self.artist.name = name
+    self.artist = Artist.find_or_create_by_name(name)
   end
 end
