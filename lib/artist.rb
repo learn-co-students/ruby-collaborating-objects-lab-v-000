@@ -15,6 +15,8 @@ class Artist
 
   def save
     @@all << self
+    #to make sure doubles are not saved, this is probably a good idea:
+    #self.class.all << self unless self.class.all.include?(self)
   end
 
   def self.all

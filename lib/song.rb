@@ -13,6 +13,12 @@ class Song
     song = self.new(name)
     song.artist_name = artist
     song
+
+    #can also do:
+    #data = filename.split(" - ")
+      #song = Song.new(data[2])
+      #song.artist_name = data[0]
+      #song
   end
 
   def artist_name=(name)

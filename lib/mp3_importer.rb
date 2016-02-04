@@ -13,6 +13,15 @@ class MP3Importer
       files << file
     end
     files
+
+    #1) can also do following:
+    #Dir["#{path}/*.mp3"].collect do |x|
+       #File.basename(x)
+     #end  
+
+     #2) and:
+     #Dir.entries(path).select {|file| file.end_with?(".mp3")}
+
   end
 
   def import
