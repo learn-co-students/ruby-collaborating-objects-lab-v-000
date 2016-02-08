@@ -1,43 +1,33 @@
-require 'pry'
-
 class Artist
- 
-  attr_accessor :name
+
+  attr_accessor :name, :songs
+  @@all = []
+
 
   def initialize(name)
     @name = name
     @songs = []
-    @@all = []
-
-
+    save
   end
-  
+
   def add_song(song)
     @songs << song
   end
 
   def save
-    @@all << self
+    self.class.all << self unless self.class.all.include?(self)
   end
 
   def self.all
     @@all
   end
 
-  def songs
-    @songs
+  def self.find_or_create_by_name(name)
+    self.all.detect{|artist| artist.name == name} || Artist.new(name)
   end
 
-  def self.find_or_create_by_name(artist)
-   if @@all.include?(artist) == true
-     artist
-   else
-     artist = Artist.new(artist)
-     
-   end
-end
-#<Artist:70118655874120> => #<Artist:0x007f8b8b26a890 @name="Michael Jackson", @songs=[]>
 
-  def print_songs
-  end
+def print_songs
+  @songs.each { |print| puts "#{print.name}" }
+ end
 end
