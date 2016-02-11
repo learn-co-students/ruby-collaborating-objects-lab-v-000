@@ -1,15 +1,22 @@
 class MP3Importer
-  attr_accessor :path
+  attr_accessor :path, :files
 
   def initialize(path)
     @path = path
+    @files = []
   end
 
-  def files
-    @files = []
-    Dir.foreach(path) {|f| @files << f}
-    @files = @files[2..-1]
-    @files
+  #def files
+   # @files = []
+    #Dir.foreach(path) {|f| @files << f}
+    #@files = @files[2..-1]
+    #@files
+  #end
+
+  def files 
+    Dir.chdir(path) do
+    @files=Dir.glob('*.mp3')
+    end
   end
 
 
