@@ -1,0 +1,24 @@
+require 'pry'
+class Song
+
+  attr_accessor :name, :artist
+
+  def initialize(name)
+    @name = name
+  end
+
+  def artist_name=(name)
+    @artist = Artist.find_or_create_by_name(name)
+  end
+
+  def self.new_by_filename(file_name)
+    file_strings = file_name.split(" - ")
+    puts "Putting file_strings: #{file_strings}"
+    song = self.new(file_strings[1])
+    song.artist_name = file_strings[0]
+    puts "Putting song artist: #{song.artist}"
+    song.artist.add_song(song)
+    song
+  end
+
+end
