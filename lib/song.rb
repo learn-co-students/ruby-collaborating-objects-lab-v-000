@@ -13,9 +13,9 @@ class Song
 		song_artist = rename[0]
 		song_name = rename[1]
 		
-		
 		new_song = self.new(song_name)
-		new_song.artist_name=(song_artist)	
+		new_song.artist_name=(song_artist)
+		new_song
 	end
 
 	def artist_name=(name)
