@@ -1,6 +1,6 @@
 describe 'Artist' do 
   let(:artist) {Artist.new('Michael Jackson')}
-  
+
   describe '#initialize with #name' do
     it 'accepts a name for the song' do
       expect(artist.name).to eq('Michael Jackson')
