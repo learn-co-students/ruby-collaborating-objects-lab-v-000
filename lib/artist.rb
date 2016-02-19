@@ -9,8 +9,6 @@ class Artist
     @@all << self
   end
 
-
-
   def initialize(name)
     @name = name
     @songs = []
@@ -21,15 +19,8 @@ class Artist
     song.artist = self
   end
 
-
-
-  def print_songs
-    @songs.each {|song| print "#{song.name}\n"}
-  end
-
-
   def self.find_or_create_by_name(name)
-    n = self.all.each { |i| return i.name if i.name == name }
+    n = self.all.each { |i| return i if i.name == name }
     if n == name
       n
     else
@@ -37,5 +28,9 @@ class Artist
       @@all << artist
       artist
     end
+  end
+
+  def print_songs
+    @songs.each {|song| print "#{song.name}\n"}
   end
 end
