@@ -20,7 +20,15 @@ class Artist
   end
 
   def self.find_or_create_by_name(name)
-
+    is_true = @@all.any?{|i| i.name = name}
+    if is_true == true
+       return @@all.find{|i| i.name = name}
+    else
+      artist = Artist.new(name)
+      artist.save
+      return artist
+      binding.pry
+    end
   end
 
   def print_songs
