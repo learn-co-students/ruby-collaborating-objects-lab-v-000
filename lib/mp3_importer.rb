@@ -24,9 +24,7 @@ class MP3Importer
 end
 
 
-
-
-#------------(what I had before help returned and array of *)
+#------------(what I had before help returned an array of *)
   # def files
     # file_names = []
     # files = Dir["#{self.path}/**/*.mp3"]
