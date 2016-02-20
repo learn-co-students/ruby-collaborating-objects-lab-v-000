@@ -19,7 +19,6 @@ def self.new_by_filename(filename)
   test=File.basename(filename,".mp3")
  filename_holder= test.split(" - ")
  song = Song.new(filename_holder[0])
- #song.name=(filename_holder[1])
  song.artist_name(filename_holder[0])
  Song.new(filename_holder[1],song.artist_name(filename_holder[0]))
 
