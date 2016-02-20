@@ -1,5 +1,5 @@
-require 'pry'
 class Artist
+  
   @@all = []
   
   attr_accessor :name, :songs
@@ -15,10 +15,8 @@ class Artist
     artist_detector = @@all.find{|a| a.name == artist_name}
       if artist_detector == nil
         artist = Artist.new(artist_name)
-        
       else
         artist_detector
-
       end
   end
 
