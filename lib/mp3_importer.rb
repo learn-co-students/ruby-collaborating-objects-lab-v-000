@@ -1,24 +1,25 @@
+
+
 class MP3Importer
+
   attr_accessor :path, :files
 
   def initialize(path)
     @path = path
-    @files = []
+    files
   end
 
   def files
-    Dir.foreach(@path) do |file|
-      @files.push(file) if file.split("")[-1] == "3" #<-- checking for mp3 hacky, i know.  eyes hurt from docs
-    end
-    @files
+    @files = Dir.entries(@path).delete_if { |i| i.end_with?("mp3") == false }
   end
-
-
 
   def import
-    @files.each do |f|
-      Song.new_by_filename(f)
-    end
+    self.files
+    @files.each  { |f|
+      data = f.split(" - ")
+      artist = Artist.find_or_create_by_name(data[0])
+      song = Song.new(data[1])
+      artist.add_song(song)
+    }
   end
-
 end

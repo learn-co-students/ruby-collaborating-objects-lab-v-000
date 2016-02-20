@@ -1,6 +1,10 @@
+
+
+
 class Artist
   attr_accessor :name, :songs
   @@all = [] #array of all artist instances
+
   def self.all
     @@all
   end
@@ -15,23 +19,23 @@ class Artist
   end
 
   def add_song(song)
-    @songs << song
     song.artist = self
+    @songs << song
   end
 
-  def self.find_or_create_by_name(name)
-    is_true = @@all.any?{|i| i.name = name}
-    if is_true == true
-       return @@all.find{|i| i.name = name}
-    else
-      artist = Artist.new(name)
-      artist.save
-      return artist
-      binding.pry
-    end
+
+def self.find_or_create_by_name(name)
+  val = @@all.find {|artist| artist.name == name}
+  if val == nil
+    artist = Artist.new(name)
+    artist.save
+    artist
+  else
+    val
   end
+end
 
   def print_songs
-    @songs.each {|song| print "#{song.name}\n"}
+    @songs.each {|song| puts song.name}
   end
 end
