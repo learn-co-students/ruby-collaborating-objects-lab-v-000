@@ -1,3 +1,4 @@
+
 class Artist
   attr_accessor :name
   @@all = []
@@ -5,6 +6,7 @@ class Artist
   def initialize(name)
     @name = name
     @songs = []
+    self.save
   end
 
   def songs
@@ -20,7 +22,7 @@ class Artist
   end
 
   def self.find_or_create_by_name(name)
-    @@all.detect {|element| element.name == name ? name : self.new(name)}
+    @@all.find {|artist| artist.name == name ? artist : self.new(name)}
   end
 
   def add_song(song)
