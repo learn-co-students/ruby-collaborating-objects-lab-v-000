@@ -1,5 +1,5 @@
 class Artist
-  attr_accessor :name#, :songs
+  attr_accessor :name
   @@all = []
 
   def initialize(name)
@@ -21,8 +21,8 @@ class Artist
   end
 
   def self.find_or_create_by_name(name)
-    self.all.find {|artist| artist.name == name ? artist : self.new(name)}
-    #binding.pry
+   value = self.all.find {|artist| artist.name == name}
+    value != nil ? value : self.new(name)
   end
 
   def add_song(song)
