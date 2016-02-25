@@ -20,7 +20,8 @@ class MP3Importer
     i = 0
     while i < @@files.length do
       @@files[i] = Song.new_by_filename(@@files[i])
-      i = i + 1
+
+      
     end
   end  
 end

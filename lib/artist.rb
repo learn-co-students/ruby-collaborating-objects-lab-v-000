@@ -25,24 +25,23 @@ class Artist
   def save
     @@all << self
   end
-#################################################
-  # def self.create_by_name(name)
-  #   name = Artist.new(name)
-  # end  
-    
-  # def self.find_name(name)
-  #   @@all.detect { |n| n.name == name}
-  #   return name
-  # end
-
-  def self.find_or_create_by_name(name)
-    @@all.each do |artist| 
-      if artist == name;
-        binding.pry
-      end
+  
+  def self.find_name(name)
+    if @@all.include?(name)
+      return name
+      else
     end
   end
-#################################################
+
+  def self.create_by_name(name)
+    name = Artist.new(name)
+    name
+  end  
+
+  def self.find_or_create_by_name(name)
+      self.find_name(name) || create_by_name(name)
+  end
+
   def print_songs
     @songs.each do |song| 
     puts song.name

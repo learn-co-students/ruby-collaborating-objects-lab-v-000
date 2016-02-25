@@ -1,7 +1,7 @@
 require 'pry'
 
 class Song
-  attr_accessor :name, :artist
+  attr_accessor :name, :artist, :song, :artist_name
 
   def initialize(name)
     @name = name
@@ -14,13 +14,13 @@ class Song
   def name
     @name
   end
-
-  def artist_name=(asdf)
-    @artist_name = asdf
-  end
    
-  def self.artist_name(name)
-      Artist.find_or_create_by_name(name)
+  def self.artist_name=(name)
+      if Artist.all.include?(name)
+        name
+      else
+      name = Artist.new(name)
+    end
   end
 # in your Song class you need to create a method 
 # artist_name=() that is able to check if your 
@@ -28,12 +28,11 @@ class Song
 # otherwise create a new artist
 
   def Song.new_by_filename(file_name)
-    song_name = ""
-    song_name = file_name.split(" - ")[0]
-    artist_n = ""
-    artist_n = file_name.split(" - ")[1]
-    song_name = Song.new(song_name)
-    artist_name(artist_n)
+    song = file_name.split(" - ")[0]
+    artist = ""
+    artist = file_name.split(" - ")[1]
+    song = Song.new(song)
+    song.artist = artist_name(artist)
 end
 # the problem in your Song #new_by_filename 
 # is that you're trying to assign the song's 
