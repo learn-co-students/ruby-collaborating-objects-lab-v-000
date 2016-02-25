@@ -1,3 +1,4 @@
+
 require 'pry'
 
 class Artist
@@ -7,7 +8,10 @@ class Artist
   def initialize(name)
     @name = name
     @songs = []
-    @@all = []
+  end
+
+  def self.all
+    @@all
   end
 
   def add_song(name)
@@ -19,24 +23,30 @@ class Artist
   end
 
   def save
-    @@all << self.name
+    @@all << self
   end
+#################################################
+  # def self.create_by_name(name)
+  #   name = Artist.new(name)
+  # end  
+    
+  # def self.find_name(name)
+  #   @@all.detect { |n| n.name == name}
+  #   return name
+  # end
 
-  def self.find_or_create_by_name(artist)
-    song = Song.new(name)
-    song.artist = self.name
-    @songs << song
+  def self.find_or_create_by_name(name)
+    @@all.each do |artist| 
+      if artist == name;
+        binding.pry
+      end
+    end
   end
-
-# Failure/Error: artist_1 = Artist.find_or_create_by_name("Michael Jackson")
-#      ArgumentError:
-#        wrong number of arguments (1 for 0)
-
-
-
-
+#################################################
   def print_songs
-    artist.songs
+    @songs.each do |song| 
+    puts song.name
+    end
   end
 
 end
