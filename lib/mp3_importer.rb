@@ -8,8 +8,10 @@ class MP3Importer
     @path = path
     @files = []
 
-    Dir.entries(@path).each do |file| 
-      @files << file unless (file == "." || file == "..")  
+    Dir.entries(@path).each do |file|
+      if file.include?("mp3")
+        @files << file
+      end
     end
   end
 
