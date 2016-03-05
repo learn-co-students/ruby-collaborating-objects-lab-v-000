@@ -12,17 +12,10 @@ class MP3Importer
     end
     @@files
   end
-
-  
   def import
     files.each do |file|
       Song.new_by_filename(file)
     end
-
   end
-
-      
-    # Dir.foreach(path) {|file|  if file != "." || ".." new_array << file}
-
 end
 
