@@ -6,7 +6,7 @@ class MP3Importer
   end
   def files
     Dir.foreach(@path) do |file|
-      if file != "." && file !=".."
+      if file != "." || file !=".."
         @@files << file
       end
     end
