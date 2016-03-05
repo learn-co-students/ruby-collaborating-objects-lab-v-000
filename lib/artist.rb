@@ -1,5 +1,5 @@
 class Artist
-  attr_accessor :name, :title, :artist
+  attr_accessor :name, :title, :artist, :songs
 
   @@all = []
 
@@ -26,9 +26,16 @@ class Artist
     @@all
   end
   def self.find_or_create_by_name(name)
-    
+    if !self.all.find {|artist| artist.name == name}
+      artist = Artist.new(name)
+      @@all << artist
+      artist
+    end
   end
   def print_songs
+    @songs.each do |x|
+    puts x.name
+  end
   end
 
 end
