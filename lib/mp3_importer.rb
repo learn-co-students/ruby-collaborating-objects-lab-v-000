@@ -9,7 +9,8 @@ class MP3Importer
  end
 
   def files #class method
-    self.files = Dir["#{self.path}/*mp3"].collect{|x| x[0] = x.sub("#{self.path}/", "")}
+    #self.files = Dir["#{self.path}/*mp3"].collect{|x| x[0] = x.sub("#{self.path}/", "")}
+    self.files = Dir.entries(path).find_all{|files| files =~ /mp3$/}
   end
  
   def import #class method
