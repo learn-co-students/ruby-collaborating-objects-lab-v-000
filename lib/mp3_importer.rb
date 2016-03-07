@@ -8,23 +8,29 @@ class MP3Importer
 		@files = []
 	end
 
-	def files
-		path << "/*.mp3"
-		unformatted_files = Dir.glob(path)
+	# def files
+	# 	path << "/*.mp3"
+	# 	unformatted_files = Dir.glob(path)
 
-		file_split = []
-		new_file = []
-		unformatted_files.each do |file|
-			file_split = file.split(/-|\//) 
-			file_split.slice!(0..3)
-			new_file = file_split.join("-")
-			@files << new_file
-		end
-		@files
+	# 	file_split = []
+	# 	new_file = []
+	# 	unformatted_files.each do |file|
+	# 		file_split = file.split(/-|\//) 
+	# 		file_split.slice!(0..3)
+	# 		new_file = file_split.join("-")
+	# 		@files << new_file
+	# 	end
+	# 	@files
+	# end
+
+	def files
+		Dir.entries(@path).select{ |file| file.end_with?(".mp3")  }
 	end
 
 	def import
 		files.each do |file|
+		binding.pry
+			
 			Song.new_by_filename(file)
 		end
 	end
