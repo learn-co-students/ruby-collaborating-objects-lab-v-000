@@ -1,0 +1,15 @@
+
+[1mFrom:[0m /home/nitrous/code/labs/ruby-collaborating-objects-lab-v-000/lib/song.rb @ line 21 Song.new_by_filename:
+
+    [1;34m13[0m: [32mdef[0m [1;36mself[0m.[1;34mnew_by_filename[0m(files)
+    [1;34m14[0m:     file_split = []
+    [1;34m15[0m:     file_split << files.split([31m[1;31m"[0m[31m - [1;31m"[0m[31m[0m).collect [32mdo[0m |artist, song, genre|
+    [1;34m16[0m: 
+    [1;34m17[0m:        [1;34m#binding.pry[0m
+    [1;34m18[0m:        artist = file_split[[1;34m0[0m]
+    [1;34m19[0m:        song = file_split[[1;34m1[0m]
+    [1;34m20[0m:     [1;34m#   genre = files[2].split(".") {[}[0m
+ => [1;34m21[0m:        binding.pry
+    [1;34m22[0m:     [32mend[0m
+    [1;34m23[0m: [32mend[0m
+
