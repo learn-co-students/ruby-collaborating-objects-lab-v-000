@@ -18,7 +18,6 @@ class Artist
 
   def add_song(song)
     @songs << song
-    song.artist = self
     @@song_count += 1
   end
 
@@ -44,6 +43,7 @@ class Artist
     artist.name = name
     self.all << artist
     artist
+    #binding.pry
   end
 
   def self.create_by_name(name)
@@ -51,11 +51,14 @@ class Artist
   end
 
   def self.find_by_name(name)
-    @@all.detect{|song| song.name == name}
+    @@all.detect{|artist| artist.name == name}
+    #binding.pry
   end
 
   def self.find_or_create_by_name(name)
+    #binding.pry
     if self.find_by_name(name).nil?
+      #binding.pry
       self.create_by_name(name)
     else
       self.find_by_name(name)

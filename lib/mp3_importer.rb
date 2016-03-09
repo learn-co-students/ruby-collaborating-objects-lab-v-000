@@ -1,4 +1,4 @@
-require 'pry'
+#require 'pry'
 
 class MP3Importer
   attr_accessor :path
@@ -9,13 +9,18 @@ class MP3Importer
 
 
   def files
-
+    list = Dir["#{@path}/**/*.mp3"]
+    a = []
+    list.each do |song|
+      song_mod = song.split("/")
+      a << song_mod.last
+    end
+    a
   end
 
   def import
-    list = Dir["#{@path}/**/*.mp3"]
-    binding.pry
+    list = files
+    #binding.pry
+    Song.new_by_filename(list)
   end
 end
-
-new_list = MP3Importer.new('./db/mp3s').import
