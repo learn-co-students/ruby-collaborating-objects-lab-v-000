@@ -11,16 +11,17 @@ class Song
     #binding.pry
     song = Song.new(name)
     song.name = (data[1])
+    #song.artist = (data[0])
     song.artist = data[0]
+      binding.pry
    # artist = song.artist(data[0])
-    song
-
-    binding.pry
+    #song
+    #artist
 
   end
 
-  def artist(name)
-    self.artist = Artist.find_or_create_by_name(name)
+  def artist
+    @artist
   end
 
 end

@@ -14,7 +14,7 @@ class MP3Importer
  #You should write code that responds to MP3Importer.new('./db/mp3s').import.
 
   def files
-    filename = Dir.entries(@path).find_all {|file| file.include?(".mp3")}
+    Dir.entries(@path).find_all {|file| file.include?(".mp3")}
    # binding.pry
     #  [["Thundercat - For Love I Come - dance.mp3",
     #   "Real Estate - It's Real - hip-hop.mp3",

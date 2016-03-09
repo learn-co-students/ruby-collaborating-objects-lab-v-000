@@ -7,11 +7,15 @@ class Artist
      @songs = []
   end
 
+  def songs
+     @songs
+  end
+
   def add_song(song)
     song.artist = self
     #song = Song.new(song)
     @songs << song
-   # @@all << artist
+    @@all << artist
   end
 # self.all.detect {|artist| artist.name == name} or self.new_artist(name)
 
@@ -21,24 +25,30 @@ class Artist
      else
         self.create(name)
      end
+
   end
 
 def self.find(name)
-    self.all.find do |artist|
-        artist.name == name
+    @@all.find do |artist|
+      #binding.pry
+        artist == name
     end
 end
 
 def self.create(name)
-    name = self.new
+    artist = Artist.new(name)
+    #@@all << name
+    artist.save
+    #artist
+
 end
 
   def self.all
     @@all
   end
 
-  def self.save
-      @@all << self
+  def save
+   @@all << self
   end
 
   def print_songs
