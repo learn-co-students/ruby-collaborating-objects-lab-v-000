@@ -5,18 +5,22 @@ class Song
 
   def initialize(name)
     @name = name
-    @artist = artist
   end
 
-  def artist=(string)
-    obj = Artist.find_or_create_by_name(string)
-    obj.add_song(self)
-    binding.pry
+  def artist_name(artist)
+    if artist.class == Artist
+      artist.add_song(self)
+      self.artist = artist
+    else
+      artist_object = Artist.find_or_create_by_name(artist)
+      artist_object.add_song(self)
+      self.artist = artist_object
+    end
   end
 
   def self.new_by_filename(file_name)
     info = file_name.split(" - ")
-    song = Song.new(info[1])
-    song.artist = info[0]
+    new_song = Song.new(info[1])
+    binding.pry
   end
 end

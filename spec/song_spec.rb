@@ -15,7 +15,15 @@ describe 'Song' do
     end
   end
 
-  describe '#artist=' do
+  # describe '#artist=' do
+  #   it 'sets the artist object to belong to the song' do
+  #     new_artist_object = Artist.new('King of Pop')
+  #     song.artist = new_artist_object
+  #     expect(song.artist).to eq(new_artist_object)
+  #   end
+  # end
+
+  describe '#artist_name=' do
     it 'sets the artist object to belong to the song' do
       new_artist_object = Artist.new('King of Pop')
       song.artist = new_artist_object
