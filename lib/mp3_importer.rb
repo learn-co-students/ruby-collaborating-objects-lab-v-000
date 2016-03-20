@@ -1,4 +1,4 @@
-
+require 'pry'
 class MP3Importer
   attr_accessor :path
   
@@ -9,12 +9,15 @@ class MP3Importer
   def files
     Dir.entries(path).select do |file|
        file.end_with?(".mp3")
+       
         end
   end
   
    
    def import
+    
     files.each{ |file|  Song.new_by_filename(file)}
     
    end
 end
+  
