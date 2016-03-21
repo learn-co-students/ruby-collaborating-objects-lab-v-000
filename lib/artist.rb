@@ -30,8 +30,7 @@ def self.find_or_create_by_name(artists_name_here)
   def print_songs
 
    songs.each do |songs|
-     print name=" "
-
+    
 
     
 
