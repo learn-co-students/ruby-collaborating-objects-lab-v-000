@@ -4,24 +4,39 @@ attr_accessor :name, :songs, :artist
 
 def initialize(name)
   @name=name
-  @artist=artist
   @songs=[]
+  @artist=artist
 
 end
+   def self.all
+    @@all 
+  end
+   def save
+    @@all << self
+  end
+
 
 def add_song(song)
   @songs << song
 end
-def save
-@@all << artist
 
-end
  
 def self.find_or_create_by_name(artists_name_here)
 
   artist=Artist.new(" ")
   
-      
+      end
+
+  def print_songs
+
+   songs.each do |songs|
+     print name=" "
+
+
+    
+
+   end
+
   
 
       
