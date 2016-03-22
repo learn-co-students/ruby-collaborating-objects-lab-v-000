@@ -2,12 +2,12 @@ class MP3Importer
   attr_accessor :path
   def initialize(path)
     @path = path
-    @filenames =[]
   end
   def files
-    Dir.entries(@path).select {|f| f.include?(".mp3")}
+    @filenames = Dir.entries(@path).select {|f| f.include?(".mp3")}
   end
   def import
+    files
     @filenames.each do |file|
       song = Song.new
       song.name = file.split("-")[1]
