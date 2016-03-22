@@ -9,8 +9,6 @@ class Artist
 
   def add_song(song)
     @songs << song
-    song = Song.new(song)
-    song.artist = self
   end
 
   def songs
@@ -32,7 +30,7 @@ class Artist
   end
 
   def self.create(name)
-    self.new(name) do |artist|
+    self.new(name).tap do |artist|
       artist.save
     end
   end
