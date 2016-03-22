@@ -12,10 +12,14 @@ class Artist
     @songs << song
   end
   def save
-    @@all << self
+    if @@all.include?(self)
+      nil
+    else
+      @@all << self
+    end
   end
   def self.all
-    @@all
+    @@all.uniq
   end
   def self.find_by_name(name)
    self.all.detect{|person| person.name == name}
