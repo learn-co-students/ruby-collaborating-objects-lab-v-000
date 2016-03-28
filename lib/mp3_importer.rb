@@ -1,3 +1,5 @@
+require 'pry'
+
 class MP3Importer
 
 attr_accessor :path, :artist
@@ -13,10 +15,9 @@ attr_accessor :path, :artist
 		end
 	end
 
+	binding.pry
 	 def import
-	 	song = Song.new_by_filename
-	 	
-
-	 	Artist.songs << song
+	 	song = Song.new_by_filename(@path)
+	 	Artist.all << song.artist
 	 end
 end
