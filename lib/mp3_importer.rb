@@ -16,8 +16,10 @@ attr_accessor :path, :artist
 
 	
 	 def import
-	 	self.files.each do |song|
-	 		file = Song.new_by_filename(song)
+	 	self.files.each do |file|
+	 		song = Song.new_by_filename(file)
+			Artist.all << song.artist.name
+			Artist.all.uniq!
         end
     end
 end
