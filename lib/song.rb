@@ -9,8 +9,8 @@ class Song
 		data = filename.split(" - ").collect {|x| x.gsub(/.mp3/, '')}
 	  	song = self.new(data[1])
   		song.name = data[1]
-  		artist = Artist.new(data[0])
-  		song.artist = artist
+		artist = Artist.find_or_create_by_name(data[0])
+		song.artist = artist
   		artist.name = data[0]
   		song
 	end
