@@ -14,8 +14,9 @@ attr_accessor :path, :artist
 	end
 
 	 def import
-	 	mp3files = self.files.to_s
-	 	song = Song.new_by_filename(mp3files)
+	 	song = Song.new_by_filename
+	 	
+
 	 	Artist.songs << song
 	 end
 end
