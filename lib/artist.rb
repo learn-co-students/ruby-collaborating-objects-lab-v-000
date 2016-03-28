@@ -1,5 +1,5 @@
 class Artist
-	attr_accessor :name, :song, :artist, :songs
+	attr_accessor :name, :song, :artist
 
 	@@all = []
 
@@ -14,7 +14,6 @@ class Artist
 	def save
 		artist = self.new
 		@@all << artist
-		@@all
 	end
 
 	def self.find_or_create_by_name(name)
