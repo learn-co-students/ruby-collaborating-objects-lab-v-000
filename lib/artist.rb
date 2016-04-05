@@ -34,12 +34,12 @@ class Artist
 
 	def self.find_or_create_by_name(name)
 		a = @@all.detect {|i| i.name == name}
-		if a == nil
-			b = self.new(name)
-			b.save
-			return b
+		if a 
+			return a
 		else
-			return a 
+			a = self.new(name)
+			a.save
+			return a
 		end
 	end
 end
