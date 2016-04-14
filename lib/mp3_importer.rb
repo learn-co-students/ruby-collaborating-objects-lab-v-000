@@ -5,7 +5,7 @@ class MP3Importer
 
   def initialize(path)
     @path = path
-    #@file = []
+    #@file =
     self.files
   end
 
@@ -24,7 +24,7 @@ class MP3Importer
     list_of_file.each do |file_name|
       if file_name.include? '.mp3'
         new_a = file_name.split(/\s\-\s/)
-        Artist.all << new_a[0] unless Artist.all.include? new_a[0]
+        Artist.all << new_a[0] unless Artist.all.include? 
       #binding.pry
       end
     end
