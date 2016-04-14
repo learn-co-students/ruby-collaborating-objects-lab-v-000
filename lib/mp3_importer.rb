@@ -24,7 +24,7 @@ class MP3Importer
     list_of_file.each do |file_name|
       if file_name.include? '.mp3'
         new_a = file_name.split(/\s\-\s/)
-        Artist.all << new_a[0] unless Artist.all.include? 
+        Artist.all << new_a[0] unless Artist.all.include? new_a[0]
       #binding.pry
       end
     end
