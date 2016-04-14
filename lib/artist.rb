@@ -22,7 +22,7 @@ song.artist = self
 end
 
 def save
-  if @@all.each { |x| x.name == self.name} != true
+  if !@@all.detect { |x| x.name == self.name}
   @@all << self
 end
 end
@@ -52,7 +52,6 @@ end
 
 
 end
-
 
 
 
