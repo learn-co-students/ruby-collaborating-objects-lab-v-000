@@ -1,5 +1,5 @@
 class Artist
-  attr_accessor :name
+  attr_accessor :name, :songs
 
   @@all = []
 
@@ -28,9 +28,11 @@ class Artist
 
   ## Helper methods for the .find_or_create_by_name class method
   def self.create_by_name(name)
-    new_artist_instance = self.new(name)
-    self.all << new_artist_instance
-    new_artist_instance
+    # new_artist_instance = self.new(name)
+    # self.all << new_artist_instance
+    # new_artist_instance
+
+    self.new(name).tap {|artist| artist.save}
   end
 
   def self.find_by_name(name)
