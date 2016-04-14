@@ -5,7 +5,6 @@ attr_accessor :path
 
 def initialize(path)
 @path = path
-@@newsongs = []
 
 end
 
@@ -19,21 +18,30 @@ files_folder
 end
 
 def import
-artists = []
-files.each { |x| artists << x.split(" - ")[0]}
-songs = []
-files.each { |x| songs << x.split(" - ")[1]}
-
-songs.each { |x| @@newsongs << Song.new(x)
+files.each { |x| songs = x.split(" - ")
+songs.delete_at(2)
+artist = Artist.find_or_create_by_name(songs[0])
+song = Song.new(songs[1])
+song.artist = artist
+artist.save
 
 }
 
 end
 
+
 end
 
 
-#
+#new_songs = songs.join(",")
+#song_file = new_songs.split(" - ")
+
+#artist = Artist.find_or_create_by_name(artist_name)
+#song = Song.new(song_name)
+#song.artist = artist
+#artist.save 
+
+#a long each function. isolate the artist and the song. 
 
 #Notes - mp3 will parse and send to Song class. 
 #Song class will create songs given the filename and send the Artist class the artists name
