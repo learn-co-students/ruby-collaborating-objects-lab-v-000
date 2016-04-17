@@ -31,5 +31,4 @@ class Artist
       i += 1
     end
   end
-
 end

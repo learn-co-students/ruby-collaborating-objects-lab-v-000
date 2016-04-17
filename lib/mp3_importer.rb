@@ -1,5 +1,3 @@
-require 'pry'
-
 class MP3Importer
   attr_accessor :songs, :path
 
@@ -18,7 +16,4 @@ class MP3Importer
       i += 1
     end
   end
-
 end
-
-# binding.pry
