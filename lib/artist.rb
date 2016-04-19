@@ -1,7 +1,5 @@
-require 'pry'
-
 class Artist
-  attr_accessor :name
+  attr_accessor :name, :songs
 
   @@all = []
 
@@ -26,18 +24,20 @@ class Artist
     @@all << self
   end
 
+  def self.find(name)
+    self.all.detect do |artist|
+      artist.name == name
+    end
+  end
+
+  def self.create(name)
+    artist = self.new(name)
+    artist.save
+    artist
+  end
+
   def self.find_or_create_by_name(name) 
-    array = []
-    @@all.each do |artist|
-      if artist.name == name 
-        array << name
-      end  
-    end
-    if array.include?(name) == false
-      newartist = Artist.new(name)
-      newartist.save
-      newartist
-    end
+    self.find(name) ? self.find(name) : self.create(name)
   end
     
   def print_songs
@@ -45,5 +45,4 @@ class Artist
       puts song.name
     end
   end
-
 end
