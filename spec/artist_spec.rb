@@ -1,3 +1,5 @@
+
+
 describe 'Artist' do 
   let(:artist) {Artist.new('Michael Jackson')}
   
@@ -36,6 +38,7 @@ describe 'Artist' do
       artist_1 = Artist.find_or_create_by_name("Michael Jackson")
       artist_2 = Artist.find_or_create_by_name("Michael Jackson")
       expect(artist_1).to equal(artist_2)
+      
     end
 
     it 'Creates new instance of Artist if none exist' do
