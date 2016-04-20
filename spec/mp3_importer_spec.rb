@@ -28,6 +28,7 @@ describe "Mp3Importer" do
       expect(music_importer.files).to include("Real Estate - It's Real - hip-hop.mp3")
       expect(music_importer.files).to include("Thundercat - For Love I Come - dance.mp3")
     end
+    # binding.pry
   end
 
   describe '#import' do 
