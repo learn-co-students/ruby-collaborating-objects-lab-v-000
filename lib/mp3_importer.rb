@@ -1,11 +1,11 @@
 class MP3Importer
 
-  require 'pry'
+require 'pry'
 
-  attr_accessor :path
+attr_accessor :path
 
   def initialize(path)
-    @path = path
+    @path=path
   end
 
   def files
@@ -15,7 +15,5 @@ class MP3Importer
   def import
     files.each {|file_name| Song.new_by_filename(file_name)}
   end
-
-
 
 end
