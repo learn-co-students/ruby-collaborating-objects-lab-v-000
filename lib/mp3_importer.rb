@@ -7,12 +7,14 @@ class MP3Importer
 
   def files
     Dir["#{@path}/*.mp3"].collect do |x|
-      x.slice!(21, 100)
+      x.split("/").last
     end
   end
 
   def import
-    self.files.each{|x| Song.new_by_filename(x)}
+    self.files.each do
+      |x| Song.new_by_filename(x)
+    end
   end
 
 end

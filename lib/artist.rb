@@ -22,15 +22,13 @@ class Artist
   end
 
   def self.find_or_create_by_name(name)
-    if self.all.include?(name)
-      puts "#{name} is an artist"
-    else
-      new_artist = Artist.new(name)
-    end
+     self.all.detect {|artist| artist.name == name} || artist = self.new(name)
   end
 
   def print_songs
-    puts self.songs
+    self.songs.each do |x|
+      puts x.name
+    end
   end
 
 end
