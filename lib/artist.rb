@@ -8,6 +8,7 @@ class Artist
   def initialize(name)
     @name = name
     @songs = []
+    self.save
   end
 
   def save
@@ -23,34 +24,21 @@ class Artist
     song.artist = self
   end
 
+  def self.find_by_name(name)
+    @@all.detect { |artist| artist.name == name }
+  end
+
+  def self.create_by_name(name)
+    artist = Artist.new(name)
+  end
+
   def self.find_or_create_by_name(name)
-    index_of_name = @@all.each {|x| x.name = name}
-    index_of_name == nil ?
-    artist = Artist.new(name) : @@all[index_of_name]
+    self.find_by_name(name) || self.create_by_name(name)
+  end
+
+
+  def print_songs
+    self.songs.each {|x| puts x.name}
   end
 
 end
-
-# attr_accessor :name
-#   @@song_count = 0
-#
-#   def initialize(name)
-#     @name = name
-#     @songs = []
-#   end
-#
-
-#
-#   def add_song_by_name(name)
-#      new_song = Song.new(name)
-#      @songs << new_song
-#      new_song.artist = self
-#      @@song_count += 1
-#    end
-#
-#    def self.song_count
-#      @@song_count
-#    end
-#
-# end
-#
