@@ -4,10 +4,11 @@ class Artist
 
   attr_accessor :name, :artist, :songs, :all
 
+    @@all = []
+
   def initialize(name)
     @name = name
     @songs = []
-    @@all = []
   end
 
   def self.find(name)
