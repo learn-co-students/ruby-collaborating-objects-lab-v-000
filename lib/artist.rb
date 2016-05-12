@@ -6,8 +6,9 @@
 # create a song linked to the artist >> this will in relationship with the Song class
 # keeps track of all song from the same artist
 
-#require_relative './song.rb'
-#require 'pry'
+# require_relative './song.rb'
+# require_relative './mp3_importer.rb'
+# require 'pry'
 
 class Artist
 
@@ -43,7 +44,14 @@ class Artist
         artist_found = artist
       end
     end
-    artist_found ? artist_found : artist = self.new(artist_name)
+    if artist_found
+      artist_found
+    else
+      artist = self.new(artist_name)
+      artist.save
+      artist
+    end
+    # binding.pry
   end
 
   def print_songs
@@ -52,14 +60,9 @@ class Artist
     end
   end
 
-  #def add_song(name)
-  #  song = Song.new(name) #this is related to the Song class
-  #  @songs << song
-  #  song.artist = self #the song.artist is the instance of artist calling the #add_song method
-  #end
-  #binding.pry
-
 end
 
-#jack = Artist.new("Jack")
-#jack.add_song("liberty")
+# jack = Artist.new("Jack")
+# jack.add_song("liberty")
+# jack.save
+# Artist.find_or_create_by_name("John")

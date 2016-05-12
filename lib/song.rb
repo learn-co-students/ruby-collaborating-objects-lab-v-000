@@ -8,7 +8,7 @@
 # create a song
 # add artist to a song
 
- require 'pry'
+ # require 'pry'
 
 
 class Song
@@ -20,18 +20,15 @@ class Song
   end
 
   def self.new_by_filename(file_name)
-    file_name_array = file_name.split(" - ")
-    artist_name = file_name_array[0]
-    song_name = file_name_array[1]
-    song = self.new(song_name)
-    song.artist_name = artist_name
+    array = file_name.split(" - ")
+    song = self.new(array[1])
+    song.artist = Artist.find_or_create_by_name(array[0])
+    # binding.pry
+    song #need to return a song element for the spec to be valid
   end
 
-  def artist_name=(name)
-    artist = Artist.find_or_create_by_name(name)
-    artist.add_song(self)
-  end
-end
-#new_instance = Song.new_by_filename("Michael Jackson - Black or White - pop.mp3")
+end #Closing of the Song class
+
+# new_instance = Song.new_by_filename("Michael Jackson - Black or White - pop.mp3")
 # new_instance.name
 # new_instance.artist.name

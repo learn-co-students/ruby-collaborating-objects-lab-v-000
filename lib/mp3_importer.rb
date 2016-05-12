@@ -10,10 +10,11 @@
 
 # require 'pry'
 # require_relative './song.rb'
+# require_relative './artist.rb'
+
 class MP3Importer
 
   attr_accessor :path
-
 
   def initialize(path)
     @path = path
@@ -34,10 +35,7 @@ class MP3Importer
   #end
 
   def import
-    self.files.each do |file_name|
-      Song.new_by_filename(file_name)
-    end
-    #binding.pry
+    self.files.each {|file_name| Song.new_by_filename(file_name)}
   end
 
 end
