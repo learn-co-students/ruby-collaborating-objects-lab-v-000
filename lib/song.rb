@@ -21,10 +21,14 @@ class Song
 
   def self.new_by_filename(file_name)
     array = file_name.split(" - ")
-    song = self.new(array[1])
-    song.artist = Artist.find_or_create_by_name(array[0])
-    # binding.pry
-    song #need to return a song element for the spec to be valid
+    new_song = self.new(array[1])
+    new_song.artist_name = array[0]
+    new_song #need to return a song element for the spec to be valid
+  end
+
+  def artist_name=(name)
+    self.artist = Artist.find_or_create_by_name(name)
+    artist.add_song(self)
   end
 
 end #Closing of the Song class
