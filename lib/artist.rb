@@ -8,34 +8,41 @@ class Artist
     @songs = []
   end
 
-  def add_song(name)
-    @songs << name
-    name.artist = self
-  end
-
-  def songs
-    @songs
-  end
-
-  def save
-    @@all << self
-  end
-
   def self.all
     @@all
   end
 
+  def add_song(name)
+    @songs << name
+  end
+
+=begin
+####!!!!! this could be the issue
   def self.find_or_create_by_name(name)
-    answer = nil
-    @@all.each do |x|
+    self.all.each do |x|
       if x.name == name
-        answer = x
       else
-        @@all << Artist.new(name)
-        answer = @@all[-1]
+        Artist.new(name).save
       end
     end
-    answer
+    @@all[-1]
+  end
+=end
+
+  def self.find_by_name(name)
+    self.all.find {|art| art.name == name}
+  end
+
+  def self.create_by_name(name)
+    self.new(name).tap {|artist| artist.save}
+  end
+
+  def self.find_or_create_by_name(name)
+    self.find_by_name(name) ? self.find_by_name(name) : self.create_by_name(name)
+  end
+
+  def save
+    @@all << self
   end
 
   def print_songs
@@ -45,3 +52,4 @@ class Artist
   end
 
 end
+

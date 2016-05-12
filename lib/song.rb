@@ -5,6 +5,11 @@ class Song
     @name = name
   end
 
+  def artist_name=(name)
+    self.artist = Artist.find_or_create_by_name(name)
+    artist.add_song(self)
+  end
+
   def self.new_by_filename(name)
     #input = "Michael Jackson - Black or White - pop.mp3"
     #need to change bottom line to pass instance not string
@@ -16,11 +21,6 @@ class Song
     new_song = self.new(array[1]) #see above
     new_song.artist_name = array[0]
     new_song
-  end
-
-  def artist_name=(name)
-    self.artist = Artist.find_or_create_by_name(name)
-
   end
 
 end
