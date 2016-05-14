@@ -4,7 +4,7 @@ class MP3Importer
 
 @norm = []
 
-  attr_accessor :path, :songs
+  attr_accessor :path, :songs, :name
 
   def initialize(path)
     @path = path
