@@ -30,7 +30,7 @@ class Artist
 def Artist.find_or_create_by_name(name)
   artist_instance = ""
 
- artist_instance = @@all.detect(artist_instance = Artist.new(name).save){ |artist| artist.name == name}
+ artist_instance = @@all.detect(Artist.new(name).save){ |artist| artist.name == name}
 
 end
 
