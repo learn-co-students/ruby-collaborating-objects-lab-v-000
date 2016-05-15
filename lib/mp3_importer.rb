@@ -19,15 +19,10 @@ class MP3Importer
   end
 
   def import
-  files
-    @norm.each do |filename|
+    files.each do |filename|
       Song.all << Song.new_by_filename(filename)
     end
-    puts Artist.all
-    return Artist.all
   end
 
 end
 
-
-#/Users/jasonkwong/developer/ruby-collaborating-objects-lab-v-000/spec/fixtures/mp3s/

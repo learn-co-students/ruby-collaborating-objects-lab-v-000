@@ -26,7 +26,7 @@ class Song
 
 
   def Song.new_by_filename(filename)
-    file_array = []<< filename[0].split(" - ")
+    file_array = filename.split(" - ")
     song = Song.new(file_array[1])
     song.artist_name=(file_array[0])
     song
