@@ -23,6 +23,8 @@ class MP3Importer
     @norm.each do |filename|
       Song.all << Song.new_by_filename(filename)
     end
+    puts Artist.all
+    return Artist.all
   end
 
 end
