@@ -1,3 +1,4 @@
+require 'pry'
 describe 'Artist' do 
   let(:artist) {Artist.new('Michael Jackson')}
   
@@ -38,8 +39,10 @@ describe 'Artist' do
       expect(artist_1).to equal(artist_2)
     end
 
+   
     it 'Creates new instance of Artist if none exist' do
       artist_1 = Artist.find_or_create_by_name("Drake")
+ #binding.pry
       expect(artist_1.class).to eq(Artist)
     end
   end

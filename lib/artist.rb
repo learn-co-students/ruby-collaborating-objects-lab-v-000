@@ -6,12 +6,12 @@ class Artist
 
 #----------Artist methods-----------------
   @@all = []
-  
+
   def self.all
     @@all
   end
 
-  def save
+  def self.save
     @@all << self
   end
   
@@ -21,12 +21,12 @@ class Artist
   end
 
   def self.create_by_name (name)
-    @name = self.new(name)
+    artist = self.new(name)
     self.save
   end
 
   def self.find_by_name(name)
-    self.all.each do |artist|
+    Artist.all.each do |artist|
       if artist.name == name 
           #binding.pry
           return artist
@@ -35,8 +35,14 @@ class Artist
   end
 
   def self.find_or_create_by_name(name)
-    self.find_by_name(name) == [] ? self.create_by_name(name) : self.find_by_name(name)
-    #binding.pry
+     if self.find_by_name(name)
+        self.find_by_name(name)
+
+      else
+        self.create_by_name(name)
+
+      end
+
   end
 #----------------------------------------
 
@@ -49,21 +55,21 @@ class Artist
     @@song_count += 1
   end
 
-  def songs
-    @songs
-  end
+  # def songs
+  #   @songs
+  # end
 
-  def add_song_by_name(title)
-    song = Song.new(title)
-    song.artist = self
-    @songs << song
-    @@song_count += 1
-    #binding.pry
-  end
+  # def add_song_by_name(title)
+  #   song = Song.new(title)
+  #   song.artist = self
+  #   @songs << song
+  #   @@song_count += 1
+  #   #binding.pry
+  # end
 
-  def self.song_count
-    @@song_count
-  end
+  # def self.song_count
+  #   @@song_count
+  # end
 #----------------------------------
   
 end #of Artist class
