@@ -10,11 +10,12 @@ class MP3Importer
   end
 
   def files
-    Dir.entries(@path).select {|file| file.size >= 5}
+    @files = Dir.entries(@path).select {|file| file.size >= 5}
+  #binding.pry
   end
 
   def import
-    @files.each{|file_name| Artist.all << Song.new_by_filename(file_name)}
+    @files.each{|filename| Artist.all << Song.new_by_filename(filename)}
   end
 
 
