@@ -12,6 +12,7 @@ class Song
     @artist = Artist.find_or_create_by_name(artist)
     new_song = Song.new(name)
     new_song.artist = @artist
+    new_song
   end
 
 
