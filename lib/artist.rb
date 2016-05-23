@@ -11,7 +11,7 @@ class Artist
     @@all
   end
 
-  def self.save
+  def save
     @@all << self
   end
   
@@ -21,28 +21,33 @@ class Artist
   end
 
   def self.create_by_name (name)
-    artist = self.new(name)
-    self.save
+    artist = Artist.new(name)
+    artist.save
+    return artist
   end
 
   def self.find_by_name(name)
     Artist.all.each do |artist|
       if artist.name == name 
-          #binding.pry
           return artist
         end
     end
+    return false
   end
 
   def self.find_or_create_by_name(name)
      if self.find_by_name(name)
         self.find_by_name(name)
-
       else
         self.create_by_name(name)
-
       end
+  end
 
+  def print_songs
+    songs.each do |song|
+      puts "#{song.title}"
+    end
+    
   end
 #----------------------------------------
 

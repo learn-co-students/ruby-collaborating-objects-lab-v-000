@@ -1,13 +1,16 @@
 require 'pry'
 
+
 class MP3Importer
-  attr_accessor :songs 
+  attr_accessor :songs, :artist, :path 
   
-  
 
 
-  pn = Pathname.new('/db/mp3s')
+  def initialize (file_path)
+    self.path = file_path
 
+    
+  end
 
 
   def files
