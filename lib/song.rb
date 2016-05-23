@@ -1,11 +1,11 @@
 require 'pry'
 
 class Song
-  attr_accessor :title, :artist
-  attr_reader 
+  attr_accessor :artist, :name
+  
 
-  def initialize(title)
-    @title = title
+  def initialize(name)
+    @name = name
     @artist = artist
   end
 
@@ -13,10 +13,11 @@ class Song
     self.artist == nil ? nil : self.artist.name
   end
 
-  def self.new_by_filename(filename)
-    song = self.new
-    song.title = filename.split(" - ")[1]
-    song
+  def Song.new_by_filename(filename)
+    new_name = filename.split(" - ")[1]
+    new_song = Song.new(new_name)
+    new_song.artist = Artist.find_or_create_by_name(filename.split(" - ")[0])    
+    new_song
   end
   
     
