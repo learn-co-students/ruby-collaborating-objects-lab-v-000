@@ -8,8 +8,6 @@ class Artist
     @name = name
     @songs = []
     self.save
-    
-    
   end
 
   def songs
@@ -20,9 +18,6 @@ class Artist
     @songs << song
   end
 
-
-
-
   def self.all
     @@all
   end
@@ -31,9 +26,6 @@ class Artist
     @@all << self unless @@all.include?(self)
   end
 
-
-
-
   def self.find_or_create_by_name(name)
     if self.all.detect{|artist| artist.name == name}
     else
@@ -41,16 +33,8 @@ class Artist
     end
   end
 
-
-
-
   def print_songs
     @songs.each {|song| puts song.name}
   end
-
-
-
-
-
 
 end
