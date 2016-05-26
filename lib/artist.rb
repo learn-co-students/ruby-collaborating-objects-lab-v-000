@@ -11,8 +11,8 @@ class Artist
   def initialize(name)
     @name = name
     @songs = [] # song array for each artist is made when the artist is
-    #self.save
-    @@all << self
+    self.save
+    
   end
 
   def add_song(song)
@@ -23,13 +23,14 @@ class Artist
     if @@all.detect {|x| x.name == name}
       current_artist = @@all.detect {|x| x.name == name}
     else
-      current_artist = Artist.new(name)
+      current_artist = self.new(name)
     end
     current_artist   
+    #binding.pry
   end
 
     # if !@@all.detect {|x| x.name==name}       
-    #   Artist.new(name) 
+    #   Artist.new(name)
     # end
     #@@all << new_artist
 
