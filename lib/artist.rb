@@ -8,6 +8,8 @@ class Artist
   def initialize(name)
     @name = name
     @songs = []
+    save
+
   end
 
   def songs
@@ -27,12 +29,12 @@ class Artist
   end
 
   def self.find_or_create_by_name(name) 
-      stored_artist = nil
-      @@all.each do |x|
-        if x.name = name
-          return x
-        end
-      end
+     @@all.each do |x|
+       if x.name == name
+         return x
+       end
+     end
+     
       Artist.new(name)
   end
 

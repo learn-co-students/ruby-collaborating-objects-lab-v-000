@@ -1,26 +1,31 @@
 require 'pry'
 class MP3Importer
 
-  attr_reader :path, :file
+  attr_reader :path
 
 
-  @files = []
+  
   def initialize(path)
     @path = path
+    @files = []
   end
 
   def files
     Dir.foreach(@path) do |item|
       next if item == '.' or item == '..'
         f = File.basename(item)
-        @files << f 
+        @files << f     
     end
     @files
   end
 
 
   def import
-    Song.new_by_filename(file_name)
+    files
+    
+    @files.each do |file|  
+      Song.new_by_filename(file)
+    end
   end
  
 end
