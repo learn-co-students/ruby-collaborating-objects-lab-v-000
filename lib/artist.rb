@@ -28,6 +28,7 @@ class Artist
 
   def self.find_or_create_by_name(name)
       artist = Artist.new(name) unless self.all.include?(name)
+      name 
   end
 
   def print_songs
@@ -35,11 +36,6 @@ class Artist
       puts song.name 
     end
   end
-
-
-
-
-
 
 
 end
