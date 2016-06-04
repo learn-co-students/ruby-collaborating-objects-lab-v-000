@@ -1,4 +1,4 @@
-class Mp3Importer
+class MP3Importer
 
   def initialize
   end

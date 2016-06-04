@@ -32,7 +32,7 @@ class Artist
   end
 
   def print_songs
-    songs
+    @songs.find {|x| puts x.name}
   end
 
 
