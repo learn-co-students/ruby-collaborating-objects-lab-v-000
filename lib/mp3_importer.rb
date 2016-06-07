@@ -1,8 +1,7 @@
 class MP3Importer
 # MP3Importer will parse all the filenames in the db/mp3s folder and send the filenames to the Song class
 
-  attr_accessor :path, :songs
-  attr_accessor :files
+  attr_reader :path
 
   def initialize(path)
     @path = path
