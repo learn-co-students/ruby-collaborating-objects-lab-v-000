@@ -1,6 +1,7 @@
 require "pry"
 class MP3Importer
 
+attr_accessor
 attr_reader :path
 # attr_reader :import
 
@@ -16,8 +17,8 @@ attr_reader :path
   end
 
   def import
-     files.each do |filename|
-       Song.new_by_filename(filename)
+     files.each do |file_name|
+       Song.new_by_filename(file_name)
      end
   end
 

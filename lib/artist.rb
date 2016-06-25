@@ -1,4 +1,5 @@
-require "pry"
+# require "pry"
+
 class Artist
 
   attr_accessor :name, :songs
@@ -8,6 +9,7 @@ class Artist
   def initialize(name)
     @name= name
     @songs = []
+    @@all << self
   end
 
   def self.all
@@ -19,8 +21,9 @@ class Artist
   end
 
   def save
-    @@all << self
-      # binding.pry
+    if !@@all.include?(self)
+      @@all << self
+    end
   end
 
   def self.find_or_create_by_name(name)
