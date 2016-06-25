@@ -1,7 +1,8 @@
 require "pry"
 class MP3Importer
 
-attr_accessor :path, :songs
+attr_accessor :path, :song
+# attr_reader :import
 
   def initialize(path) #accepts a file path to parse mp3 files from
     @path = path
@@ -15,16 +16,9 @@ attr_accessor :path, :songs
   end
 
   def import
-    songs = Song.new_by_filename(files).name
-    songs.each do | song_item|
-      song_item.split("-").first
-    # songs[2].split("-").first
-    end
-
-    # binding.pry
-    # song= Song.new(files)
-    # song.artist = self
-    # song
+     files.each do |filename|
+       Song.new_by_filename(filename)
+     end
   end
 
 end

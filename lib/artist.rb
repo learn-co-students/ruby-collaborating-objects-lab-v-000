@@ -1,7 +1,7 @@
 require "pry"
 class Artist
 
-  attr_accessor :name, :song
+  attr_accessor :name
   attr_reader :songs
 
   @@all =[]
@@ -29,7 +29,8 @@ class Artist
         if artist_instance == name #if
           self.all
         else
-          Artist.new(name)
+          artist= Artist.new(name)
+          artist.save
         end
     end
   end
