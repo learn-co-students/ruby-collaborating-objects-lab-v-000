@@ -7,13 +7,14 @@ class Song
   end
 
   def self.new_by_filename(name)
-    name= Song.new(name)
+    song= Song.new(name)
+    song.artist = self
+    song
   end
 
-  def self.new_by_filename(filename)
-     song = self.new
-     song.title = filename.split(" - ")[1]
-     song
-   end
-   
+  # def self.new_by_filename(path)
+  #   self.find_or_create_by_name(name)
+  #   self.add_song(song)
+  # end
+
 end
