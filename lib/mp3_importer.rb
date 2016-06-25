@@ -1,7 +1,7 @@
 require "pry"
 class MP3Importer
 
-attr_accessor :path, :song
+attr_reader :path
 # attr_reader :import
 
   def initialize(path) #accepts a file path to parse mp3 files from
