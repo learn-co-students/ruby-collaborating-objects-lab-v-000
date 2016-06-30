@@ -6,6 +6,7 @@ class MP3Importer
   end
 
   def files
+    # not my code for this method!
     @files ||= Dir.glob("#{path}/*.mp3").collect{|f| f.gsub("#{path}/", "")}
   end
 
