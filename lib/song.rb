@@ -16,9 +16,8 @@ class Song
     artist = song_details[0]
     song_name = song_details[1]
     song = self.new(song_name)
-    song.artist_name=(artist)
+    song.artist_name = artist
     song
   end
-
 
 end
