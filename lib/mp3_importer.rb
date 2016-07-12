@@ -15,14 +15,15 @@ attr_reader :path
   end
 
   def import
-     files.collect do |file_name|
-        if !file_name.include?(Song.new_by_filename(file_name).artist.name)
-          Song.new_by_filename(file_name)
-        else
-          files.delete(file_name)
-        end
+    files.collect {|file_name| Song.new_by_filename(file_name)}
+
+        # if !file_name.include?(Song.new_by_filename(file_name).artist.name)
+        #   Song.new_by_filename(file_name)
+        # else
+        #   files.delete(file_name)
+        # end
         #  binding.pry
-    end
+
   end
 
 
