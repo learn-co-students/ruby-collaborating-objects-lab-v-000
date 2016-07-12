@@ -21,11 +21,11 @@ class Artist
   end
 
   def save
-      @@all << self unless @@all.include?(self)
+    @@all << self unless @@all.include?(self)
   end
 
   def self.find_or_create_by_name(name)
-    @@all.detect do |artist_instance|
+    self.all.find do |artist_instance|
         if artist_instance.name != name #if
           artist= Artist.new(name)
           artist.save
