@@ -7,8 +7,8 @@ class MP3Importer
   end
 
   def files
-    Dir["#{path}/*.mp3"].each do |file|
-      new_file = file.sub!("./spec/fixtures/mp3s/", "")
+    Dir["#{@path}/*.mp3"].each do |file|
+      new_file = file.sub!("#{@path}/", "")
       @files << new_file
     end
   end
