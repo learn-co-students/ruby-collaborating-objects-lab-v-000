@@ -22,7 +22,6 @@ attr_reader :path
           files.delete(file_name)
         end
         #  binding.pry
-
     end
   end
 
