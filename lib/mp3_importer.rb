@@ -15,7 +15,7 @@ attr_reader :path
   end
 
   def import
-    files.collect {|file_name| Song.new_by_filename(file_name)}
+    files.each {|file_name| Song.new_by_filename(file_name)}
 
         # if !file_name.include?(Song.new_by_filename(file_name).artist.name)
         #   Song.new_by_filename(file_name)
