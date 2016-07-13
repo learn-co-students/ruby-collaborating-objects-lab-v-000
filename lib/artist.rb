@@ -20,7 +20,7 @@ class Artist
 	end
 
 	def self.all
-		@@all
+		@@all << self
 	end
 
 	def save
@@ -28,17 +28,19 @@ class Artist
 	end
 
 	def self.find_or_create_by_name(name)
-		if @@all.include?(name)
-			@@all.detect {|song| song.name == name}
+		result = self.all.detect {|song| song.name == name}
+		if result == nil
+			artist = self.new(name)
+			artist.save
+			artist.name = name
+			artist
 		else
-			song = self.new
-			song.save
-			song
+			result
 		end
 	end
 
 	def print_songs
-		self.all.each {|song| puts "#{song.name}"}
+		self.songs.each {|song| puts "#{song.name}"}
 	end
 
 	# binding.pry
