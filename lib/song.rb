@@ -10,9 +10,10 @@ class Song
 		title = filename.split(" - ")[1]
 		artist_name = filename.split(" - ")[0]
 		song = Song.new(title)
-		song.artist = Artist.find_or_create_by_name(artist_name)
+		artist = Artist.find_or_create_by_name(artist_name)
+		artist_name
 		binding.pry
-		song
+	
 	end
 
 
