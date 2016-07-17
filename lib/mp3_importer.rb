@@ -11,8 +11,6 @@ attr_reader :path
   end
 
   def import
-    songs = self.files.each do |some_filename| Song.new_by_filename(some_filename)
-    end
-    songs.uniq
+    self.files.each {|some_filename| Song.new_by_filename(some_filename)}
   end
 end
