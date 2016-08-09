@@ -1,3 +1,5 @@
+require 'pry'
+
 class Artist
   attr_accessor :name, :songs
 
@@ -9,8 +11,8 @@ class Artist
     self.save
   end
 
-  def add_song(song)
-    @songs << song
+  def add_song(name)
+    @songs << name
   end
 
   def self.all
