@@ -5,24 +5,37 @@ class Song
     @name = name
   end
 
-  def artist_name=(artist)
-    artist = Artist.find_or_create_by_name(name)
-    self.artist = artist
+  def artist_name=(name)
+    self.artist = Artist.find_or_create_by_name(name)
   end
 
   def self.new_by_filename(file_name)
-    song = self.new(file_name)
-    song.name = file_name.split(" - ")[1] #Larry Csonka
-    artist_name = file_name.split(" - ")[0] #Action Bronson
-    song.artist = Artist.find_or_create_by_name(artist_name) #review why this works
-    song 
+    filesplit = file_name.split(" - ")
+    song = self.new(filesplit[1])
+    song.artist_name = (filesplit[0])
+    song
   end
+
+
 
 end
 
  # def import
- #    self.files.each {|filename| Song.new_by_filename(filename)}
+ #    self.files.each {|file_name| Song.new_by_filename(file_name)}
  #  end
 
 #Action Bronson - Larry Csonka - indie.mp3
 #Artist - song - genre.mp3
+
+#   describe '#import' do 
+#     it 'imports the files into the library by creating songs from a filename' do
+#       Artist.class_variable_set("@@all",[])
+#       test_music_path = "./spec/fixtures/mp3s"
+#       music_importer = MP3Importer.new(test_music_path)
+#       music_importer.import
+
+#       expect(Artist.all.size).to eq(3)
+#       expect(Artist.all.first.songs.empty? && Artist.all.last.songs.empty?).to eq(false)
+#     end
+#   end
+# end
