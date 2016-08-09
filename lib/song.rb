@@ -6,20 +6,23 @@ class Song
   end
 
   def artist_name=(artist)
-    self.artist = Artist.find_or_create_by_name(name)
-    artist.add_song(self)
+    artist = Artist.find_or_create_by_name(name)
+    self.artist = artist
   end
 
   def self.new_by_filename(filename)
     song = self.new(filename)
     song.name = filename.split(" - ")[1] #Larry Csonka
-    song.artist_name = filename.split(" - ")[0] #Action Bronson
+    artist_name = filename.split(" - ")[0] #Action Bronson
+    song.artist = Artist.find_or_create_by_name(artist_name) #review why this works
     song 
   end
 
 end
 
-#import - to send the filenames to the Song class. calling #import method
-  #Song.new_by_filename(some_filename) - will send us to Song class
+ # def import
+ #    self.files.each {|filename| Song.new_by_filename(filename)}
+ #  end
+
 #Action Bronson - Larry Csonka - indie.mp3
 #Artist - song - genre.mp3
