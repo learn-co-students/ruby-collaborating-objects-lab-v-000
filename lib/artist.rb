@@ -1,14 +1,11 @@
-require 'pry'
-
 class Artist
   attr_accessor :name, :songs
-  
+
   @@all = []
 
   def initialize(name)
     @name = name
     @songs = []
-    self.save
   end
 
   def add_song(song)
@@ -19,20 +16,13 @@ class Artist
     @@all
   end
 
-  def save  #stores the artist to the @@all class variable.
-    @@all << self
-  end
-
-  def self.find_or_create_by_name(name)
-    if self.all.detect {|artist| artist.name == name}
-      nil
-    else
-      artist = self.new(name)
-    end
-  end
-
-  def print_songs
-    @songs.each {|song| puts song.name} #puts vs return
+  def save
+    self.class.all << self
   end
 
 end
+
+#reminders
+#I'm saving the artists to the @@all array (class scope)
+#Each individual artist has their own set of songs
+#I can add songs to any particular artist's @song array (instance scope)
