@@ -21,7 +21,7 @@ class Artist
 
     else
       name = Artist.new(name)
-      #name.save
+      name.save
       name
     end
   end
