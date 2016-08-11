@@ -15,10 +15,10 @@ class Artist
     @@all
   end
 
+
   def self.find_or_create_by_name(name)
     if self.all.detect {|dt| dt.name == name}
-      self.all.detect {|dt| dt == name}
-
+      self.all.detect {|dt| dt.name == name}
     else
       name = Artist.new(name)
       name.save
@@ -48,5 +48,7 @@ class Artist
   def print_songs
    @songs.map {|song| puts song.name}
   end
+
+
 
 end

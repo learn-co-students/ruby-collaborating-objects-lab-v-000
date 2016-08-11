@@ -16,9 +16,10 @@ class Song
       artist = fi[0]
 
       song = self.new(song)
+      #binding.pry
       song.artist = Artist.find_or_create_by_name(artist)
-      binding.pry
       song.artist
+
 
       song.artist.songs << song
 
