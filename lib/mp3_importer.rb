@@ -1,7 +1,7 @@
 class MP3Importer
     attr_accessor :path
     @@all_files = []
-    @@all = []
+
     def initialize(path)
         @path = path      #path value that leads to directory with files needed
     end
@@ -14,10 +14,8 @@ class MP3Importer
     end
 
     def import
-    
         @@all_files.each do |file|
             Song.new_by_filename(file)
-            @@all << song.name
         end
     end
 end

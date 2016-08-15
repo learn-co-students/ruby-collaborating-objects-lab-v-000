@@ -1,33 +1,33 @@
 class Artist
-    attr_accessor :name
+    attr_accessor :name, :songs
 
-    @@all_artists = []
+    @@all = []
 
     def initialize(name)
         @name = name
         @songs = []
     end
 
-    def add_song(title)
-        @songs << title
-        end
+    def add_song(name)
+        @songs << name
+    end
 
     def songs
         @songs
     end
 
     def save
-        @@all_artists << self
+        @@all << self
     end
 
     def self.all
-        @@all_artists
+        @@all
     end
 
     def self.create_by_name(name)  #custom constructor
         artist = self.new(name)
         artist.name = name
-        @@all_artists << artist
+        @@all << artist
         artist
     end
 
@@ -44,8 +44,8 @@ class Artist
     end
 
     def print_songs
-        self.songs.collect do |song|
-            puts song.title          #takes the title from the Song class which is linked to the artist
+        songs.each do |song|
+            puts song.name          #takes the song name from the Song class which is linked to the artist
         end
     end
 
