@@ -29,12 +29,16 @@ class Artist
     #artist as a class to get to @@all
   end
 
+  def self.create_by_name(name)
+    artist = Artist.new(name)
+  end
+
+  def self.find_by_name(name)
+    @@all.detect{|artist| artist.name == name}
+  end
+
   def self.find_or_create_by_name(name)
-    unless @@all.detect {|artist| artist.name == name}
-      #i need to put artist.name otherwise i get the data 
-      #equivalent of the name (e.g. #<Artist:92340923849>), not the text.
-      artist = self.new(name)
-    end
+    self.find_by_name(name) || self.create_by_name(name)
   end
 
   def print_songs
