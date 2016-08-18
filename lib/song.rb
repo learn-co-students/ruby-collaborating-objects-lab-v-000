@@ -22,15 +22,13 @@ end
 
 #So the problem is that your Song #new_by_filename method 
 #associates the newly-created Song w/ an Artist, but it doesn't associate that Artist w/ the Song
-
-# GJ SAID 12 HOURS AGO
-# If it makes you feel better, that RSpec test was added recently – 
-#I didn't have to account for that circumstance when I completed the lab a while ago
-
-# GJ SAID 11 HOURS AGO
-# I can walk you through what you need to fix if you prefer, or you can give it a shot first
-
-
+#******** called on add_song method******** new error:
+#Currently, if an artist already exists (i.e., if it successfully "finds" an existing artist), the return value for that entire method is `nil`
+# b/c the value returned by `self.find_or_create_by_name(name)` was `nil` and you were setting `self.artist` equal to `nil` in `#artist_name=(name)`
+# then, in the very next line, you try to call `.add_song(self)` on `artist`, which is nil
+# so you try to call a method on a `nil` value
+#That's why, when you ensure that `self.find_or_create_by_name(name)` *always* returns an Artist object, it works
+#Because Artist objects _do_ have an `#add_song` method
 
  # def import
  #    self.files.each {|file_name| Song.new_by_filename(file_name)}
