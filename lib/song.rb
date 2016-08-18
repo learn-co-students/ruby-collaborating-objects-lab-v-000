@@ -7,18 +7,30 @@ class Song
 
   def artist_name=(name)
     self.artist = Artist.find_or_create_by_name(name)
+    Artist.add_song(self)
   end
 
   def self.new_by_filename(file_name)
-    filesplit = file_name.split(" - ")
-    song = self.new(filesplit[1])
-    song.artist_name = (filesplit[0])
+    song = self.new(file_name)
+    song.name = file_name.split(" - ")[1]
+    song.artist_name = file_name.split(" - ")[0]
     song
   end
 
 
-
 end
+
+#So the problem is that your Song #new_by_filename method 
+#associates the newly-created Song w/ an Artist, but it doesn't associate that Artist w/ the Song
+
+# GJ SAID 12 HOURS AGO
+# If it makes you feel better, that RSpec test was added recently – 
+#I didn't have to account for that circumstance when I completed the lab a while ago
+
+# GJ SAID 11 HOURS AGO
+# I can walk you through what you need to fix if you prefer, or you can give it a shot first
+
+
 
  # def import
  #    self.files.each {|file_name| Song.new_by_filename(file_name)}

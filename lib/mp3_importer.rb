@@ -15,7 +15,13 @@ class MP3Importer
     self.files.each {|file_name| Song.new_by_filename(file_name)}
   end
 
+
 end
+
+
+
+
+
 #parses directory of files
 #filename sent to song class with artists that are unique
 #MP3Import.new('./db/mp3s').import

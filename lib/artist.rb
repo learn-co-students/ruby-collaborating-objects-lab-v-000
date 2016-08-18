@@ -11,8 +11,8 @@ class Artist
     self.save
   end
 
-  def add_song(name)
-    @songs << name
+  def add_song(song)
+    @songs << song
   end
 
   def self.all
@@ -38,7 +38,7 @@ class Artist
 
   def print_songs
     @songs.each {|song| puts song.name}
-    #see above blocked-out message for "song.name" reasoning
+    #see above reasoning in blocked-out message for "song.name"
   end
 
 end
