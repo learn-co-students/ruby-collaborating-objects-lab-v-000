@@ -9,7 +9,7 @@ class Artist
   end
 
   def self.all
-    @songs = self
+    @@songs << self
   end
 
 
