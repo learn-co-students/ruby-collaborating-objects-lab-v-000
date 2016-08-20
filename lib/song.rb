@@ -16,7 +16,7 @@ class Song
     song.artist_name=(artist_name)
     song
 
-    song.artist.add_song(song)  ## problem is with this line :/
+    #song.artist.add_song(song)  ## problem is with this line :/
     #binding.pry
   end
 
