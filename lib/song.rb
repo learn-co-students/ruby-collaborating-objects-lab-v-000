@@ -8,6 +8,7 @@ class Song
 
   def artist_name=(name) # not my own method
     artist = Artist.find_or_create_by_name(name)
+    artist.songs << self
     self.artist = artist
   end
 
@@ -16,6 +17,7 @@ class Song
     data = file.split(" - ")
     song.name = data[1]
     song.artist_name = data[0]
+
     song
   end
 end
