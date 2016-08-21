@@ -6,6 +6,7 @@ class MP3Importer
 
   def initialize(file)
     @path = file
+    files
   end
 
   def files
@@ -32,8 +33,8 @@ class MP3Importer
   end
 
   def import
-    binding.pry
-    @@all.each{ |file| binding.pry Song.new_by_filename(file)}
+
+    @@all.each{ |file| Song.new_by_filename(file)}
   end
 
 end
