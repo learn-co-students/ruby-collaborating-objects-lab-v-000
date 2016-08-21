@@ -1,4 +1,4 @@
-require 'pry'
+#require 'pry'
 class Song
 
   attr_accessor :name, :artist
@@ -16,17 +16,15 @@ class Song
     song.artist_name=(artist_name)
     song
 
-    #song.artist.add_song(song)  ## problem is with this line :/
-    #binding.pry
   end
 
   def artist_name=(name)
-    #Artist.find_or_create_by_name(name)
     if self.artist.nil?
       self.artist = Artist.find_or_create_by_name(name)
     else
       self.artist.name = name
     end
+    self.artist.add_song(self)  # links artist to song instance
   end
 
 
