@@ -7,6 +7,10 @@ attr_accessor :name
     @@all = []
   end
 
+  def self.all
+    @@all
+  end
+
   def songs
     @songs
   end
@@ -16,7 +20,7 @@ attr_accessor :name
   end
 
   def save
-    @@all << self.name
+    @@all << self
   end
 
   def self.find_or_create_by_name(name)
