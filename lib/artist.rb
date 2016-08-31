@@ -16,7 +16,6 @@ class Artist
 
   def add_song(song)
     @songs << song
-    @song_names << song.name
   end
 
   def songs
@@ -28,8 +27,8 @@ class Artist
   end
 
   def print_songs
-    puts "#{@song_names[0]}"
-    puts "#{@song_names[1]}"
+    puts "#{@songs[0].name}"
+    puts "#{@songs[1].name}"
   end
 
   def self.find(artist_name)
