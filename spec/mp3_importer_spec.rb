@@ -15,7 +15,6 @@ describe "MP3Importer" do
     it 'loads all the mp3 files in the path directory' do
       test_music_path = "./spec/fixtures/mp3s"
       music_importer = MP3Importer.new(test_music_path)
-
       expect(music_importer.files.size).to eq(4)
     end
 
@@ -36,7 +35,6 @@ describe "MP3Importer" do
       test_music_path = "./spec/fixtures/mp3s"
       music_importer = MP3Importer.new(test_music_path)
       music_importer.import
-
       expect(Artist.all.size).to eq(3)
       expect(Artist.all.first.songs.empty? && Artist.all.last.songs.empty?).to eq(false)
     end

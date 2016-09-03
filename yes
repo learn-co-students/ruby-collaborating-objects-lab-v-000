@@ -1,0 +1,18 @@
+
+[1mFrom:[0m /home/ubuntu/code/labs/ruby-collaborating-objects-lab-v-000/lib/artist.rb @ line 34 Artist.find_or_create_by_name:
+
+    [1;34m32[0m: [32mdef[0m [1;36mself[0m.[1;34mfind_or_create_by_name[0m(artist_name)
+    [1;34m33[0m:     yes = [36m@@all[0m.include?(artist_name)
+ => [1;34m34[0m:     binding.pry
+    [1;34m35[0m:     yes == [1;36mtrue[0m
+    [1;34m36[0m:    [1;34m#  @@all.each do |this_artist|[0m
+    [1;34m37[0m:       [1;34m#  if this_artist.name = artist_name[0m
+    [1;34m38[0m:       [1;34m#      return this_artist[0m
+    [1;34m39[0m:       [1;34m#  else[0m
+    [1;34m40[0m:        [1;34m#     artist = self.new(artist_name)[0m
+    [1;34m41[0m:         [1;34m#    artist.save[0m
+    [1;34m42[0m:          [1;34m#   return artist[0m
+    [1;34m43[0m:         [1;34m#end[0m
+    [1;34m44[0m:     [1;34m#end[0m
+    [1;34m45[0m: [32mend[0m
+
