@@ -29,8 +29,7 @@ class Artist
   end
 
   def self.create(name)
-    @name = name
-    @name.save
+    self.new(name).tap {|artist| artist.save}
   end
 
   # This class method should take the name that is passed in (remember, it will be a string),
