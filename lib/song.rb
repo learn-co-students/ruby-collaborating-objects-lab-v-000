@@ -8,10 +8,13 @@ class Song
 	end
 
 	def self.new_by_filename(filename)
-		splited_file = filename.split(" - ")
-		song = self.new(splited_file[1])
-		song.artist = Artist.find_or_create_by_name(splited_file[0])
+		splited_string = filename.split(" - ")
+		song = self.new(splited_string[1])
+		song.artist = Artist.find_or_create_by_name(splited_string[0])
+		song.artist.add_song(song)
         song
 	end
 
 end
+
+
