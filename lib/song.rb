@@ -8,11 +8,13 @@ class Song
   end
 
   def self.new_by_filename(file_name)
-    song = self.new(name)
+    song = self.new(file_name)
     #  file_name.song = self
       new_file_name = file_name.split("-")
       song.name = new_file_name[1]
-      # binding.pry
+      song.name.strip
+ # binding.pry
+ # 1+1
   end
 
     # describe '.new_by_filename' do
