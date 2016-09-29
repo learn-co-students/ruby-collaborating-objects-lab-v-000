@@ -7,9 +7,10 @@ class Song
     @name = name
   end
 
-  def self.new_by_filename(file)
-    song = self.new
-    song.file = file
+  def self.new_by_filename(file_name)
+    song = self.new(name)
+    file_name.song = self
+  binding.pry
   end
 
     # describe '.new_by_filename' do
