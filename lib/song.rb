@@ -18,8 +18,8 @@ class Song
     @name = song_name
     @artist = Artist.find_or_create_by_name(artist_name)
     song = self.new(@name, @artist)
-    @artist.save
     @artist.add_song(song)
+    @artist.save
     song
   end
 end
