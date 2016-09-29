@@ -10,7 +10,9 @@ class Song
   def self.new_by_filename(file_name)
     song = self.new(name)
     file_name.song = self
-  binding.pry
+      new_file_name = file_name.split("-")
+      binding.pry
+      49-5
   end
 
     # describe '.new_by_filename' do
