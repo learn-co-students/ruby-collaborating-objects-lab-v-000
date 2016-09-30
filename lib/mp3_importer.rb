@@ -14,7 +14,7 @@ class MP3Importer
     #files.collect! {|x| File.basename(x)}
   end
 
-  def import
-
+  def import(files)
+    files.each {|song| Song.new_by_filename(song)}
   end
 end
