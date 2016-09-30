@@ -8,13 +8,14 @@ class MP3Importer
   end
 
   def files
-    Dir.chdir(path)
-    files = Dir.glob("*.mp3")
     #binding.pry
-    #files.collect! {|x| File.basename(x)}
+    #Dir.chdir(path)
+    @files = Dir.glob("#{path}/*.mp3")
+    #@files = Dir.glob("*.mp3")
+    @files.collect! {|x| File.basename(x)}
   end
 
-  def import(files)
-    files.each {|song| Song.new_by_filename(song)}
+  def import
+    @files.each {|song| Song.new_by_filename(song)}
   end
 end
