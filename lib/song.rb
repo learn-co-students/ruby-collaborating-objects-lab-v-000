@@ -17,8 +17,8 @@ class Song
 
         artist_name = new_file_name[0].strip
         artist = Artist.find_or_create_by_name(artist_name)
-          song.artist = artist
-          song.save
+         artist.add_song(song)
+          # song.artist = artist
           song
   end
 
