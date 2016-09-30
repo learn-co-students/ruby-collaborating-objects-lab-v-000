@@ -1,6 +1,7 @@
 require 'pry'
 class MP3Importer
 
+@@all = []
 attr_reader :path
 
   def initialize(path)
@@ -18,8 +19,9 @@ attr_reader :path
   end
 
 def import
-  @@all << self.new(path)
-
+   @@all << Song.new_by_filename(file_name)
+binding.pry
+1+5
 end
 
 
