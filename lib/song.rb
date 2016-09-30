@@ -18,7 +18,7 @@ class Song
         artist_name = new_file_name[0].strip
         artist = Artist.find_or_create_by_name(artist_name)
          artist.add_song(song)
-          # song.artist = artist
+         song.artist = artist
           song
   end
 
@@ -28,6 +28,6 @@ class Song
     #     expect(new_instance.name).to eq('Black or White')
     #     expect(new_instance.artist.name).to eq('Michael Jackson')
     #   end
-
+  #
 
 end
