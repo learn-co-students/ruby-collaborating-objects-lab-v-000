@@ -7,11 +7,11 @@ class Artist
     @songs = []
   end
 
-  def add_song(song)
+  def add_song(song) # Need to define the add_song method, as the songs reader method already exists
     @songs << song
   end
 
-  def save
+  def save # Saves each instance of the artist
     @@all << self
   end
 
@@ -19,11 +19,13 @@ class Artist
     @@all
   end
 
-  def self.find_or_create_by_name(name)
+  def self.find_or_create_by_name(name) # Returns the artist name if it exists, or creates a new artist with that name
     @@all.any? {|artist| artist.name == name} ? name : Artist.new(name)
   end
 
   def print_songs
+    # Prints all songs belonging to an artist. Don't need to do anything special, as @songs
+    # only stores songs belonging to a particular artist instance only
     @songs.each {|x| puts x.name}
   end
 end
