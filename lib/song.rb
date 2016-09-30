@@ -14,13 +14,12 @@ class Song
         song_name = new_file_name[1].strip
         song = self.new(song_name)
 
+
         artist_name = new_file_name[0].strip
         artist = Artist.find_or_create_by_name(artist_name)
           song.artist = artist
+          song.save
           song
-
-  # binding.pry
-  # 1+1
   end
 
     # describe '.new_by_filename' do
