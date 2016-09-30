@@ -20,7 +20,7 @@ class Artist
   end
 
   def self.find_or_create_by_name(name) # Returns the artist name if it exists, or creates a new artist with that name
-    @@all.any? {|artist| artist.name == name} ? name : Artist.new(name)
+    @@all.any? {|artist| artist.name == name} ? name : self.new(name)
   end
 
   def print_songs
