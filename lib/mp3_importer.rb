@@ -21,7 +21,7 @@ attr_reader :path
 def import
    @@all << Song.new_by_filename(file_name)
 binding.pry
-1+5
+1+2
 end
 
 
