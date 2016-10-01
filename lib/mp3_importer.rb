@@ -1,7 +1,8 @@
 require 'pry'
 
 class MP3Importer
-  attr_accessor :path, :files
+  attr_accessor :path # Not putting :files in here, as it doesnt require explicit reader method
+  #and is being populated by methods below
 
   def initialize(path) # Initializes with a given path name of the folder with files
     self.path = path
