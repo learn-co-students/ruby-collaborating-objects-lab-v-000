@@ -20,8 +20,18 @@ class Artist
     @@all
   end
 
-  def self.find_or_create_by_name(name) # Returns the artist name if it exists, or creates a new artist with that name
-    @@all.any? {|artist| artist.name == name} ? self : self.new(name)
+  def self.find_by_name(name) #Finds the artist by name if they already exist and returns them
+    self.all.find {|artist| artist.name == name}
+  end
+
+  def self.create_by_name(name) #Creates the new instance of Artist by name
+    artist = self.new(name)
+    artist.name = name
+    artist
+  end
+
+  def self.find_or_create_by_name(name) #Finds or creates the instance if it doesnt exist
+    self.find_by_name(name) || self.create_by_name(name)
   end
 
   def print_songs
