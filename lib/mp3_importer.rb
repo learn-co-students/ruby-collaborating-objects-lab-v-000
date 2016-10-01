@@ -9,9 +9,9 @@ class MP3Importer
   end
 
   def files
-    #Dir.chdir(path)
+    #Dir.chdir(path) #Alternate method to change the directory to path and then only receive file names
     @files = Dir.glob("#{path}/*.mp3") #Collects all the file names as an array
-    #@files = Dir.glob("*.mp3")
+    #@files = Dir.glob("*.mp3") #To be used with the alternate method above...will only give file names w/o path
     @files.collect! {|x| File.basename(x)} #Removes the path name from the file
   end
 
