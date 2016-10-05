@@ -27,7 +27,7 @@ class Artist
   end
 
   def self.create(name)
-    self.new(name)
+    self.new(name).tap { |artist| artist.save }
   end
 
   def self.find_or_create_by_name(name)
@@ -41,6 +41,5 @@ class Artist
   def print_songs
     @songs.each { |song| puts song.name }
   end
-
 
 end
