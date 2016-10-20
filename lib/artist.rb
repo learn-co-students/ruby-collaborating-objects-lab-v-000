@@ -1,9 +1,12 @@
+require 'pry'
+
 class Artist
   attr_accessor :name, :songs
   @@all = []
 
   def initialize(name)
     @name = name
+    name = self
     @songs = []
   end
 
@@ -24,10 +27,12 @@ class Artist
   end
 
   def self.find_or_create_by_name(name)
-      artist = @@all.detect {|x| x.name == name}
-      unless artist != nil
+    artist = @@all.detect {|x| x.name == name}
+    if artist == nil
       artist = Artist.new(name)
       artist.save
+      artist
+    else
       artist
     end
   end
