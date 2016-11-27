@@ -13,8 +13,9 @@ class MP3Importer
     x.collect.reject {|a| a == "." }
   end
 
-  def import(path)
-   path.each {|file_name| Song.new_by_filename(file_name) }
+  def import(file_name)
+    Song.new_by_filename(file_name)
+   
   end
 
 end
