@@ -4,7 +4,7 @@ class Artist
  attr_accessor :name, :songs
 
  @@all = []
-binding.pry
+
 
   def initialize(name)
     @name = name
@@ -21,6 +21,7 @@ binding.pry
 
   def save
     @@all << self
+    binding.pry
   end
 
   def self.create(name)
