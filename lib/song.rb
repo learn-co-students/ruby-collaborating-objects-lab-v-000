@@ -11,7 +11,8 @@ class Song
     name = file_name.split(" - ")[1] #"Black or White"
     song = Song.new(name)
     artist_name = file_name.split(" - ")[0] #"Michael Jackson"
-    song.artist= Artist.new(artist_name)
+    song.artist= Artist.find_or_create_by_name(artist_name)
+    song.artist.add_song(name)
     song.artist.save
     song
   end
