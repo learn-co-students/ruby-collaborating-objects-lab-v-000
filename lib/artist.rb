@@ -21,7 +21,6 @@ class Artist
 
   def save
     @@all << self
-    binding.pry
   end
 
   def self.create(name)
