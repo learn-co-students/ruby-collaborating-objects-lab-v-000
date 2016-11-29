@@ -44,4 +44,10 @@ if(count == 0)
   end
 
 end
+
+def artist=(name)
+  song = Song.new(name)
+song.artist = self.new
+end
+
 end

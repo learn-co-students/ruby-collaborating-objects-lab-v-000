@@ -15,7 +15,7 @@ artist_obj.artist = artist_obj
 end
 
 
-  def new_by_filename(filename)
+  def self.new_by_filename(filename)
     song_name = filename.split("-")[1].strip
     song = self.new(song_name)
     song.artist.name =filename.split("-")[0]
