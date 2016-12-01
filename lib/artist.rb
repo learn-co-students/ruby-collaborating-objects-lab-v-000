@@ -17,8 +17,8 @@ def songs
   @songs
 end
 
-def add_song(songs)
-  @songs << songs
+def add_song(song)
+  @songs << song
 end
 
 def save
@@ -33,7 +33,7 @@ def self.find_or_create_by_name(name)
         end
       end
     else
-      name = self.new(name)
+      self.new(name).tap {|artist| artist.save}
     end
   end
 
