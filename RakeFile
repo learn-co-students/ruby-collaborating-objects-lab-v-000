@@ -1,0 +1,18 @@
+require 'pry'
+
+require_relative './lib/artist.rb'
+require_relative './lib/song.rb'
+require_relative './lib/mp3_importer.rb'
+
+puts "Welcome to Artists, Songs, MP3Importer"
+
+def reload!
+  load './lib/artist.rb'
+  load './lib/song.rb'
+  load './lib/mp3_importer.rb'
+end
+
+desc "A console"
+task :console do
+  Pry.start
+end
