@@ -30,7 +30,7 @@ describe "MP3Importer" do
     end
   end
 
-  describe '#import' do 
+  describe '#import' do
     it 'imports the files into the library by creating songs from a filename' do
       Artist.class_variable_set("@@all",[])
       test_music_path = "./spec/fixtures/mp3s"
@@ -41,4 +41,13 @@ describe "MP3Importer" do
       expect(Artist.all.first.songs.empty? && Artist.all.last.songs.empty?).to eq(false)
     end
   end
+end
+
+
+
+def self.new_by_filename(file_name)
+  song_array = file_name.split(" - ")
+  song = self.new(song_array[1])
+  song.artist = Artist.new(song_array[0])
+  song
 end
