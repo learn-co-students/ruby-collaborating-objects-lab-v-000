@@ -1,6 +1,7 @@
-# require "../../spec/fixtures/mp3s"
+# require_relative '../spec/fixtures/mp3s'
 
 class MP3Importer
+  # extend Lovebot
   attr_accessor :path
   @@files = []
 
