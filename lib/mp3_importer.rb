@@ -7,16 +7,17 @@ class MP3Importer
 
   def initialize(path)
     @path = path
-    # @@files = []
   end
 
-  def files(path)
+  def files
 
-    @@files << path
+    # binding.pry
   end
 
   def import
-    Dir["../spec/fixtures/mp3s"].each {|file| @@files << file }
+
     # binding.pry
   end
 end
+
+# Dir["../spec/fixtures/mp3s"].each {|file| @@files << file }
