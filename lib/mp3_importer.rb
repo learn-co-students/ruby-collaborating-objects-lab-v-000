@@ -14,8 +14,9 @@ def files
 
   @files_mp3 =  Dir["#{@path}**/*.mp3"]
   #binding.pry
-  @files_mp3.each{|file| file.slice! "#{path}/"}
-  @files_mp3
+  #@files_mp3.each{|file| file.slice! "#{path}/"}
+#  @files_mp3
+ @files_mp3 ||= Dir.glob("#{path}/*.mp3").collect{|f| f.gsub("#{path}/", "")}
 #binding.pry
 end
 
