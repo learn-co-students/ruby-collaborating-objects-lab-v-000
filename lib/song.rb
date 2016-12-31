@@ -1,5 +1,6 @@
+require 'pry'
 class Song
-attr_accessor :name, :artist_1, :song_instance, :artist, :song, :nam
+attr_accessor :name,:artist, :song
 
   def initialize(name)
     @name = name
@@ -9,16 +10,20 @@ attr_accessor :name, :artist_1, :song_instance, :artist, :song, :nam
     @name = nam
   end
 
-  def artist=(nam)
-artist_obj = Artist.new(nam)
-artist_obj.artist = artist_obj
-end
+  def artist_name=(nam)
 
+      if (self.artist.nil?)
+          self.artist = Artist.new(nam)
 
-  def self.new_by_filename(filename)
-    song_name = filename.split("-")[1].strip
-    song = self.new(song_name)
-    song.artist.name =filename.split("-")[0]
-    song
+      else
+          self.artist.name = nam
+      end
 end
-end
+    def self.new_by_filename(filename)
+      #binding.pry
+      new_instance = self.new(filename.split(" - ")[1])
+      new_instance.artist_name=(filename.split(" - ")[0])
+      new_instance
+
+  end
+  end

@@ -1,20 +1,26 @@
 require 'pry'
-class MP3Importer
-attr_accessor :path, :test_music_path, :list_of_filenames, :name, :files_mp3
-@list_of_filenames = []
-  def initialize(test_music_path)
-     @path = test_music_path
-   end
 
-   def files
+class MP3Importer
+
+attr_accessor :path
+
+@@library = []
+@files_mp3 = []
+def initialize(path)
+  @path = path
+end
+
+def files
 
   @files_mp3 =  Dir["#{@path}**/*.mp3"]
-  @files_mp3.each{|file| file.slice! "#{@path}/"}
+  #binding.pry
+  @files_mp3.each{|file| file.slice! "#{path}/"}
   @files_mp3
+#binding.pry
+end
 
-    end
+def import
 
-    def import
-     @files_mp3.each{ |filename| Song.new_by_filename(filename) }
-   end
+files.each{|file| Song.new_by_filename(file)}
+end
 end
