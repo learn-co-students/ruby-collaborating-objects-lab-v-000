@@ -23,9 +23,7 @@ def self.all
 end
 
 def self.find_or_create_by_name(artist_name)
-
     count = 0
-
     @@all.each{|artist|
     if artist.name == artist_name
     count += 1;
