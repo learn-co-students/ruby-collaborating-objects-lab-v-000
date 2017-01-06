@@ -19,7 +19,7 @@ class Artist
      @@songs
    end
 
-   def find_or_create_by_name(name)
+   def self.find_or_create_by_name(name)
      binding.pry
      @@all.detect{|name| artist.name == name}
      name
