@@ -1,26 +1,28 @@
 require 'pry'
 class MP3Importer
-  attr_accessor :artist, :song, :name
+  attr_accessor :artist, :song, :name, :path
 
-  def new(test_music_path)
+  def new(path)
   end
 
   def path
-    test_music_path = "./spec/fixtures/mp3s"
+    "./spec/fixtures/mp3s"
   end
 
-  def initialize(test_music_path)
-    music_importer = self.new(test_music_path)
+  def initialize(path)
+    music_importer = self.new(path)
     #files =>Action Bronson - Larry Csonka - indie.mp3
   end
 
-  def files # wrong number of arguments (given 0, expected 1)
-  #def files(test_music_path) wrong number of arguments (given 0, expected 1)
-    test_music_path = MP3Importer.new('./db/mp3s').import
+  def files
+    path = Dir["/path/to/search/**/./db/mp3s').import"]
+
+    #path = MP3Importer.new('./db/mp3s').import
+    #Dir["/'./db/mp3s'/**/*.rb"]
 
     #test_music_path = "./spec/fixtures/mp3s"
 #files =>Action Bronson - Larry Csonka - indie.mp3
-    music_importer = self.new(test_music_path).size
+     self.new(path)
 #expect(music_importer.files.size).to eq(4)
 
   end
@@ -28,11 +30,14 @@ class MP3Importer
 
 #You should write code that responds to MP3Importer.new('./db/mp3s').import.
 #Google around for how to get a list of files in a directory! Make sure you only get .mp3 files.
-  def import(music_importer)
-    Song.new_by_filename(some_filename)
-    music_importer = self.new(test_music_path)
-    #test_music_path = "./spec/fixtures/mp3s"
-    #files =>Action Bronson - Larry Csonka - indie.mp3
+  def import
+    #files = Dir["/work/myfolder/**/*.txt"]
+    Find.find(@path) do |path|
+     if FileTest.directory?(path)
+       @dirs.push(path)
+     else
+       @files.push(path)
+     end
+    end
   end
-
 end

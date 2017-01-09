@@ -38,9 +38,8 @@ class Song
     self.find_by_filename(file_name) || self.create_by_filename(file_name)
   end
 
-  def self.new_by_filename
-    binding.pry
-    file_name = filename.split(" - ").first
+  def self.new_by_filename(file_name)
+    file_name = file_name.split(" - ").first
     
     #song = Song.new
     
@@ -48,7 +47,7 @@ class Song
     #name = filename.split(".").first.split("- ").last  #perfrom multiple splits in one line
     #filename.to_s.split(" - ").map do |filename|
     #end  
-    song.filename = file_name
+    #song.filename = file_name
     song.file_name = file_name
     song
     end
