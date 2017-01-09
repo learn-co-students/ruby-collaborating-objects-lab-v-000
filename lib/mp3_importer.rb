@@ -2,25 +2,22 @@ require 'pry'
 class MP3Importer
   attr_accessor :artist, :song, :name, :path
 
-  def new(path)
-  end
-
-  def path
-    "./spec/fixtures/mp3s"
-  end
-
   def initialize(path)
+    @path = path
+    test_music_path
     music_importer = self.new(path)
     #files =>Action Bronson - Larry Csonka - indie.mp3
   end
 
   def files
-    path = Dir["/path/to/search/**/./db/mp3s').import"]
+    test_music_path = "./spec/fixtures/mp3s"
+    music_importer = MP3Importer.new(test_music_path)
+    #path = Dir.entries(test_music_path).import"
 
     #path = MP3Importer.new('./db/mp3s').import
     #Dir["/'./db/mp3s'/**/*.rb"]
 
-    #test_music_path = "./spec/fixtures/mp3s"
+
 #files =>Action Bronson - Larry Csonka - indie.mp3
      self.new(path)
 #expect(music_importer.files.size).to eq(4)
@@ -39,5 +36,6 @@ class MP3Importer
        @files.push(path)
      end
     end
+    Song.new_by_filename(file_name)
   end
 end
