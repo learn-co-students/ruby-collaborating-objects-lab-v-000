@@ -4,7 +4,7 @@ class MP3Importer
 
   def initialize(path)
     @path = path
-    test_music_path
+    test_music_path = "./spec/fixtures/mp3s"
     music_importer = self.new(path)
     #files =>Action Bronson - Larry Csonka - indie.mp3
   end
