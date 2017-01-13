@@ -43,7 +43,7 @@ class Song
     file_name = file_name.split(" - ").first
     
   
-    song.file_name = file_name
+    Song.file_name = file_name
     song
     end
 end
