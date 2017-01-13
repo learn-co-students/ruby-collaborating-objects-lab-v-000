@@ -40,10 +40,12 @@ class Song
   end
 
   def self.new_by_filename(file_name)
-    file_name = file_name.split(" - ").first
-    
-  
-    Song.file_name = file_name
+    #"artist - song - genre.mp3"
+    artist_name = file_name.split(" - ").first
+    song_name = file_name.split(" - ")[1]
+    song = self.new(song_name)
+    binding.pry
+    song.file_name = file_name
     song
     end
 end
