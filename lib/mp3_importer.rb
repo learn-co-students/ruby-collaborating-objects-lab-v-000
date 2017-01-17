@@ -8,7 +8,6 @@ class MP3Importer
   end
 
   def files
-      binding.pry
     Dir.glob("./spec/fixtures/mp3s/*").collect do |f|
       f.gsub("./spec/fixtures/mp3s/","")
     end
