@@ -11,24 +11,15 @@ class Song
   end
 
   def artist_name=(name)
-    if (self.artist.nil?)
-      self.artist = Artist.new(name)
-    else
-      self.artist.name = name
-    end
+  Artist.find_by_name(name) || Artist.create_by_name(name)
+      #self.artist.name = name
   end
 
-  def new_by_filename(file_name)
-   song = self.new         #creates the new song. Use self = Song
-   song.file_name = file_name   #gives it a name
-   song                    #instance of Song
-  end
 
   def self.create_by_filename(file_name)
     song = Song.new_by_filename(file_name)
     song.save
     song                    #instance of Song
-    binding.pry
   end
 
   def self.find_by_filename(file_name)
@@ -41,11 +32,15 @@ class Song
 
   def self.new_by_filename(file_name)
     #"artist - song - genre.mp3"
-    artist_name = file_name.split(" - ").first
+    artist_name = file_name.split(" - ").first #"John Lennon"
     song_name = file_name.split(" - ")[1]
     song = self.new(song_name)
-    binding.pry
-    song.file_name = file_name
+    song.artist_name=(artist_name)
+    
+    #song.file_name = file_name
+    #song.uniq 
+    #song.to_set
+    #song & song
     song
     end
 end

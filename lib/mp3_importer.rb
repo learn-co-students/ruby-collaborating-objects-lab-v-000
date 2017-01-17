@@ -8,17 +8,18 @@ class MP3Importer
   end
 
   def files
-    Dir::glob("./spec/fixtures/mp3s/*").collect do |f|
+      binding.pry
+    Dir.glob("./spec/fixtures/mp3s/*").collect do |f|
       f.gsub("./spec/fixtures/mp3s/","")
     end
   end
 
   def import
-#write code that responds to MP3Importer.new('./db/mp3s').import
-    Song.new_by_filename(self.files[0])
-    binding.pry
+  #write code that responds to MP3Importer.new('./db/mp3s').import
+    files.each do |file|
+      Song.new_by_filename(file)
+      #Artist.find_or_create_by_name(name) expected 3 got 8
+      #expected 3 got 6
+    end
   end
-
-    #Song.new_by_filename(some_filename)
-
 end
