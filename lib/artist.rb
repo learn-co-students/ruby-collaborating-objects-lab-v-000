@@ -1,23 +1,23 @@
 require 'pry'
 class Artist
   attr_accessor :name, :song
-   @@all = []
+    @@all = []
 
-   def self.all
+  def self.all
      @@all
-   end
+  end
 
 
-   def initialize(name)
-     @name = name
-     @@songs =[]
-   end
+  def initialize(name)
+    @name = name
+    @@songs =[]
+  end
 
-   def songs
-     @@songs
-   end
+  def songs
+    @@songs
+  end
 
-   def self.new_by_name(name)
+  def self.new_by_name(name)
     artist = self.new(name)        #creates the new Artist. Use self = Artist
     artist.name = name   #gives it a name
     artist                    #instance of Artist
@@ -27,9 +27,9 @@ class Artist
     artist = Artist.new
     artist.save
     artist
-end
+  end
 
-   def self.find_by_name(name)
+  def self.find_by_name(name)
     self.all.detect{|artist| artist.name == name}
   end
 
@@ -39,19 +39,19 @@ end
     artist                    #instance of Artist
   end
 
-   def self.find_or_create_by_name(name)
+  def self.find_or_create_by_name(name)
        self.find_by_name(name) || self.create_by_name(name)
-   end
+  end
 
-   def save
-     self.class.all << self
-   end
+  def save
+    self.class.all << self
+  end
 
-   def add_song(song)
-     @@songs << song
-   end
+  def add_song(song)
+    @@songs << song
+  end
 
-   def print_songs
-     self.songs.each{|artist| puts "#{artist.name}"}
-   end
+  def print_songs
+    self.songs.each{|artist| puts "#{artist.name}"}
+  end
 end
