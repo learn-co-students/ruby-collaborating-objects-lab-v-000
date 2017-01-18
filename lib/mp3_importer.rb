@@ -14,12 +14,9 @@ class MP3Importer
   end
 
   def import
-    binding.pry
-  #write code that responds to MP3Importer.new('./db/mp3s').import
     files.each do |file|
       Song.new_by_filename(file)
-      #Artist.find_or_create_by_name(name) expected 3 got 8
-      #expected 3 got 6
+#expect(Artist.all.first.songs.empty? && Artist.all.last.songs.empty?).to eq(false)
     end
   end
 end

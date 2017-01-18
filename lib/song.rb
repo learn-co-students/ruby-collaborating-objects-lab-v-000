@@ -11,8 +11,9 @@ class Song
   end
 
   def artist_name=(name)
-  Artist.find_by_name(name) || Artist.create_by_name(name)
-      #self.artist.name = name
+  artist = Artist.find_or_create_by_name(name)
+  artist.name = name
+  self.artist = artist
   end
 
 
@@ -36,11 +37,11 @@ class Song
     song_name = file_name.split(" - ")[1]
     song = self.new(song_name)
     song.artist_name=(artist_name)
-    
-    #song.file_name = file_name
-    #song.uniq 
-    #song.to_set
-    #song & song
-    song
-    end
+    song.name
+    artist = Artist.new(artist_name)
+    #Song.artist = artist_name
+    artist = self.name#song_name
+    song.artist
+    #binding.pry
+  end
 end
