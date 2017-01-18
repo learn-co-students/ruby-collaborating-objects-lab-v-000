@@ -16,7 +16,6 @@ class MP3Importer
   def import
     files.each do |file|
       Song.new_by_filename(file)
-#expect(Artist.all.first.songs.empty? && Artist.all.last.songs.empty?).to eq(false)
     end
   end
 end

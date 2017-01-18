@@ -32,16 +32,15 @@ class Song
   end
 
   def self.new_by_filename(file_name)
-    #"artist - song - genre.mp3"
     artist_name = file_name.split(" - ").first #"John Lennon"
     song_name = file_name.split(" - ")[1]
     song = self.new(song_name)
     song.artist_name=(artist_name)
-    song.name
-    artist = Artist.new(artist_name)
-    #Song.artist = artist_name
-    artist = self.name#song_name
-    song.artist
-    #binding.pry
+    song
   end
+
+  def add_song(song)
+    @@songs << song
+  end
+  
 end
