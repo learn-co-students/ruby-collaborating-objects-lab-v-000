@@ -13,6 +13,7 @@ attr_accessor :name, :songs
     @songs 
   end# of songs 
 
+  
 
   def add_song(song)
     @songs != nil ? @songs << song : @songs = [] << song 
