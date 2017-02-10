@@ -21,20 +21,25 @@ class Artist
     @@all << self
   end
 
-  def all
+  def self.all
     @@all
   end
 
+  def self.create(name)
+    self.new(name).tap{ |artist| artist.save }
+  end
+
+
   def self.find_or_create_by_name(name)
-    if @@all.find(name)
-      @@all.find(name)
+    if self.all.find {|artist| artist.name == name}
+      self.all.find {|artist| artist.name == name}
     else
-      Artist.new(name)
+      self.create(name)
     end
   end
 
   def print_songs
-    puts @songs
+    songs.each {|song| puts song.name}
   end
 
 end
