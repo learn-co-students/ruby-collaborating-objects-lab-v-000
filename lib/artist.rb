@@ -32,4 +32,3 @@ class Artist
       @@all.name
     end
 end
-end
