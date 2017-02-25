@@ -24,11 +24,11 @@ class Artist
       artist.name
       binding.pry
     end
-    def self.create(name)
+  def self.create(name)
       artist = self.new(name)
       artist
-    end
-    def print_songs
+  end
+  def print_songs
       @@all.name
-    end
+  end
 end
