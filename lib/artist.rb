@@ -15,19 +15,25 @@ class Artist
     @@all
   end
   def save
-    #binding.pry
     @@all << self
-    #binding.pry
-    #self.all
-    #binding.pry
   end
   def self.find_or_create_by_name (name)
-    if @@all.any?do
-    |i|i == name
-    end
-    name = i
+    if @@all.detect do |i|#search enumerable to return
+      #binding.pry
+      i.name == name end # i.name Reads value of i object
+      #and name attribute of i
+      #returns found match instance of (artist_1).to eq(artist_2)
     else
-    self.new(name)
+      self.create(name)
+    end
+    def self.create(name)
+      Artist = self.new(name) #instantiates new objects
+      #artist.save
+      Artist
+      #binding.pry
+    end
+    def print_songs
+      @@all.name
     end
   end
 end
