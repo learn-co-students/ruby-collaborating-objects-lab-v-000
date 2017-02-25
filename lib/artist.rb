@@ -17,10 +17,9 @@ class Artist
     @@all << self
   end
   def self.find_or_create_by_name (name)
-    if @@all.detect do |i|
-      i.name == name end
+    if @@all.detect do |i| i.name == name end
     else
-      artist = self.create(name)
+      artist = self.new(name)
       artist.name
       binding.pry
     end
@@ -31,4 +30,5 @@ class Artist
   def print_songs
       @@all.name
   end
+end
 end
