@@ -27,13 +27,13 @@ class Artist
       self.create(name)
     end
     def self.create(name)
-      Artist = self.new(name) #instantiates new objects
+      artist = self.new(name) #instantiates new objects
       #artist.save
-      Artist
-      #binding.pry
+      artist
     end
+      #binding.pry
     def print_songs
       @@all.name
     end
-  end
+
 end
