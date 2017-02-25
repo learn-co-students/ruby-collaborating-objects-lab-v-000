@@ -5,8 +5,7 @@ class Artist
   def initialize(name)
     @name = name
     @songs = []
-    @artist = artist#=rspec line 30....to include(artist)
-    #@@all << self
+    @artist = artist
   end
   def add_song(song)
     @songs<< song
@@ -18,22 +17,19 @@ class Artist
     @@all << self
   end
   def self.find_or_create_by_name (name)
-    if @@all.detect do |i|#search enumerable to return
-      #binding.pry
-      i.name == name end # i.name Reads value of i object
-      #and name attribute of i
-      #returns found match instance of (artist_1).to eq(artist_2)
+    if @@all.detect do |i|
+      i.name == name end
     else
-      self.create(name)
+      artist = self.create(name)
+      artist.name
+      binding.pry
     end
     def self.create(name)
-      artist = self.new(name) #instantiates new objects
-      #artist.save
+      artist = self.new(name)
       artist
     end
-      #binding.pry
     def print_songs
       @@all.name
     end
-
+end
 end
