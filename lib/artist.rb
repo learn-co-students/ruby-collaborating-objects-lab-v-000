@@ -28,7 +28,7 @@ class Artist
       binding.pry
       artist.save
       binding.pry
-      #artist
+      artist
   end
   def print_songs
     songs.each{|song| puts song.name}
