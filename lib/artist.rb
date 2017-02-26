@@ -26,8 +26,9 @@ class Artist
   def self.create(name)
       artist = self.new(name)
       binding.pry
-      #artist.save
+      artist.save
       binding.pry
+      #artist
   end
   def print_songs
     songs.each{|song| puts song.name}
