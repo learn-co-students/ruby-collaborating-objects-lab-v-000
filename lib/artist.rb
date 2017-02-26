@@ -17,8 +17,8 @@ class Artist
       @@all << self
     end
   def self.find_or_create_by_name (name)
-    if @@all.detect {|i| i.name == name}
-      @@all.detect {|i| i.name == name}
+    if self.all.detect {|i| i.name == name}
+      self.all.detect {|i| i.name == name}
     else
       self.create(name)
     end
