@@ -14,6 +14,7 @@ class Song
     file_split = file.split(" - ")
     song = self.new(file_split[1])
     song.artist = Artist.find_or_create_by_name(file_split[0])
+    song.artist.add_song(file_split[1])
     song
   end
 end

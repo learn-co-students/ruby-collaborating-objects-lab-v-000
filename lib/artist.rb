@@ -10,6 +10,7 @@ class Artist
   def initialize(name)
     @name = name
     @@artists << self
+    @songs = []
   end
 
   def save
@@ -24,24 +25,26 @@ class Artist
       end
     end
     if i == 0
-      Artist.new(artist)
+      a = Artist.new(artist)
+      @@all << a
+      a
     else
       @@artists[i-1]
     end
   end
 
   def print_songs
-    @@artists.collect do |s|
-      s.songs
+    @songs.each do |s|
+      puts s.name
     end
   end
 
   def add_song(song)
-    @@all << song
+    @songs << song
   end
 
   def songs
-    @@all
+    @songs
   end
 
   def self.all
