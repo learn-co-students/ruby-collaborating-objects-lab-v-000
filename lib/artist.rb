@@ -48,5 +48,9 @@ class Artist
     #binding.pry
     end
   end
-
+  def print_songs
+    @songs.each do |artist| puts artist.name end
+    #binding.pry
+    #stdout = puts or print command
+  end
 end
