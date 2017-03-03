@@ -8,13 +8,11 @@ class Artist
   def initialize(name)
     @name = name
     @songs = []
-    @@all << self
   end
 
-  def add_song(title)
-    song = Song.new(title)
-    song.artist = self
-    @songs << title
+  def add_song(song)
+    song.artist = self if !song.artist
+    @songs << song if !@songs.include?(song)
   end
 
   def save
@@ -25,17 +23,26 @@ class Artist
     @@all
   end
 
+  def self.find(name)
+    Artist.all.find{|artist| artist if artist.name == name}
+  end
+
+  def self.create(name)
+    Artist.new(name).tap{|artist| artist.save}
+  end
+
   def self.find_or_create_by_name(name)
-    @@all.each do |instance|
-      if instance.name == name
-      else
-        self.new(name)
-      end
+    if self.find(name)
+      self.find(name)
+    else
+      self.create(name)
     end
   end
 
   def print_songs
-    @songs
+    @songs.each do |song_name|
+      puts song_name.name
+    end
   end
 
 end
