@@ -10,6 +10,7 @@ class Artist
   end
   def name=(name) #setter method, Crud
     @name=name
+    binding.pry
   end
   def songs #getter method cRud
     @songs
@@ -45,12 +46,17 @@ class Artist
       self.all.find{|list_item| list_item.name == name}
     else
       new_artist = Artist.new(name)
+      new_artist.save
+      #binding.pry
+      new_artist
     #binding.pry
     end
   end
   def print_songs
     @songs.each do |artist| puts artist.name end
     #binding.pry
-    #stdout = puts or print command
+    #rspec stdout = puts or print command;
+    #error: *\e[0G = removal of binding.pry on line 53
+    #puts command printout instance method, name, value
   end
 end
