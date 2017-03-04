@@ -1,7 +1,9 @@
+require 'pry'
 class MP3Importer
   #solves uninitalize constant MP3Importer error
   def path=(path)#setter method
     @path = path
+    binding.pry
   end
   def path#getter method
     @path
@@ -24,7 +26,9 @@ class MP3Importer
     files.each do |song| Song.new_by_filename(song) end
     #iterate through the files collection and
     #calls class method, Song.new_by_filename,
-    #and pass its song to class method argument
+    #and pass its song to class method,
+    #Song.new_by_filename, argument
     #to instantiate a song
+    #binding.pry
   end
 end
