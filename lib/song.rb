@@ -40,7 +40,7 @@ class Song
     binding.pry
     song
   end
-  def artist_name=(name)# a setter method
+  def artist_name=(name)# a setter method not in RSPEC
     #Outcome: to assign an artist
     #object instance to a song instance
     #Event: when called by Song object instance
@@ -54,14 +54,14 @@ class Song
     self.artist = Artist.find_or_create_by_name(name)
     #foreign_key_equivalent=
     #calls the artist instance method
-    #to call Class Artist method, create or find
-    #in order to <new object instance>
+    #Assigns Artist object instance
+    #when call Class Artist method is called
     #binding.pry
     artist.add_song(self)
     #adds Song object instance to Artist object instance
     #call artist, which like a foreign_key_equivalent,
     #to allow instance method, add_song from Artist
     #class to receive Song object, self
-    #bindinSg.pry
+    #binding.pry
   end
 end
