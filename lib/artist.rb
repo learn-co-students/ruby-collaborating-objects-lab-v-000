@@ -10,7 +10,7 @@ class Artist
   end
   def name=(name) #setter method, Crud
     @name=name
-    binding.pry
+    #binding.pry
   end
   def songs #getter method cRud
     @songs

@@ -3,7 +3,7 @@ class MP3Importer
   #solves uninitalize constant MP3Importer error
   def path=(path)#setter method
     @path = path
-    binding.pry
+    #binding.pry
   end
   def path#getter method
     @path

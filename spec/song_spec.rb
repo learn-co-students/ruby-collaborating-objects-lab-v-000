@@ -1,3 +1,4 @@
+require 'pry'
 describe 'Song' do
   let(:song) {Song.new('Man in the Mirror')}
   let(:file_name) {'Michael Jackson - Black or White - pop.mp3'}
@@ -18,7 +19,9 @@ describe 'Song' do
   describe '#artist=' do
     it 'sets the artist object to belong to the song' do
       new_artist_object = Artist.new('King of Pop')
+      #binding.pry
       song.artist = new_artist_object
+      #binding.pry
       expect(song.artist).to eq(new_artist_object)
     end
   end
