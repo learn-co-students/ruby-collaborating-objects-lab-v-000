@@ -53,6 +53,9 @@ class Song
     #as a result of class method, self.artist
     self.artist = Artist.find_or_create_by_name(name)
     #foreign_key_equivalent=
+    #calls the artist instance method
+    #to call Class Artist method, create or find
+    #in order to <new object instance>
     #binding.pry
     artist.add_song(self)
     #adds Song object instance to Artist object instance
