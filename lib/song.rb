@@ -9,7 +9,7 @@ class Song
     #binding.pry
   end
   def name=(name)#setter method
-    @name = name#class Song
+  @name = name#class Song
     #binding.pry
   end
   def name
@@ -39,9 +39,9 @@ class Song
   end
   def artist_name=(artist)
     self.artist = Artist.find_or_create_by_name(artist)
-    binding.pry
+    #binding.pry
     self.artist.add_song(self)
-    binding.pry
+    #binding.pry
   end
 
 end
