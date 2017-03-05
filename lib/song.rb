@@ -2,6 +2,7 @@ require 'pry'
 class Song
   #attr_accessor :name, :artist
   def artist=(artist)#setter method
+    #binding.pry
     @artist = artist
   end
   def artist
@@ -38,10 +39,8 @@ class Song
     #binding.pry
   end
   def artist_name=(artist)
-    self.artist = Artist.find_or_create_by_name(artist)
-    #binding.pry
+    self.artist=(Artist.find_or_create_by_name(artist))
     self.artist.add_song(self)
-    #binding.pry
   end
 
 end
