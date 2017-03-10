@@ -7,7 +7,7 @@ class MP3Importer
   end
 
   def files  #glob( pattern, [flags] ) {| filename | block } → nil https://ruby-doc.org/core-1.9.3/Dir.html
-     @files ||= Dir.glob("#{path}/*.mp3").collect do |normalize|
+      Dir.glob("#{path}/*.mp3").collect do |normalize|
       normalize.gsub("#{path}/","")
     end
 
