@@ -1,13 +1,17 @@
 class Song
   attr_accessor :name, :artist
-  def initialize(name)
+  def initialize(name, artist = nil)
     @name = name
+    @artist = artist
   end
 
-  def new_by_filename(filename)
-    song = Song.new
-    song.name = filename.split(" - ")[1]
-    song.artist = filename.split(" - ")[0]
+  def self.new_by_filename(file_name)
+    name = file_name.split(" - ")[1]
+    artist_name = file_name.split(" - ")[0]
+    artist = Artist.find_or_create_by_name(artist_name)
+    song = Song.new(name, artist)
+    artist.add_song(song)
     song
   end
+
 end
