@@ -1,25 +1,24 @@
 class Artist
   attr_accessor :name, :songs
-  @@all =[]
+  @@all = []
   def initialize(name)
     @name = name;
     @songs = [];
+
   end
 
-  def add_song(song_name)
-    @songs << song_name
-    @songs
+  def add_song(song)
+    @songs << song
   end
 
 
 def self.all
-     @@all << self
      @@all
    end
+
   def save
         @@all << self
-        @@all
-end
+  end
 
 def self.find_or_create_by_name(artist_name)
     count = 0
@@ -29,9 +28,9 @@ def self.find_or_create_by_name(artist_name)
   end
   }
   if(count == 0)
-    new_artist = self.new(artist_name)
+    new_artist = Artist.new(artist_name)
     @@all << new_artist
-    new_artist
+     new_artist
   end
 
 end

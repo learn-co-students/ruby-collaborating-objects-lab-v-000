@@ -1,21 +1,24 @@
 require 'pry'
 class Song
-attr_accessor :name, :artist, :song
+attr_accessor :name, :artist
 
   def initialize(name)
     @name = name
   end
 
-  def artist_name=(nam)
-    #binding.pry
-    self.artist = Artist.find_or_create_by_name(nam)
-    artist.add_song(self)
+  # def artist_name= (artist_name)
+  #   artist_instance = Artist.find_or_create_by_name(artist_name)
+  #   artist_instance.add_song(self) if artist_instance
+  # end
+
+  def self.new_by_filename(file)
+
+    artist,name = file.split(" - ")
+    new_instance =  Song.new(name)
+    new_instance.artist = Artist.find_or_create_by_name(artist)
+    new_instance.artist.add_song(self) if new_instance.artist
+    new_instance
+
   end
 
-    def self.new_by_filename(filename)
-  #binding.pry
-    new_instance = Song.new(filename.split(" - ")[1])
-    new_instance.artist_name = filename.split(" - ")[0]
-    new_instance
-  end
   end
