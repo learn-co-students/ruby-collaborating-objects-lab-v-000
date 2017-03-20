@@ -24,9 +24,13 @@ class Artist
   end
 
   def self.create_by_name(name)
-    artist = self.new(name)
-    artist.save
-    artist
+    #first solution
+    #artist = self.new(name)
+    #artist.save
+    #artist
+
+    #refactored solution
+    self.new(name).tap {|artist| artist.save}
   end
 
   def self.find_by_name(name)
@@ -34,7 +38,11 @@ class Artist
   end
 
   def self.find_or_create_by_name(name)
-    self.find_by_name(name) || self.create_by_name(name)
+    #first solution
+    #self.find_by_name(name) || self.create_by_name(name)
+
+    #alternative solution
+    self.find_by_name(name) ? self.find_by_name(name) : self.create_by_name(name)
   end
 
   def print_songs
