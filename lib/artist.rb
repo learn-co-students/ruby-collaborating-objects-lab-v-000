@@ -17,8 +17,19 @@ class Artist
     @@all
   end
 
+  def self.find_or_create_by_name(name)
+    #binding.pry
+    if @@all.any?{ |artist| artist.name == name}
+      @@all.detect{ |artist| artist.name == name}
+    else
+      new_artist = Artist.new(name)
+      new_artist.save
+      new_artist
+    end
+  end
+
   def save
-  @@all << self
+    @@all << self
   end
 
 end
