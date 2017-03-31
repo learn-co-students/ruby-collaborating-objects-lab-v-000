@@ -5,8 +5,10 @@ class Song
     @name = name
   end
 
-  def artist_name
-    self.artist ? self.artist.name : nil    
+  def self.new_by_filename(filename)
+    artist_name, song_name, genre = MP3Importer.file_shredder(filename).values
+    new_artist = Artist.find_or_create_by_name(artist_name)
+    new_artist.add_song_by_name(song_name)
   end
 
 end
