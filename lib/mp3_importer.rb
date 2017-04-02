@@ -11,8 +11,8 @@ class MP3Importer
   end
 
   def import
-    @files_arr.each{|x|
-      binding.pry
+    files.each{|x|
+      # binding.pry
       Song.new_by_filename(x)
     }
   end

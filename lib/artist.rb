@@ -6,11 +6,12 @@ class Artist
   def initialize(name)
     @name = name
     @songs = []
-    self.save
+    self.save if !@@all.detect{|artist| artist.name == name}
   end
 
   def save
     @@all << self
+    @@all.uniq!
   end
 
   def self.all
