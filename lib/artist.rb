@@ -11,7 +11,6 @@ class Artist
 
   def save
     @@all << self
-    @@all.uniq!
   end
 
   def self.all

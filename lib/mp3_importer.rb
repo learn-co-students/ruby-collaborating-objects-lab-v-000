@@ -1,4 +1,3 @@
-require 'pry'
 class MP3Importer
   attr_reader :path
   def initialize(test_music_path)
@@ -11,10 +10,6 @@ class MP3Importer
   end
 
   def import
-    files.each{|x|
-      # binding.pry
-      Song.new_by_filename(x)
-    }
+    files.each{|x| Song.new_by_filename(x)}
   end
-
 end
