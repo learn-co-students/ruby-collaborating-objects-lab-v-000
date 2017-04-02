@@ -1,0 +1,20 @@
+require 'pry'
+class MP3Importer
+  attr_reader :path
+  def initialize(test_music_path)
+    @path = test_music_path
+    @files_arr=[]
+  end
+
+  def files
+    @files_arr = Dir["#{@path}/*.mp3"].collect{|unabridge| unabridge.split(@path+ "/").join}
+  end
+
+  def import
+    @files_arr.each{|x|
+      binding.pry
+      Song.new_by_filename(x)
+    }
+  end
+
+end
