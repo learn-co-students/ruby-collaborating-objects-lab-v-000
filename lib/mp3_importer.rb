@@ -11,7 +11,8 @@ class MP3Importer
 
 
   def files
-    song_list = []
-    Dir['./db/mp3s/*.rb']
+    files = Dir["#{@path}/*"]
   end
+
+  
 end

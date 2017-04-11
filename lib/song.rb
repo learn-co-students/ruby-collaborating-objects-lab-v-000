@@ -1,3 +1,5 @@
+require 'pry'
+
 class Song
   attr_accessor :Artist, :name
 
@@ -5,12 +7,9 @@ class Song
     @name = name
   end
 
-  def artist=(name)
-    if (self.artist.nil?)
-      self.artist = Artist.new(name)
-    else
-      self.artist.name = name
-    end
+  def self.new_by_filename(song)
+    song.split('- ')
   end
+
 
 end
