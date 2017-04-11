@@ -8,11 +8,10 @@ class Artist
     @@all<<self
   end
   def self.find_or_create_by_name(name)
-    artist=self.all.detect{|artist| artist.name==name}
+    artist=@@all.detect{|artist| artist.name==name}
     #binding.pry
     if (artist==nil)
       artist=self.new(name)
-      self.all<<artist
     end
     artist
   end

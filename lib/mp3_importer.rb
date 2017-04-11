@@ -9,9 +9,10 @@ class MP3Importer
   def files
     @@filenames=Dir.entries(path).grep(/[\w\s\d-]*.mp3\z/)
   end
+
   def import
-    @@filenames.each do|mp3|
-      Song.new_by_filename(mp3)
+    @@filenames.each do|filename|
+      Song.new_by_filename(filename)
     end
   end
 end
