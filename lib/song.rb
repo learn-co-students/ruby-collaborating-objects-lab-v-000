@@ -5,7 +5,7 @@ class Song
     @name = name
   end
 
-  def artist_name=(name)
+  def artist=(name)
     if (self.artist.nil?)
       self.artist = Artist.new(name)
     else
