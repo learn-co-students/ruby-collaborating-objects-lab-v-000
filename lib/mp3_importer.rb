@@ -6,7 +6,7 @@ class MP3Importer
   end
 
   def files
-    #come cercare tutti file nella directory ed esporli
+    #come cercare tutti file nella directory ed esporlil
     Dir.glob("#{@path}/*.mp3").select{ |f| File.file?(f) }.map{ |f| File.basename f }
   end
 
