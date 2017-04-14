@@ -1,6 +1,5 @@
 require 'pry'
 
-
 class MP3Importer
   attr_accessor :path, :songs
 
@@ -11,8 +10,14 @@ class MP3Importer
 
 
   def files
-    files = Dir["#{@path}/*"]
+    files = Dir["#{@path}/*.mp3"]
+    files.collect do |song_file|
+      song_file.gsub(@path + '/', '')
+    end
   end
 
-  
+  def import
+  end
+
+
 end
