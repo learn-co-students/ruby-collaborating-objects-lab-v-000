@@ -10,7 +10,7 @@ class Song
     name = splitted_filename[1]
     song = self.new(name)
     song.artist = Artist.find_or_create_by_name(artist)
-    artist.add_s
+    song.artist.add_song(song)
     song
   end
 end
