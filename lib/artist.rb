@@ -1,17 +1,17 @@
 class Artist
 
-  attr_accessor :name, :songs, :artist
+  attr_accessor :name, :songs
 
   @@all = []
 
   def initialize(name)
-    @name = name
-    @songs = []
+    self.name = name
+    self.songs = []
     @@all << self
   end
 
   def add_song(song)
-    @songs << song
+    self.songs << song
     song.artist = self
   end
 
@@ -24,20 +24,15 @@ class Artist
   end
 
   def self.find_or_create_by_name(name)
-    if self.name.nil?
-      name = Artist.new(name)
-    else
-      self.name = name
-    end
-
+      if @@all.detect {|a| a.name == name} != nil
+        @@all.detect {|a| a.name == name}
+      else
+        self.new(name)
+      end
   end
-
 
   def print_songs
-    @songs.each {|e| print e.name}
+    songs.each {|e| puts e.name}
   end
 
-  def songs
-    @songs.each {|e| print e}
-  end
 end
