@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 require 'pry'
 
+=======
+>>>>>>> be1c48b7ae6a8194bfc92c0ca34af8bd5a2597b2
 class MP3Importer
   attr_accessor :path
 
@@ -8,6 +11,7 @@ class MP3Importer
   end
 
   def files
+<<<<<<< HEAD
      Dir.glob("./#{path}/*.mp3").collect{|file| file.gsub("./#{path}/", '')}
   end
 
@@ -16,4 +20,11 @@ class MP3Importer
       Song.new_by_filename(file)
     end
   end
+=======
+    #loads mp3 files in the path directory
+    #Dir.glob path/*.mp3
+    #gsub
+  end
+
+>>>>>>> be1c48b7ae6a8194bfc92c0ca34af8bd5a2597b2
 end
