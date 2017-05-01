@@ -16,6 +16,13 @@ def files
 @normalized_files
 end
 
+def import
+filelist = files
+filelist.each{|curr_filename|
+Song.new_by_filename(curr_filename)
+}
+end
 
+    
 
 end
