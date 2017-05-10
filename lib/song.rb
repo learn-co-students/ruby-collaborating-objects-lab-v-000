@@ -10,7 +10,8 @@ class Song
     song_name = x[1]
     artist_name = x[0]
     new_song = Song.new(song_name)
-    artist = new_song.artist = Artist.find_or_create_by_name(artist_name)
+    new_song.artist = Artist.find_or_create_by_name(artist_name)
+    new_song.artist.add_song(song_name)
     new_song
   end
 
