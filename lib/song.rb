@@ -16,15 +16,17 @@ class Song
   end
 
   def self.new_by_filename(filename)
+
+    #=> filename = "Thundercat - For Love I Come - dance.mp3"
+
     song_file = filename.split(" - ")
     new_song = self.new(song_file[1])
     new_artist = Artist.find_or_create_by_name(song_file[0])
-    
-    binding.pry
     new_song.artist = new_artist
 
     new_song.artist.songs << new_song
     new_song
+
   end
 
 end

@@ -16,6 +16,7 @@ class Artist
 
   def save
     @@all << self
+    self
   end
 
   def self.all
@@ -23,13 +24,11 @@ class Artist
   end
 
   def self.find_or_create_by_name(name)
-    @@all.each {|artist|
-      if artist.name == name
-        return artist
-      else
-        self.new(name)
-      end
-    }
+    matching_artist = @@all.select{|artist| artist.name == name}[0] # an artist or nil
+    if !matching_artist then
+      matching_artist = self.new(name)
+    end
+    matching_artist
   end
 
   def add_song(song)
