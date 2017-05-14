@@ -1,3 +1,5 @@
+require 'pry'
+
 class Artist
   attr_accessor :name, :songs
 
@@ -9,12 +11,16 @@ class Artist
     self.save
   end
 
-  def self.find_or_create_by_name(new_name)
-     if new_name.instance_of? self
-       artist = self.new(new_name)
-       self.save
-    else
-      self
+  def self.find_or_create_by_name(name)
+  found = false
+   @@all.each {|artist|
+     if artist.name == name
+       found = true
+       return artist
+     end
+   }
+   if found == false
+      self.new(name)
     end
   end
 

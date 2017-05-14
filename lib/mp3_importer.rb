@@ -1,3 +1,5 @@
+require 'pry'
+
 class MP3Importer
   attr_accessor :path
 
@@ -6,12 +8,12 @@ class MP3Importer
   end
 
   def files
-    @song_array = Dir["path/*.mp3"].to_a
+    @song_array = Dir["#{path}/*.mp3"].to_a
+    @song_array.collect {|file| File.basename file}
   end
 
   def import
-    @song_array.each do |song|
-      Song.new_by_filename(song)
-    end
+    files.each {|record|
+      Song.new_by_filename(record)}
   end
 end
