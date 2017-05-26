@@ -33,7 +33,9 @@ class Artist
         }
         if find_val == nil
             find_val = self.new(name)
+             find_val.save
         end
+       
         find_val
     end
 
