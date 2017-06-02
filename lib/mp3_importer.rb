@@ -12,18 +12,12 @@ class MP3Importer
   end
 
   def import
+    self.files
     @files.each do |file|
       song = Song.new(file.split(" - ")[1])
       artist = Artist.find_or_create_by_name(file.split(" - ")[0])
-      song.artist = artist
+      artist.add_song(song)
       song
     end
   end
 end
-=begin
-mptest = MP3Importer.new("./spec/fixtures/mp3s")
-puts mptest.files
-puts mptest.import
-puts "Artists:"
-puts Artist.all.size
-=end
