@@ -1,3 +1,5 @@
+require 'pry'
+
 describe 'Artist' do
   let(:artist) {Artist.new('Michael Jackson')}
 
@@ -27,9 +29,11 @@ describe 'Artist' do
   describe '#save' do
     it 'adds the artist instance to the @@all class variable' do
       artist.save
+    
       expect(Artist.all).to include(artist)
     end
   end
+
 
   describe '.find_or_create_by_name' do
     it 'finds or creates an artist by name maintaining uniqueness of objects by name property' do
