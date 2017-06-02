@@ -35,8 +35,8 @@ class Artist
       self.find(name) || self.create(name)
     end
 
-    def self.print_songs
-      self.all.each{|artist| puts "#{artist.name}"}
+    def print_songs
+      songs.each{|song| puts song.name}
     end
 
 end
