@@ -13,8 +13,9 @@ class Artist
   def self.new_by_filename(file)
     name = file.split(" - ")[0]
     artist = self.new(name)
-    artist.song = Song.new(file.split(" - ")[1])
-    @@all << artist
+    song = Song.new(file.split(" - ")[1])
+    artist.add_song(song)
+    artist.save
   end
 
   def self.find_or_create_by_name(artist_name)
