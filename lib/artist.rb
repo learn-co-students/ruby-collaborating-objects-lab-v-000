@@ -7,7 +7,6 @@ class Artist
   def initialize(name)
     @name = name
     @songs = []
-
   end
 
   def self.find_by_name(name)
@@ -15,7 +14,13 @@ class Artist
   end
 
   def self.find_or_create_by_name(artist)
-    self.find_by_name(artist) ? self.find_by_name(artist) : Artist.new(artist)
+    self.find_by_name(artist) ? self.find_by_name(artist) : Artist.create(artist)
+  end
+
+  def self.create(artist)
+    new_artist = self.new(artist)
+    new_artist.save
+    new_artist
   end
 
   def save
