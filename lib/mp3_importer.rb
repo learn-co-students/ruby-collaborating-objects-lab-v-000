@@ -9,9 +9,13 @@ class MP3Importer
     #binding.pry
   end
 
-  def music_importer
+  def import
     binding.pry
-    songs = MP3Importer.new
+    temp = []
+    path = @path
+    path.each do |file|
+      temp << file
+    end
 
   end
 
