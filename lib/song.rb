@@ -21,7 +21,7 @@ class Song
     #Artist.find_or_create_by_name(artist).song << title
     #Artist.new(artist)
     Song.new(title)
-    self.artist.name = artist
+    #self.artist.name = artist
     #binding.pry
     #Song.new(title)
     #Song.new(title).artist = Artist.new(artist)
