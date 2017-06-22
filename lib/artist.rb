@@ -30,10 +30,10 @@ class Artist
     @songs
   end
 
-  def print_songs(name)
+  def print_songs
     self.songs.each do |song|
-    puts song
-  end
+      puts song
+    end
   end
 
   def self.all
