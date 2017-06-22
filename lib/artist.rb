@@ -7,24 +7,23 @@ class Artist
     @songs = []
   end
 
-  def add_song(title)
-    song = Song.new(title)
+  def add_song(song)
     @songs << song
   end
 
   def save
-    artist = self.new(name)
-    @@all << artist
+    @@all << self
   end
 
-  def find_or_create_by_name(name)
-    if @@all.include?(name)
-      self.artist.name
+  def self.find_or_create_by_name(name)
+    match = @@all.detect {|artist| artist.name == name}
+    if match
+       match
     else
-      self.artist = Artist.new(name)
-      self.artist.name = name
-      self.artist.name
-    end
+        artist = Artist.new(name)
+        @@all << artist
+        artist
+      end
   end
 
   def songs
@@ -36,4 +35,9 @@ class Artist
     puts song
   end
   end
+
+  def self.all
+    @@all
+  end
+
 end
