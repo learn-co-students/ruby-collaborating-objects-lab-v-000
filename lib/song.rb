@@ -4,28 +4,18 @@ class Song
     @name = name
   end
 
-  attr_accessor :name
-  attr_reader :artist
+  attr_accessor :name, :artist
 
-  # def new_song(name)
-  #   song = Song.new(name)
-  # end
-
-  def artist_name=(artist_name)
-    Artist.find_or_create_by_name(artist_name)
-    #self.artist.add_song(self)
+  def artist_name=(name)
+    self.artist = Artist.find_or_create_by_name(name)
   end
 
-  def artist=(artist_name)
-    self.artist = artist_name
-  end
-
-  def new_by_filename(file_name)
+  def self.new_by_filename(file_name)
     #artist - song - genre.mp3
-    file_arr = file_name.split(" - ")
-    song = Song.new(file_arr[1])
-    artist_name=file_arr[0]
-    #binding.pry
+    song = self.new(file_name.split(" - ")[1])
+    song.artist_name = file_name.split(" - ")[0]
+    song.artist.add_song(song)
     song
+
   end
 end
