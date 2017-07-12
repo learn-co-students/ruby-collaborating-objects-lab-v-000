@@ -25,9 +25,9 @@ class Artist
     self.all.find{|artist| artist.name == name}
   end
 
+  ### You need to review this and ask for more examples of .tap ###
   def self.create(name)
-    ### You need to review this and ask for more examples of .tap ###
-    self.new(name).tap {|artist| artist.save}    
+    self.new(name).tap {|artist| artist.save}
   end
 
   def self.find_or_create_by_name(name)
