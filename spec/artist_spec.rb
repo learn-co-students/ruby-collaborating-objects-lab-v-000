@@ -26,6 +26,7 @@ describe 'Artist' do
 
   describe '#save' do
     it 'adds the artist instance to the @@all class variable' do
+      #binding.pry
       artist.save
       expect(Artist.all).to include(artist)
     end
