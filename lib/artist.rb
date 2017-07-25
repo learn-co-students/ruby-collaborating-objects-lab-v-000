@@ -22,21 +22,20 @@ class Artist
       @@all << self
  end
  
- def find_or_create_by_name(name)
+ 
+ def self.find_or_create_by_name(name)
   found_artist = @@all.find { |artist|
     name == artist.name
    }
    
    if found_artist == nil 
       artist = Artist.new(name)
-      @@all << artist
-      song.artist = self
+      artist 
    end 
   
  end
  
  def print_songs
-   @@all
  end
  
 end
