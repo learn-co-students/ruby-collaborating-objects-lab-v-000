@@ -2,7 +2,7 @@ class Artist
  attr_accessor :name , :songs
  
  @@song_count = 0
- @@all = []
+ @@all = [] 
 
  
  def initialize(name)
@@ -11,7 +11,7 @@ class Artist
  end
  
  def add_song(song)
-     @songs<< song
+     @songs << song
  end
  
  def self.all
@@ -23,9 +23,15 @@ class Artist
  end
  
  def find_or_create_by_name(name)
-  song = Song.new(name)
-  songs << song
-  song.artist.uniq = self
+  found_artist = @@all.find { |artist|
+    name == artist.name
+   }
+   
+   if found_artist == nil 
+      artist = Artist.new(name)
+      @@all << artist
+      song.artist = self
+   end 
   
  end
  
