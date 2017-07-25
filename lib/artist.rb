@@ -22,5 +22,15 @@ class Artist
       @@all << self
  end
  
+ def find_or_create_by_name(name)
+  song = Song.new(name)
+  songs << song
+  song.artist.uniq = self
+  
+ end
+ 
+ def print_songs
+   @@all
+ end
  
 end
