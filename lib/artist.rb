@@ -26,7 +26,7 @@ class Artist
   def self.find_or_create_by_name(name)
     instance = @@all.detect {|artist| artist.name == name}
     if instance.nil?
-      Artist.new(name).tap {|artist| artist.save} #confused by this
+      Artist.new(name).tap {|artist| artist.save} 
     else
       instance
     end
