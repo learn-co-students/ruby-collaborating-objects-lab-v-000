@@ -16,7 +16,7 @@ class MP3Importer
     #      new_song = Song.new_by_filename(file_name) 
     #      @library << new_song 
     #    end      
-     @library = files.map do |file_name|
+       @library = files.map do |file_name|
          Song.new_by_filename(file_name)  
        end      
     end
