@@ -1,10 +1,14 @@
 class Song
-  attr_accessor :title, :artist
-  @@artists = Array.new
+  attr_accessor :title, :artist#, :genre
+  #@@artists = Array.new
   @@songs = Array.new
-  def initialize(artist)
-    @artist = artist
-    @@artists.push(artist)
+  #@@genres = Array.new
+
+  def initialize(title)
+    @title = title
   end
 
+  def self.new_by_filename(file_name)
+
+  end
 end
