@@ -8,8 +8,8 @@ class Artist
     @songs = []
   end
 
-  def add_song(title)
-    self.songs << title
+  def add_song(song)
+    self.songs << song
   end
 
   def self.all
@@ -23,6 +23,7 @@ class Artist
   def self.create_by_name(artist_name)
     artist = self.new(artist_name)
     artist.save
+
     #binding.pry
     artist
   end

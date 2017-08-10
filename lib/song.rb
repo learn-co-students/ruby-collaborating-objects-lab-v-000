@@ -53,7 +53,9 @@ class Song
     song_name = filename[1]
     song = self.find_or_create_by_name(song_name)
     artist_name = filename[0]
-    artist = Artist.find_or_create_by_name(artist_name)
+    song.artist = Artist.find_or_create_by_name(artist_name)
+    song.artist.add_song(song)
+    song
     #binding.pry
 
   end
