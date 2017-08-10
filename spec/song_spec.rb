@@ -4,14 +4,14 @@ describe 'Song' do
 
   describe '#initialize with #name' do
     it 'accepts a name for the song' do
-      expect(song.title).to eq('Man in the Mirror')
+      expect(song.name).to eq('Man in the Mirror')
     end
   end
 
   describe '#title=' do
     it 'sets the song name' do
-      song.title = 'Thriller'
-      expect(song.title).to eq('Thriller')
+      song.name = 'Thriller'
+      expect(song.name).to eq('Thriller')
     end
   end
 
