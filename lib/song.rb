@@ -28,14 +28,12 @@ class Song
   end
 
   def self.create_by_name(song_name)
-    #binding.pry
     song = self.new(song_name)
     song.save
     song
   end
 
   def self.find_by_name(song_name)
-    #binding.pry
     self.all.detect {|item| item.name == song_name}
   end
 
@@ -56,8 +54,6 @@ class Song
     song.artist = Artist.find_or_create_by_name(artist_name)
     song.artist.add_song(song)
     song
-    #binding.pry
-
   end
 
 end

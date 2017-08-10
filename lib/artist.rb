@@ -23,8 +23,6 @@ class Artist
   def self.create_by_name(artist_name)
     artist = self.new(artist_name)
     artist.save
-
-    #binding.pry
     artist
   end
 
