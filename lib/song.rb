@@ -19,11 +19,6 @@ class Song
     song
 
 
-
-    # song = Song.new(file.split("-")[1].strip)
-    # song.artist = Artist.find_or_create_by_name(file.split("-")[0].strip)
-    # song.artist.add_song(song)
-    # song
   end
 
 end
