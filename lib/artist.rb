@@ -7,13 +7,11 @@ class Artist
 
   def initialize(name)
     @name = name
+    @songs = []
   end
 
   def add_song(song)
-    if self.songs == nil
-      self.songs = []
-    end
-    self.songs << song
+    @songs << song
   end
 
   def save
@@ -42,7 +40,7 @@ class Artist
 
   def print_songs
     self.songs.each do |song|
-      puts "#{song.name}\n"
+      puts song.name
     end
   end
 
