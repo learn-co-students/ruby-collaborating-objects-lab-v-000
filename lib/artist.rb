@@ -1,7 +1,7 @@
 require 'pry'
 
 class Artist
-  attr_accessor :name, :songs, :artist
+  attr_accessor :name, :artist
 
   @@all = []
 
@@ -11,13 +11,17 @@ class Artist
   end
 
   def add_song(song) #keeps track of an artist's songs
-    @songs << song
-    song.artist = self
+    @songs<<song
+    song = Song.new
+    song.artist=self
+  end
+
+  def songs
+    @songs<<song
   end
 
   def save(artist) #adds artist instance to @@all
-    binding.pry
-    artist.self
+    @@all<<artist
   end
 
   def self.find_or_create_by_name(name) #finds or creates an artist by name, creates new instance of Artist if none exist
@@ -29,7 +33,9 @@ class Artist
 	  end
 
   def print_songs #lists all of the artist's songs
-    @songs
+    @@all.each do |song|
+      puts song.name
+    end
   end
 
 end
