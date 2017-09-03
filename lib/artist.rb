@@ -32,7 +32,10 @@ class Artist
    end
 
    def self.create(name)
-     self.new(name) {|artist| artist.save}
+     artist = self.new(name)
+     artist.save
+     artist
+     #self.new(name) {|artist| artist.save}
    end
 
   def print_songs #lists all of the artist's songs
