@@ -8,6 +8,11 @@ class Song
     @@songs << self
   end
 
+  def artist=(artist)
+    @artist = artist 
+    artist.add_song(self)
+  end
+
   def self.new_by_filename(filename)
     matches = filename.match(/(.*) - (.*) - (.*)\./)
       name = matches[2]
@@ -16,15 +21,7 @@ class Song
 
     song = Song.new(name)
     song.artist = Artist.find_or_create_by_name(artist)
-    song.artist.add_song(song)
     song
 
-
-    # matches = filename.match(/(.*) - (.*) - (.*)\./)
-    # song.artist = matches[1]
-    # song.name = matches[2]
-    # genre = matches[3]
-    #
-    # @@songs << song
   end
 end
