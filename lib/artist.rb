@@ -28,12 +28,18 @@ class Artist
   end
 
   def self.find_or_create_by_name(name)
-    unique_artist = self.all.uniq {|a| a.name }
-    if unique_artist.include?(name)
-      self.all.select {|a| a.name == name}
+    if self.all.detect {|a| a.name == name}
+      self.all.select {|a| a.name == name }
     else
       artist = Artist.new(name)
       artist.save
+      artist
+    end
+  end
+
+  def print_songs
+    self.songs.each do |song|
+      puts song.title
     end
   end
 
