@@ -3,7 +3,7 @@ require 'pry'
 class Song
 
   attr_accessor :title
-  #attr_reader :artist_name
+  attr_reader :artist_name
 
   def initialize(title)
     @title = title
@@ -20,13 +20,8 @@ class Song
 
   def artist_name=(name)
     artist = Artist.find_or_create_by_name(name)
-    @artist = artist.name
+    @artist_name = artist.name
     artist.add_song(self)
   end
-
-  def artist_name
-    @artist_name
-  end
-
 
 end
