@@ -24,7 +24,7 @@ class Artist
   end
 
   def self.all
-    @@all
+    @@all  #maybe add .uniq {|artist| artist.name}
   end
 
   def self.find_or_create_by_name(name)
