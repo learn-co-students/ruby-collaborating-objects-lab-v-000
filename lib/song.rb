@@ -3,7 +3,7 @@ require 'pry'
 class Song
 
   attr_accessor :name
-  attr_reader :artist_name
+  attr_reader :artist_name, :artist
 
   def initialize(name)
     @name = name
@@ -19,9 +19,14 @@ class Song
   end
 
   def artist_name=(name)
-    artist = Artist.find_or_create_by_name(name)
-    @artist_name = artist.name
-    artist.add_song(self)
+    artist_obj = Artist.find_or_create_by_name(name)
+    self.artist = artist_obj
+    @artist_name = artist_obj.name
+    artist_obj.add_song(self)
+  end
+
+  def artist=(artist_obj)
+    @artist = artist_obj
   end
 
 end
