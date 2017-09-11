@@ -7,20 +7,17 @@ class Song
     @name = name
   end
 
-  def artist_name
-    if self.artist
-      self.artist.name
-    else
-      nil
-    end
-  end
-
   def self.new_by_filename(filename)
-  new_array = filename.split(" - ")
-  new_song = self.new(new_array[1])
-  new_song.artist = Artist.find_or_create_by_name(new_array[0])
-  new_song
+    #Splits File Into Array
+    songs = filename.split(" - ")
+    #Michael Jackson - Thriller - mp3
+    song_artist = songs[0]
+    #Michael Jackson
+    song_name = songs[1]
+    #Thriller
+    song = self.new(song_name)
+    #<Song:0x00000001e09d30 @name="Thriller">
+    artist = Artist.find_or_create_by_name(song_artist)
+    artist.add_song(song)
   end
-
-
 end

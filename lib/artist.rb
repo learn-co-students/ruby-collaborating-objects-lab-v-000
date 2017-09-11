@@ -1,60 +1,52 @@
+require 'pry'
+
 class Artist
   attr_accessor :name
 
-  @@song_count = 0
-  @@artists = []
+  @@all = []
 
   def initialize(name)
-    @name = name
-    @songs = []
+   @name = name
+   @songs= []
+   #[]
   end
 
   def add_song(song)
-    self.songs << song
-    song.artist = self
-    @@song_count +=1
-  end
-
-  def save
-    @@artists << self
-  end
-
-  def self.all
-    @@artists
-  end
-
-  def self.find_or_create_by_name(name)
-    result = @@artists.detect do |artist|
-        artist.name == name
-    end
-    if result
-      result
-    else
-      artist = Artist.new(name)
-      artist.save
-    end
-
-  end
-
-
-  def print_songs
-    @songs.each do |song|
-      puts song.name
-    end
-  end
-
-  def add_song_by_name(name)
-    song = Song.new(name)
-    self.songs << song
-    song.artist = self
-    @@song_count +=1
+   @songs << song
+   #<Song:0x00000001b70330 @name="Rock With You">
+   song.artist = self
+   # ****SELF****
+   #   #<Artist:0x00000001b70240
+   # @name="Michael Jackson",
+   # @songs=[#<Song:0x00000001b70330 @name="Rock With You">]>
+   song
   end
 
   def songs
-    @songs
+   @songs
+   #<Song:0x00000001b70330 @name="Rock With You">
   end
 
-  def self.song_count
-    @@song_count
+  def save
+   @@all << self
+   self
+  end
+
+  def self.all
+   @@all
+  end
+
+  def self.find_or_create_by_name(name)
+   self.all.detect {|artist| artist.name == name} || Artist.new(name).save
+   #Name - Michael Jackson
+   #<Artist:0x0000000239dbe8 @name="Michael Jackson", @songs=[]>
+   # => Michael Jackson == @name="Michael Jackson"
+   #Artist.new(Michael Jackson)
+  end
+
+  def print_songs
+   self.songs.each {|song| puts song.name}
+   #<Artist:0x0000000239dbe8 @name="Michael Jackson", @songs=[]>
+   #Michael Jackson
   end
 end

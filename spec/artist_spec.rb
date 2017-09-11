@@ -40,6 +40,7 @@ describe 'Artist' do
 
     it 'Creates new instance of Artist if none exist' do
       artist_1 = Artist.find_or_create_by_name("Drake")
+      # binding.pry
       expect(artist_1.class).to eq(Artist)
     end
   end
