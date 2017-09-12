@@ -43,7 +43,6 @@ class Artist
           break
         end
       end
-    #return @new_artist
     end
 
   end

@@ -24,17 +24,20 @@ class MP3Importer
   end
 
   def import
+    #Song.new_by_filename(@path)
+
     self.files
     @mp3_files.each do |filename|
-      song = filename[0...-4]
-      songsplit = song.split[" - "]
-      artist = songsplit[0]
-      songtitle = songsplit[1]
-      Artist.find_or_create_by_name(artist)
-      new_song = Artist.add_song(songtitle)
-      @new_songs << new_song
+      Song.new_by_filename(filename)
+      #song = filename[0...-4]
+      #songsplit = song.split[" - "]
+      #artist = songsplit[0]
+      #songtitle = songsplit[1]
+      #Artist.find_or_create_by_name(artist)
+      #new_song = Artist.add_song(songtitle)
+      #@new_songs << new_song
     end
-    @new_songs
+    #@new_songs
   end
 
 end
