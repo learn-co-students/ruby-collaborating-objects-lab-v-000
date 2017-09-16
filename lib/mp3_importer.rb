@@ -7,10 +7,11 @@ def initialize(path)
 end
 
 def files
-  Dir.entries(path).each do |filename|
-    @filenames << "#{filename}"
-  end
-    @filenames.delete_if {|x| x == "." || x == ".."}
+  @files ||= Dir.glob("#{path}/*.mp3").collect{|f| f.gsub("#{path}/", "")}
 end
+
+def import
+   files.each{|f| Song.new_by_filename(f)}
+  end
 
 end
