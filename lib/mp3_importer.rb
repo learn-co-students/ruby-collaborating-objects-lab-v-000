@@ -13,13 +13,11 @@ class MP3Importer
   end
 
   def import
-    self.files.each do |index|
-     index = index.split(" - ")
-     song = Song.new(index[1])
-     artist = Artist.find_or_create_by_name(index[0])
-     artist.add_song(song)
+    files.each do |index|
+      new_song = Song.new_by_filename(index)
     end
   end
+
 end
 
 #test_music_path = "./spec/fixtures/mp3s"

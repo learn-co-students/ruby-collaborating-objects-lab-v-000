@@ -26,11 +26,15 @@ class Artist
   end
 
   def self.find_or_create_by_name(name)
-    if !@@names.include?(name)
-      self.new(name)
+    result = nil
+    if self.all.find do |act_name|
+        act_name.name == name
+        result = act_name
+      end
     else
-      name
+      result = self.new(name)
     end
+    result
   end
 
   def print_songs
