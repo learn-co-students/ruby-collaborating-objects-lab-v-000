@@ -4,13 +4,15 @@ class Song
 
   def initialize(name)
     @name = name
+    @artist = artist_name(name) #This is all wrong but this is where I am up to -- may need to instantiate artist when you instantiate song
   end
 
   def self.new_by_filename(filename)
     song_title = filename.split(" - ")[1]
     self.new(song_title)
     name = filename.split(" - ")[0]
-    artist_name(name)
+    artist_name=(name)
+    artist.add_song(song_title)
     # song_list = [ ]
     # files.each do |x|
     #   song_list <<  x.split(" - ")[1]
@@ -27,6 +29,6 @@ class Song
     end
   end
 
-end
+
 
 end
