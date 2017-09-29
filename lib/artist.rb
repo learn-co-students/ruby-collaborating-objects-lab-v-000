@@ -1,3 +1,5 @@
+require 'pry'
+
 class Artist
 
   @@all = [ ]
@@ -23,10 +25,23 @@ class Artist
   end
 
   def self.find_or_create_by_name(name)
-    if @@all.none?{ |x| x.name == name}
-      name = self.new(name)
+    if self.all.none? { |x| x.name == name}
+      a = self.new(name)
+      a
+    else
+      self.all.detect { |x| x.name == name}
     end
   end
+  #   @@all.each do |x|
+  #     if x.name == name
+  #       x
+  #     else
+  #       a = self.new(name)
+  #       @@all << a
+  #       a
+  #     end
+  #   end
+  # end
 
   def print_songs
     @songs.each { |x| puts "#{x.name}"}
