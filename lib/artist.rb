@@ -32,16 +32,6 @@ class Artist
       self.all.detect { |x| x.name == name}
     end
   end
-  #   @@all.each do |x|
-  #     if x.name == name
-  #       x
-  #     else
-  #       a = self.new(name)
-  #       @@all << a
-  #       a
-  #     end
-  #   end
-  # end
 
   def print_songs
     @songs.each { |x| puts "#{x.name}"}
