@@ -1,0 +1,28 @@
+
+[1mFrom:[0m /home/amayanga90-85487/code/labs/ruby-collaborating-objects-lab-v-000/lib/mp3_importer.rb @ line 34 MP3Importer#import:
+
+    [1;34m15[0m: [32mdef[0m [1;34mimport[0m
+    [1;34m16[0m:   entries = [1;36mself[0m.files
+    [1;34m17[0m:   artist_song = {}
+    [1;34m18[0m:   new_artist_song = {}
+    [1;34m19[0m:   artist_object = [1;36mnil[0m
+    [1;34m20[0m:   song_object = [1;36mnil[0m
+    [1;34m21[0m: 
+    [1;34m22[0m:   entries.each {|entry| artist_song[entry[[35m[1;35m/[0m[35m^([^-]+)[1;35m\w[0m[35m[1;35m/[0m[35m[0m]] = entry[[35m[1;35m/[0m[35m- .+ -[1;35m/[0m[35m[0m]}
+    [1;34m23[0m: 
+    [1;34m24[0m:   artist_song.each [32mdo[0m |artist, song|
+    [1;34m25[0m:     song.slice!([31m[1;31m"[0m[31m- [1;31m"[0m[31m[0m)
+    [1;34m26[0m:     song.slice!([31m[1;31m"[0m[31m -[1;31m"[0m[31m[0m)
+    [1;34m27[0m:     new_artist_song[artist] = song
+    [1;34m28[0m:     [32mend[0m
+    [1;34m29[0m: 
+    [1;34m30[0m:     new_artist_song.each [32mdo[0m |artist, song|
+    [1;34m31[0m:       artist_object = [1;34;4mArtist[0m.new(artist)
+    [1;34m32[0m:       song_object = [1;34;4mSong[0m.new(song)
+    [1;34m33[0m:       artist_object.add_song(song_object)
+ => [1;34m34[0m:       binding.pry
+    [1;34m35[0m:     [32mend[0m
+    [1;34m36[0m: 
+    [1;34m37[0m: 
+    [1;34m38[0m: [32mend[0m
+
