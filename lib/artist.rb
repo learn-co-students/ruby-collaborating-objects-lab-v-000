@@ -1,9 +1,13 @@
+require 'pry'
+require_relative 'song.rb'
+
 class Artist
-  attr_accessor :name
-  @songs = []
+  attr_accessor :name, :songs
+
   @@all = []
   def initialize(name)
     @name = name
+    @songs = []
     self.save
   end
 
@@ -13,7 +17,7 @@ class Artist
 
 
   def add_song(song)
-    @songs << song
+    self.songs << song
     #@@song_count += 1
     song.artist = self
   end
@@ -30,10 +34,9 @@ class Artist
     end
   end
 
-  def songs
-  end
-
   def print_songs
     @songs.each {|song| puts song.name}
   end
 end
+
+#
