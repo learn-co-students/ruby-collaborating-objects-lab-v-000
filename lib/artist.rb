@@ -25,16 +25,9 @@ class Artist
     @@all << self
   end
 
-  def self.create
-      artist = self.new
-      @@all << artist
-      artist
-  end
-
   def self.create_by_name(name)
-    artist = self.new
-    @name = name
-    @@all << artist
+    artist = self.new(name)
+    artist.save
     artist
   end
 
@@ -42,19 +35,11 @@ class Artist
    @@all.find { |artist| artist.name == name }
   end
 
+  def self.find_or_create_by_name(name)
+    self.find_by_name(name) || self.create_by_name(name)
+  end
 
-
-def self.find_or_create_by_name(name = nil)
-  if @@all.empty? == true
-    self.create
-  elsif self.find_by_name(name) == nil
-     self.create_by_name(name)
-  else self.find_by_name(name)
-   end
-end
-
-def print_songs
-print @songs
-end
-
+  def print_songs
+    self.songs.each { |song| print song.name + "\n"}
+  end
 end
