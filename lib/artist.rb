@@ -1,3 +1,4 @@
+require 'pry'
 class Artist
 
   @@all = []
@@ -22,8 +23,7 @@ class Artist
   end
 
   def self.create_by_name(name)
-    created_by_name = self.new
-    created_by_name.name = name
+    created_by_name = self.new(name)
     created_by_name.save
     created_by_name
   end
@@ -40,5 +40,9 @@ class Artist
     end
   end
 
-
+  def print_songs
+    @songs.each do |song|
+      puts song.name
+    end
+  end
 end
