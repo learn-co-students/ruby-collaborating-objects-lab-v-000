@@ -9,15 +9,20 @@ class MP3Importer
   end
 
   def files
-    file = Dir.entries(path)
-    file = Dir.glob("#{@path}/*.mp3")
-    file.map {|music_file| music_file.gsub(path+"/", "")}
+    #file = Dir.entries(path)
+    #file = Dir.glob("#{@path}/*.mp3")
+    @music_files = Dir.glob("#{self.path}/*mp3") #sets files array to equal the files with mo3
+    @music_files = @music_files.collect{|x| x.gsub("#{path}/", "")}
+    #file.map {|music_file| music_file.gsub(path+"/", "")}
   end
 
   def import
     # binding.pry
-    files.each {|song|Song.new_by_filename(song)}
-    song
+    files.each {|song| Song.new_by_filename(song) }
+
+
+    #binding.pry
+    # song <- why this line?
   end
 
 end
