@@ -22,7 +22,14 @@ attr_accessor :name
 
   def save
     @@all << self
+  end
 
+  def find_or_create_by_name(artist_name)
+    @@all.map do |artist|
+      if(artist.name == artist_name)
+        artist
+      else
+      end
   end
 
 end
