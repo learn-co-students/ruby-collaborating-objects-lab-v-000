@@ -25,10 +25,11 @@ attr_accessor :name
   end
 
   def self.find_or_create_by_name(artist_name)
-    @@all.map do |artist|
+    @@all.detect do |artist|
       if(artist.name == artist_name)
         artist
       else
+        Artist.new(artist_name)
       end
     end
   end
