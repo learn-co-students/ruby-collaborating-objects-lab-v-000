@@ -36,10 +36,12 @@ attr_accessor :name
   end
 
   def self.find_or_create_by_name(artist_name)
+    #binding.pry
     if(artist_exists?(artist_name))
       @@all.detect {|artist| artist.name == artist_name}
     else
       Artist.new(artist_name)
+
     end
   end
 
