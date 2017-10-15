@@ -6,6 +6,7 @@ attr_accessor :name
   def initialize(name)
     self.name = name
     @songs = []
+    @@all << self
   end
 
   def songs
@@ -24,14 +25,25 @@ attr_accessor :name
     @@all << self
   end
 
-  def self.find_or_create_by_name(artist_name)
-    @@all.detect do |artist|
-      if(artist.name == artist_name)
-        artist
-      else
-        Artist.new(artist_name)
-      end
+  def print_songs
+    songs.each do |song|
+      puts "#{song.name}"
     end
   end
+
+  def self.artist_exists?(artist_name)
+    @@all.any? {|artist| artist.name == artist_name}
+  end
+
+  def self.find_or_create_by_name(artist_name)
+    if(artist_exists?(artist_name))
+      @@all.detect {|artist| artist.name == artist_name}
+    else
+      Artist.new(artist_name)
+    end
+  end
+
+
+
 
 end
