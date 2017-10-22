@@ -11,6 +11,7 @@ class MP3Importer
       library << filename
     end
     library.reject {|x| x == "." || x == ".."}
+    #OR @files ||= Dir.glob("#{path}/*.mp3").collect{ |f| f.gsub("#{path}/", "") }
   end
 
   def import

@@ -8,7 +8,7 @@ class Artist
   end
 
   def add_song(song)
-    @songs << song unless @songs.include?(song)
+    @songs << song
   end
 
   def self.all
@@ -19,15 +19,12 @@ class Artist
     self.class.all << self
   end
 
-  # def self.create(name)
-  #   new(name).tap { |a| a.save }
-  # end
-
   def self.create_by_name(name)
     artist = self.new(name)
     artist.name = name
     artist.save
     artist
+    #OR self.new(name).tap {|artist| artist.save}
   end
 
   def self.find_by_name(name)
@@ -36,7 +33,7 @@ class Artist
 
   def self.find_or_create_by_name(name)
     self.find_by_name(name) || self.create_by_name(name)
-    # self.find_by_name(name) || self.create(name)
+    #OR self.find(name) ? self.find(name) : self.create(name)
   end
 
   def print_songs
