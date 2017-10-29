@@ -7,14 +7,6 @@ class Song
     @name = name
   end
 
-  def artist_name
-    if @artist
-      @artist
-    else
-      nil
-    end
-  end
-
   def self.new_by_filename(filename)
     artist_song_array = filename.split(/ - /)
     new_song = Song.new(artist_song_array[1])

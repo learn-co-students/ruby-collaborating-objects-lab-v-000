@@ -5,12 +5,10 @@ class MP3Importer
 
   def initialize(filepath)
     @path = filepath
-    @library = []
   end
 
   def files
-    raw_addr = Dir[@path+"/*.mp3"]
-    cleaned_files = raw_addr.collect do |file|
+    cleaned_files = Dir[@path+"/*.mp3"].collect do |file|
       file.slice!(@path+"/")
       file
     end
@@ -18,9 +16,8 @@ class MP3Importer
   end
 
   def import
-    song_array = self.files
-    song_array.each do |filename|
-      @library << Song.new_by_filename(filename)
+    files.each do |filename|
+      Song.new_by_filename(filename)
     end
   end
 

@@ -12,11 +12,11 @@ class Artist
   end
 
   def self.find_or_create_by_name(ar_name)
-    ret_artist = find(ar_name)
-    if ret_artist != nil
-      ret_artist
+
+    if self.find(ar_name)
+      self.find(ar_name)
     else
-      new_artist = create_by_name(ar_name)
+      self.create_by_name(ar_name)
     end
 
   end
@@ -27,14 +27,11 @@ class Artist
 
 
   def self.find(ar_name)
-    artist = @@all.find {|each_artist| each_artist.name == ar_name}
-    artist
+    @@all.find {|each_artist| each_artist.name == ar_name}
   end
 
   def self.create_by_name(ar_name)
-    new_artist = self.new(ar_name)
-    new_artist.save
-    new_artist
+    self.new(ar_name).tap {|x| x.save}
   end
 
   def add_song(song_item)
