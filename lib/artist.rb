@@ -28,7 +28,11 @@ class Artist
     artist = @@all.detect do |artist|
       artist.name == name
     end
-    artist ? artist : self.new(name)
+    unless artist
+      artist = self.new(name)
+      artist.save
+    end
+    artist
   end
 
   def print_songs
