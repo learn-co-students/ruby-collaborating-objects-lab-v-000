@@ -4,7 +4,6 @@ class Artist
 
     def initialize(name)
         @name = name
-        @@all
     end
 
     def songs
@@ -15,7 +14,15 @@ class Artist
         @@all << self
     end
 
-def find_or_create_by_name
-    
+    def find_or_create_by_name
+        if (self.artist.nil?)
+            self.artist = Artist.new(name)
+        else
+            self.artist.name = name
+        end
+   end
+
+end
+
 
 
