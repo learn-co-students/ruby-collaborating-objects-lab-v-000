@@ -1,4 +1,4 @@
-# require 'pry'
+require 'pry'
 
 class Artist
 
@@ -24,15 +24,13 @@ class Artist
     end
 
     def self.find_or_create_by_name(name)
-        unless @@all.detect {|artist| name == artist.name}
-            saved_artist = self.new(name).save 
-            saved_artist
-            # can use find 
-            # can use terniary
-
+        if artist = @@all.find {|artist| artist.name = name}
+        artist
+        else 
+            self.new(name).save 
         end
     end
-
+    binding.pry
 end
 
 
