@@ -1,35 +1,37 @@
+# require 'pry'
+
 class Artist
 
-    attr_accessor :name, :songs, :song
+    attr_accessor :name, :songs
 
-    
-    @songs = []
+    @@all = []
 
     def initialize(name)
         @name = name
+        @songs = []
+    end
+
+    def self.all
+        @@all
     end
 
     def add_song(song)
-        @songs = 0
-        @songs << song 
-        @songs +=1
-    end
-
-    def songs(song)
-    
+        @songs << song unless @songs.include?(song)
     end
     
     def save
        @@all << self
     end
 
-    def find_or_create_by_name
-        if (self.artist.nil?)
-            self.artist = Artist.new(name)
-        else
-            self.artist.name = name
+    def self.find_or_create_by_name(name)
+        unless @@all.detect {|artist| name == artist.name}
+            saved_artist = self.new(name).save 
+            saved_artist
+            # can use find 
+            # can use terniary
+
         end
-   end
+    end
 
 end
 
