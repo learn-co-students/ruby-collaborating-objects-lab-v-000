@@ -1,4 +1,4 @@
-# require 'pry'
+require 'pry'
 
 class MP3Importer   
 
@@ -7,11 +7,20 @@ class MP3Importer
 
     def initialize(path)
         @path = path
-  
+  binding.pry
     end
 
     def files      
-        @path.foreach {|file|}.size
+        # path.split("/")
+        #  1. Split the path into directories
+
+        # Dir.
+        # 2. Highlight the directory mp3s
+        # 3. Iterate over mp3s to pull out the filenames
+        # 4. Determine the size of the resulting array of filenames
+        # # @path.foreach {|file|}.size
+        Dir.entries(path).size
+        binding.pry
     end
 
     def import
