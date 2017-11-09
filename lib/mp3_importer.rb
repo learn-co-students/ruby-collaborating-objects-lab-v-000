@@ -10,9 +10,9 @@ class MP3Importer
     end
 
     def files        
-         Dir.entries(path).reject {|item| item == ".." || item == "."}.size     
+         Dir.entries(path).reject {|item| item == ".." || item == "."}  
     end
-binding.pry
+
     def import
     end
 
