@@ -7,26 +7,21 @@ class MP3Importer
 
     def initialize(path)
         @path = path
-  binding.pry
     end
 
-    def files      
-        # path.split("/")
-        #  1. Split the path into directories
-
-        # Dir.
-        # 2. Highlight the directory mp3s
-        # 3. Iterate over mp3s to pull out the filenames
-        # 4. Determine the size of the resulting array of filenames
-        # # @path.foreach {|file|}.size
-        Dir.entries(path).size
-        binding.pry
+    def files        
+         Dir.entries(path).reject {|item| item == ".." || item == "."}.size     
     end
 
     def import
     end
 
 end
+
+# changed_path = Dir.entries(path)
+# changed_path.reject {|item| item == ".."}
+# path.size
+
     # Let's start with the MP3 Importer. Build an MP3Importer class that parses a directory of files and sends the filenames to a song class to 
     # create a library of music with artists that are unique. To do this, you'll need two methods: MP3Importer#files and MP3Importer#import.
     #      Your MP3Importer class should also have a path attribute that gets set on initialization.
