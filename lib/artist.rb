@@ -25,13 +25,19 @@ class Artist
 
     def self.find_or_create_by_name(name)
         if artist = @@all.find {|artist| artist.name = name}
-        artist
+            artist
         else 
             self.new(name).save 
         end
     end
-    binding.pry
+
+    def print_songs
+        self.songs.each {|song| puts song.name }       
+    end
+    # binding.pry
 end
+
+
 
 
 
