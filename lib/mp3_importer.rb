@@ -11,7 +11,7 @@ class MP3Importer
     end
 
     def files      
-        @path.size
+        @path.foreach {|file|}.size
     end
 
     def import
@@ -27,3 +27,4 @@ end
         
     #     Since we have to send the filenames to the Song class, we'll end up calling the following code in the #import method: 
     #     Song.new_by_filename(some_filename). This will send us to the Song class, specifically Song.new_by_filename.
+
