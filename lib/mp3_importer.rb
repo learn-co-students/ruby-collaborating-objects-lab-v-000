@@ -14,9 +14,9 @@ class MP3Importer
          Dir.entries(path).reject {|item| item == ".." || item == "."}  
     end
 
-    def import(filenames)
-        songs_from_filenames
-        @@all << filenames
+    def import
+        imported_files = Song.new.files
+        @@all << imported_files
     end
 
 end
