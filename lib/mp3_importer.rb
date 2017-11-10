@@ -18,7 +18,7 @@ class MP3Importer
         files.each {|file| file = Song.new
         @@all << file}    
     end
-    # binding.pry
+    
 end
 
 # changed_path = Dir.entries(path)
