@@ -1,8 +1,8 @@
-require 'pry'
 
+require 'pry'
 class MP3Importer   
 
-    attr_accessor :path
+    attr_accessor :path, :songs, :artist
   
 
     def initialize(path)
@@ -15,10 +15,10 @@ class MP3Importer
     end
 
     def import
-        imported_files = Song.new.files
-        @@all << imported_files
+        files.each {|file| file = Song.new
+        @@all << file}    
     end
-
+    # binding.pry
 end
 
 # changed_path = Dir.entries(path)
