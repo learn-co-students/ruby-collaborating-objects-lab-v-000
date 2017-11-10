@@ -1,8 +1,8 @@
-
 require 'pry'
+
 class MP3Importer   
 
-    attr_accessor :path, :songs, :artist
+    attr_accessor :path
   
 
     def initialize(path)
@@ -11,14 +11,13 @@ class MP3Importer
     end
 
     def files        
-         Dir.entries(path).reject {|item| item == ".." || item == "."}  
+        Dir.entries(path).reject {|item| item == ".." || item == "."}  
     end
 
     def import
-        @@all << Song.new_by_filename(filename) 
-           
+        files.each {|file| Song.new_by_filename(file)}
     end
-    
+
 end
 
 # changed_path = Dir.entries(path)
