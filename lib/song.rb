@@ -9,7 +9,7 @@ class Song
 
   def artist_name=(artist_name)
     if self.artist.nil?
-      self.artist = Artist.new(artist_name)
+      self.artist = Artist.find_or_create_by_name(artist_name)
     else
       self.artist.name = artist_name
     end
@@ -20,6 +20,7 @@ class Song
     artist_name = file_name.split(" - ")[0]
     new_song_instance = Song.new(name)
     new_song_instance.artist_name=(artist_name)
+    new_song_instance.artist.add_song(new_song_instance)
     new_song_instance
   end
 

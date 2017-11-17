@@ -24,7 +24,13 @@ class Artist
   end
 
   def self.find_or_create_by_name(name)
-      binding.pry
+    artist = @@all.detect {|artist| artist.name == name}
+    if artist.nil?
+      saved = Artist.new(name)
+      saved.save
+    else
+      artist
+    end
   end
 
   def print_songs
