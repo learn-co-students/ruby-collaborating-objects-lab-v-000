@@ -1,17 +1,11 @@
 class MP3Importer
-  attr_accessor :path
+  attr_accessor :path, :files
   def initialize(path)
     @path = path
+    @files = Dir.entries(path).grep(/.mp3/)
   end
 
-  def files
-    @files = []
-  end
-
-
-  def import(filename)
-    filename.each do |file|
-      Song.new_by_filename(file)
-    end
+  def import
+    @files.each {|file| Song.new_by_filename(file)}
   end
 end
