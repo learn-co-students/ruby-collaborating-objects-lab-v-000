@@ -1,8 +1,10 @@
+require 'pry'
 class MP3Importer
   attr_accessor :path, :song, :name
 
   def initialize(path)
     @path = path
+	@@import = []
   end
 
   def files
@@ -11,7 +13,7 @@ class MP3Importer
 
   def import
     self.files.each do |i|
-      Song.new_by_filename("#{i}")
+      Song.new_by_filename(i)
     end
   end
 
