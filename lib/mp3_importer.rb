@@ -8,12 +8,12 @@ class MP3Importer
   end
 
   def files
-    Dir["#{path}/*.mp3"].each { | file | @files << file.sub("#{path}/","") }
+    Dir["#{@path}/*.mp3"].each { | file | @files << file.sub("#{@path}/","")}
     @files
   end
 
   def import
-    @files.each { |filename| Song.new_by_filename(filename) }
+    files.each { |filename| Song.new_by_filename(filename) }
   end
 
 end

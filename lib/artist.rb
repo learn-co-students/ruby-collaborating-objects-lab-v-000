@@ -1,5 +1,4 @@
 require 'pry'
-require 'song.rb'
 class Artist
   attr_accessor :name, :songs
   @@all = []
@@ -22,9 +21,14 @@ class Artist
   end
 
   def self.find_or_create_by_name(name)
-    result = @@all.detect { | artist | artist.name = name }
-    result = nil ? result = Artist.new(name) : result
-    # binding.pry
+    existing_artist = self.all.detect { | artist | artist.name == name }
+    if !existing_artist
+      new_artist= Artist.new(name)
+      new_artist.save
+      new_artist
+    else
+      existing_artist
+    end
   end
 
   def print_songs
