@@ -15,12 +15,11 @@ class Song
     file = file.map {|f| f.strip}
     song = self.new
     song.name = file[1]
-    song.artist = file[0]
+    song.artist_name = file[0]
     song 
   end
 
-  def artist=(name)
-    binding.pry
+  def artist_name=(name)
     art = Artist.find_or_create_by_name(name)
     @artist = art 
     art.add_song(self)
