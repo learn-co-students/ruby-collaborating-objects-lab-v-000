@@ -25,12 +25,13 @@ class Artist
   end
 
   def self.find(name)
-    @@all.find {|a| a.name = name}
+    @@all.find {|a| a.name == name}
   end
 
   def self.create(name)
     new_art = self.new(name)
     new_art.save
+    new_art
   end
 
   def add_song(song)
