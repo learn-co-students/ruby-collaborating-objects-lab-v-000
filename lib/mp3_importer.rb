@@ -7,7 +7,8 @@ attr_reader :path
   end
 
   def files
-    @files = Dir["#{path}/*.mp3"].map{ |file| file.gsub("#{path}/", "") }
+    @files = Dir["#{path}/*.mp3"]
+    @files.map{|file| file.gsub("#{path}/", "") }
   end
 
   def import
