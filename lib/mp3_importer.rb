@@ -4,12 +4,12 @@ class MP3Importer
   attr_accessor :path
 
   def initialize(filename)
-    binding.pry
     self.path = filename
   end
 
   def files
-    # binding.pry
+    binding.pry
+
   end
 
   def import
