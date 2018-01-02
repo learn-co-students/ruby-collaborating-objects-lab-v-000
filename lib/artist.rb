@@ -11,8 +11,8 @@ class Artist
     @songs
   end
 
-  def add_song(song_name)
-    @songs << song_name
+  def add_song(song_instance)
+    @songs << song_instance
   end
 
   def save
@@ -34,7 +34,9 @@ class Artist
   end
 
   def print_songs
-
+    @songs.each do |song_instance|
+      puts "#{song_instance.name}"
+    end
   end
 
 end
