@@ -29,14 +29,14 @@ class Artist
     if find
       find
     else
-      self.new(name)
-      # new_artist = self.new(name)
-      # new_artist.save
-      # new_artist
+      # self.new(name)
+      new_artist = self.new(name)
+      new_artist.save
+      new_artist
     end
 
   # def self.find_or_create_by_name(name)
-  #   @@all.detect do |artist_instance|
+  #    find = @@all.detect do |artist_instance|
   #     artist_name = artist_instance.name
   #     if artist_name != nil
   #       artist_instance
@@ -44,6 +44,7 @@ class Artist
   #       self.new(name)
   #     end
   #   end
+  # find.save
   end
 
   def print_songs
