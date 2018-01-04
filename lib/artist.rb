@@ -1,20 +1,26 @@
 class Artist
-  attr_accessor :name
-  @songs = []
+  attr_accessor :name, :songs
   @@artist = []
 
   def initialize(name)
     @name = name
-    @@artist << name
+    @songs = []
+  end
+
+  def name=(artist_name)
+    @name = artist_name
+  end
+
+  def add_song(song)
+    @songs << song
   end
 
   def songs
-    @songs << self
     @songs
   end
 
   def save
-    # self.save  ==> this is going infinite loop/crashing program
+    @@artist
   end
 
   def find_or_create_by_name(name)
