@@ -1,6 +1,6 @@
 class Artist
   attr_accessor :name, :songs
-  @@artist = []
+  @@all = []
 
   def initialize(name)
     @name = name
@@ -19,19 +19,25 @@ class Artist
     @songs
   end
 
+  def self.all
+    @@all
+  end
+
   def save
-    @@artist
+    @@all << self
   end
 
   def find_or_create_by_name(name)
-    if @@artist.include?(name)
-      @@artist << self
+    if @@all.include?(name)
+      save
     else
       self.new(name)
-      @@artist << self
+      save
     end
   end
 
-
+  def print_songs
+    puts "#{@songs}"
+  end
 
 end
