@@ -8,11 +8,12 @@ class MP3Importer
   end
 
   def files
-
+    song_list = Dir.glob("#{path}/*.mp3")
+    song_list.map { |file|  file.split(/\b\//)[3]}
   end
 
   def import
-    list_of_filenames.each{ |filename| Song.new_by_filename }
+    files.each { |filename| Song.new_by_filename(filename) }
   end
 
 end
