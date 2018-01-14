@@ -1,4 +1,3 @@
-require "pry"
 class Song
   attr_accessor :name, :artist
   @@all = []
@@ -55,5 +54,4 @@ class Song
     song.artist.add_song(song)
     song
   end
-
 end
