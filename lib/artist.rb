@@ -31,7 +31,6 @@ class Artist
   end
 
   def self.find_or_create_by_name(name)
-    puts "in find_or_create_by_name, name passed in is: #{name}\n\n"
     (self.all.detect do |artist_object|
       artist_object.name == name
     end) || Artist.new(name)
