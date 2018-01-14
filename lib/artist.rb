@@ -36,7 +36,4 @@ class Artist
       artist_object.name == name
     end) || Artist.new(name)
   end
-
-
-
 end
