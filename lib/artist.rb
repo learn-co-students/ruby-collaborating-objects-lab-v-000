@@ -1,34 +1,43 @@
-class Artist 
-attr_accessor :name, :songs
-
-@@all =[]
-
-def self.find_or_Create_by_name(name)
-  find_by_name(name) || self.create_by_name(name)
-end
-
-def self.find_by_name(name)
- @@all.detect{|p| a.name == name}
-end  
+class Artist
+  attr_accessor :name
+  @@all=[]
 
   def initialize(name)
-    @name = name
-    @songs = []
-    self.save
-  end  
-  
-  def add_song(song)
-    self.songs << song
-    song.artist = self
+    @name=name
+    @songs=[]
+    save
   end
-  
+
+  def add_song(song)
+    @songs << song
+    song.artist=self
+  end
+
+  def songs
+    @songs
+  end
+
   def save
-    @@all << self
-  end  
-  
+    @@all<<self
+  end
+
   def self.all
     @@all
   end
 
+  def self.find_or_create_by_name(name)
+    @@all.each do |artist|
+      if artist.name == name
+        return artist
+      end
+    end
+    new_artist =Artist.new(name)
+  end
+
+  def print_songs
+    @songs.each do |song|
+      puts "#{song.name}\n"
+    end
+  end
+
 end
-  
