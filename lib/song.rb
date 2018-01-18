@@ -10,6 +10,7 @@ class Song
     parts = filename.split(" - ")
     Artist.name = parts[0]
     Song.name = parts[1]
+  end
 
 
 end
