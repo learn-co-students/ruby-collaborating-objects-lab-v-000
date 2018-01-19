@@ -1,31 +1,36 @@
 #require 'pathname'
 #pn.Pathname.new("../db/mp3s")
 require 'pry'
-file_names = []
-file_names = Dir.entries("db/mp3s")
+#file_names = []
+#file_names = Dir.entries("db/mp3s")
 
 #file_names = Dir["../db/mp3s"]
 class MP3Importer
 
-  def initalize(file_path)
-    @file_path = file_path
+attr_accessor :path
+
+  def initialize(path)
+    @path = path
   end
 
-   def files(file_path)
+   def files
      file_names = []
-     file_names = Dir.entries(file_path)
+     file_names_correct = []
+        #Dir.entries(path).reject{|entry| entry == "." || entry == ".."}
+     file_names = Dir.glob("#{path}/*.mp3")
+     #binding.pry
+       file_names.each do |song|
+         song.gsub!(/\.\W\w+\W\w+\W\w+\W/, "")
+         file_names_correct << song
+       end
+     file_names_correct
+    end
 
-     file_names.each do |filename|
+   def import(song_object)
+     file_names_correct.each do |bleep|
+         Song.new_by_filename(song_object)
+      end
 
-     end
-   end
-
-   def import
-     song = self.new_by_filename(filename)
-     parts = []
-     parts = filename.split(" - ")
-     Artist.name = parts[0]
-     Song.name = parts[1]
    end
 
 end

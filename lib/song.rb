@@ -5,11 +5,11 @@ class Song
     @name = name
   end
 
-  def new_by_filename(filename)
+  def self.new_by_filename(file_name)
     parts = []
-    parts = filename.split(" - ")
-    Artist.name = parts[0]
-    Song.name = parts[1]
+    parts = file_name.split(" - ")
+    self.artist = parts[0]
+    self.name = parts[1]
   end
 
 
