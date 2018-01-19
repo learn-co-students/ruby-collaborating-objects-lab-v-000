@@ -5,31 +5,21 @@ class Artist
 
   attr_accessor :name, :songs
 
-
-
-  #def songs
-  #  @songs
-  #end
-
-  #@songs = [] #NEVEER DOES ANYTHING!?
-
   def initialize(name)
     @name = name
     @songs = []
+  end
+
+  def self.all
+    @@all
   end
 
   def save
     Artist.all << self
   end
 
-  def self.all # WHY DO WE NEED THIS CLASS METHOD? => cuz otherwise can't access @@all from the outside
-    @@all
-  end
-
   def add_song(song)
-    #binding.pry
     self.songs << song
-
   end
 
   def self.find_or_create_by_name(name)
@@ -38,7 +28,7 @@ class Artist
     else
       artist = Artist.new(name)
       artist.save
-      artist # ALSO NEED TO ADD using save
+      artist
     end
   end
 
