@@ -7,12 +7,16 @@ class MP3Importer
   end
 
   def files
-    Dir.entries(path).select do |file|
+    file = Dir.entries(path).select do |file|
       file.include?('mp3')
     end
+    
   end
 #binding.pry
   def import
-    Song.new_by_filename(filename)
+     files.each do |file|
+      
+      Song.new_by_filename(file)
+    end
   end
 end
