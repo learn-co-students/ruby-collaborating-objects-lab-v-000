@@ -11,7 +11,7 @@ class Song
     song = Song.new(parts[1])
     song.artist_name = parts[0]
     #song.name = parts[1]
-
+    song
   end
 
   def artist_name=(name)
