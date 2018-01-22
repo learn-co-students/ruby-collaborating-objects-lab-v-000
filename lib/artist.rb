@@ -21,12 +21,14 @@ class Artist
   end
 
   def self.find_or_create_by_name(name)
-    if (self.name.nil?)
-      Artist.new(name)
-    else
-      @@all.find {|artist| artist.name = name}
-    end
+    self.all.find {|artist| artist.name == name} || Artist.new(name).tap { |art| art.save }
+
   end
+
+#we need to add logic such that
+  #if artist already exists and !(songs includes the artists song we are adding)
+    #add_song to @songs
+  # else
 
   def self.all
     @@all
