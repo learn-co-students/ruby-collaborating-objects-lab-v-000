@@ -4,32 +4,32 @@ class MP3Importer
   attr_accessor :path, :files
 
     def initialize(path)
+      #path is just a path way...  "./spec/fixtures/mp3s"
+      # path was already giving to use. So we just tap into it
       @path = path
-
-      # binding.pry
         # import = self.
     end
 
   def files
-    @files ||= Dir.glob("#{path}/*.mp3").collect{ |f| f.gsub("#{path}/", "") }
-    # @files = Dir.entries(@path)
-    # @files.delete(".")
-    # @files.delete("..")
-    # @files
-    # binding.pry
+    #@files ||= Dir.glob("#{path}/*.mp3").collect{ |f| f.gsub("#{path}/", "") }
+    #   OR
+    @files = Dir.entries(@path)
+    @files.delete(".")
+    @files.delete("..")
+    @files
   #call the file to get 4
     #operate on the files to normalize the filename to not have the mp3 at the end
   end
 
   def import
-    self.files.each do |file|
-      Song.new_by_filename(file)
-       #go through each file + # it uses This from our methods.
+    self.files.each do |file|   #taking files from the method on line 13
+# Since we have to send the filenames to the Song class,
+# we'll end up calling the following code in the #import method: Song.new_by_filename(some_filename).
+#  This will send us to the Song class, specifically Song.new_by_filename.
+ #go through each file + # it uses This from our methods.
+     Song.new_by_filename(file)   # we go into the Song Class to use this..
+
     end
-  #   #import imports the files into the library by creating songs from a filename
-  #    Failure/Error: music_importer.import
-  #    ArgumentError:
-  #      wrong number of arguments (given 0, expected 1)
-  #  list_of_filenames.each{ |filename| Song.new_by_filename(filename) }
+
   end
 end

@@ -3,7 +3,6 @@ class Artist
 attr_accessor :name, :song
    @@all = []
 
-
    #peter = Artist.new("peter")  How we create a new artist.
     #<Artist:0x00000000ce4cd0 @name="peter", @songs=[]>
     def initialize(name)
@@ -17,10 +16,10 @@ attr_accessor :name, :song
     end
 
     def save
-      @@all << self  # refers to the class artist
+      @@all << self  # refers to the class artist to save the songs when created
     end
 
-    def self.all # show all artist ever created.
+    def self.all # show all song artist ever created.
       @@all
     end
 
@@ -38,20 +37,20 @@ attr_accessor :name, :song
         end
 
          def self.create_by_name(name)
-               artist = Artist.new(name)
-               artist.save
+               artist = Artist.new(name) #initiate new artist.
+               artist.save  #reason for the save method
                artist
          end
   #### this is for the self.find_or_create_by_name method
+
+
     def self.find_or_create_by_name(name)
       #turn class string into an objects
       # THis is where we chain things togther
-       if self.find_by_name(name)
+       if self.find_by_name(name)  #run code line 35
           self.find_by_name(name)
-
        else
-         self.create_by_name(name)
-
+         self.create_by_name(name)  #run code line 39
        end
 
     end
@@ -60,8 +59,8 @@ attr_accessor :name, :song
       #go throught each song.separately
       self.songs.each do |name|
        puts name.name
-     end
 
+     end
     end
 
 end
