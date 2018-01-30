@@ -17,17 +17,9 @@ class Song
   end
 
   def artist_name=(name)
-
-    # if name.kind_of?(String)
     #binding.pry
       artist = Artist.find_or_create_by_name(name)
       self.artist = artist
       artist.add_song(self)
-    # else
-      #  binding.pry
-      #self.artist = name
-      # name.add_song(self)
-    # end
-
   end
 end
