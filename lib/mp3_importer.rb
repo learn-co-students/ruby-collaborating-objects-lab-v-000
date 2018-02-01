@@ -15,8 +15,10 @@ class MP3Importer
   # end
 
   def files
-    @filename = Dir@path.split("/").last
-    binding.pry
+    # @filename = @path.split("/").last #files load test green
+    files = Dir.entries(path).select{|f| f =~ /[a-z]/}
+        # binding.pry
+    # files.split("/").last
     # @path.each do |p|
     #   mp3s << split("/").last
     # end
