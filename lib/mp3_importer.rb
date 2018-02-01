@@ -2,30 +2,23 @@ require "pry"
 
 class MP3Importer
 
-  attr_accessor :path, :filename
+  attr_accessor :path, :file_ary
 
-  mp3s = []
+  @@file_ary = []
 
   def initialize(path)
     @path = path
   end
 
-  # def files
-  #   @filename = @path.split("/").last
-  # end
-
   def files
-    # @filename = @path.split("/").last #files load test green
-    files = Dir.entries(path).select{|f| f =~ /[a-z]/}
-        # binding.pry
-    # files.split("/").last
-    # @path.each do |p|
-    #   mp3s << split("/").last
-    # end
-    # mp3s
+    @@file_ary = Dir.entries(path).select{|f| f =~ /[a-z]/}
+    #binding.pry #@@file_ary works
   end
 
   def import
-    Song.new_by_filename(filename)
+    @@file_ary.each do |filename|
+      song = Song.new_by_filename(filename)
+      # binding.pry
+    end
   end
 end

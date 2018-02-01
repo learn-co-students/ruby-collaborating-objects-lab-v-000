@@ -5,18 +5,26 @@ class Song
     @name = name
   end
 
-  def artist_name
-    @artist == nil ? nil : self.artist.name
+  # def name=(name)
+  #   @name = name
+  # end
+
+  # def name
+  #   @name
+  # end
+
+  def artist_name=(artist)
+    self.artist = Artist.find_or_create_by_name(artist)
+    artist.add_song(self)
   end
 
   def self.new_by_filename(filename)
     parts = filename.split(" - ")
-    artist_name = parts[0]
-    song_name = parts[1].gsub(".mp3", "")
-
-    song = self.new
-    song.name = song_name
-    song.artist_name = artist_name
-    song
+    new_instance = Song.new(parts[1])
+    new_instance.artist_name = Artist.find_or_create_by_name(parts[0])
+    # new_instance.artist = parts[0]
+    new_instance
+    #binding.pry #new_instance = #<Song:0x00000003052870 @artist="Action Bronson", @name="Larry Csonka">
+    # binding.pry
   end
 end
