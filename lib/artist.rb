@@ -23,13 +23,6 @@ class Artist
     @songs
   end
 
-  def add_song_by_name(name)
-    song = Song.new(name)
-    @songs << song
-    song.artist = self
-    @@song_count += 1
-  end
-
   def self.song_count
     @@song_count
   end
@@ -56,14 +49,10 @@ end
 #
 
   def self.find_or_create_by_name(name)
-    if (self.nil?)
-      self.name = Artist.new(name)
-    else
-      self.name
-    end
+    @@all.detect{|e| e.name == name} || name = Artist.new(name)
   end
 
   def print_songs
-
+    puts @songs
   end
 end
