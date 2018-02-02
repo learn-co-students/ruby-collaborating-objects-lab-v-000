@@ -16,10 +16,13 @@ class Song
   def artist_name=(artist)
     self.artist = Artist.find_or_create_by_name(artist)
     artist.add_song(self)
+    puts self
   end
 
   def self.new_by_filename(filename)
     parts = filename.split(" - ")
+    puts parts[0]
+    puts parts[1]
     new_instance = Song.new(parts[1])
     new_instance.artist_name = Artist.find_or_create_by_name(parts[0])
     # new_instance.artist = parts[0]

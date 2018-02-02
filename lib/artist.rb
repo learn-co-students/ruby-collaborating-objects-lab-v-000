@@ -13,6 +13,7 @@ class Artist
   end
 
   def add_song(song)
+    puts song
     # @song = song
     # song.artist = self
     @songs << song
@@ -64,9 +65,10 @@ class Artist
   def save
     # self.class.all << self
     @@all << self
+    puts @@all
   end
 
-  def self.create(name)
+  def self.create
     artist = Artist.new(name)
     artist.save
     artist
@@ -89,4 +91,6 @@ class Artist
   def print_songs
     @songs.each {|s| puts s.name}
   end
+
+
 end

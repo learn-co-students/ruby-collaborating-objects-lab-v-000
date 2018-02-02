@@ -16,6 +16,7 @@ class MP3Importer
   end
 
   def import
+    puts @@file_ary
     @@file_ary.each do |filename|
       song = Song.new_by_filename(filename)
       # binding.pry
