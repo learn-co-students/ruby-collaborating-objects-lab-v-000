@@ -15,7 +15,7 @@ class MP3Importer
 
   def import
     # binding.pry
-    puts files
+    # puts files
 
     if files != nil
       files.each{ |filename| Song.new_by_filename(filename) }
