@@ -15,47 +15,9 @@ class Artist
   def add_song(song)
     puts song
     # @song = song
-    # song.artist = self
     @songs << song
-    # binding.pry
-            #     #[1] pry(#<Artist>)> song
-            # => #<Song:0x00000001c00e58
-            #  @artist=
-            #   #<Artist:0x00000001c00d40
-            #    @name="Michael Jackson",
-            #    @song=#<Song:0x00000001c00e58 ...>,
-            #    @songs=[#<Song:0x00000001c00e58 ...>]>,
-            #  @name="Rock With You">
-
-            #             [2] pry(#<Artist>)> song.artist
-            # => #<Artist:0x00000001c00d40
-            #  @name="Michael Jackson",
-            #  @song=
-            #   #<Song:0x00000001c00e58
-            #    @artist=#<Artist:0x00000001c00d40 ...>,
-            #    @name="Rock With You">,
-            #  @songs=
-            #   [#<Song:0x00000001c00e58
-            #     @artist=#<Artist:0x00000001c00d40 ...>,
-            #     @name="Rock With You">]>
-
-            # [3] pry(#<Artist>)> @song
-            # => #<Song:0x00000001c00e58
-            #  @artist=
-            #   #<Artist:0x00000001c00d40
-            #    @name="Michael Jackson",
-            #    @song=#<Song:0x00000001c00e58 ...>,
-            #    @songs=[#<Song:0x00000001c00e58 ...>]>,
-            #  @name="Rock With You">
-
-            #             [4] pry(#<Artist>)> @songs
-            # => [#<Song:0x00000001c00e58
-            #   @artist=
-            #    #<Artist:0x00000001c00d40
-            #     @name="Michael Jackson",
-            #     @song=#<Song:0x00000001c00e58 ...>,
-            #     @songs=[...]>,
-            #   @name="Rock With You">]
+    song.artist = self
+    puts @songs
   end
 
   def songs
@@ -63,7 +25,6 @@ class Artist
   end
 
   def save
-    # self.class.all << self
     @@all << self
     puts @@all
   end
