@@ -15,11 +15,14 @@ class MP3Importer
     #binding.pry #@@file_ary works
   end
 
+  # def import
+  #   puts @@file_ary
+  #   @@file_ary.each do |filename|
+  #     song = Song.new_by_filename(filename)
+  #     # binding.pry
+  #   end
+  # end
   def import
-    puts @@file_ary
-    @@file_ary.each do |filename|
-      song = Song.new_by_filename(filename)
-      # binding.pry
-    end
+    @@file_ary.each{ |filename| Song.new_by_filename(filename) }
   end
 end
