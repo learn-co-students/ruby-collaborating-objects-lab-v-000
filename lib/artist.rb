@@ -8,12 +8,8 @@ class Artist
     # self.save #@@all = 4
   end
 
-  def songs
-    @songs
-  end
-
   def save
-    @@all << self unless @@all.include?(self.name)
+    @@all << self #unless @@all.include?(self.name)
   end
 
   def self.create
@@ -45,8 +41,13 @@ class Artist
   def add_song(song)
     # puts song
     song.artist = self
-    @songs << song
+    @songs.push(song)
     # puts @songs
+  end
+
+  def songs
+    # puts @songs
+    @songs
   end
 
   def self.all

@@ -18,7 +18,7 @@ class MP3Importer
     # puts files
 
     if files != nil
-      files.each{ |filename| Song.new_by_filename(filename) }
+      files.each{ |filename| if filename != nil then Song.new_by_filename(filename) end}
     end
   end
 end
