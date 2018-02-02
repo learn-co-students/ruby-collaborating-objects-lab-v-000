@@ -8,10 +8,6 @@ class Artist
       # puts @@all
   end
 
-  def self.all
-    # puts @@all
-    @@all
-  end
 
   def songs
     @songs
@@ -19,7 +15,6 @@ class Artist
 
   def save
     @@all << self
-    # puts @@all
   end
 
   def self.create
@@ -48,6 +43,10 @@ class Artist
     song.artist = self
     # puts @songs
   end
+
+    def self.all
+      @@all
+    end
 
   def print_songs
     @songs.each {|s| puts s.name}
