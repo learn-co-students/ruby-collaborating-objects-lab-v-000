@@ -9,13 +9,16 @@ class MP3Importer
   end
 
   def files
-    @files = Dir.entries(path).select{|f| f.include?(".mp3")}
+    Dir.entries(path).select{|f| f.include?(".mp3")}
+    # binding.pry
   end
 
   def import
     # binding.pry
-    if @files != nil
-      @files.each{ |filename| Song.new_by_filename(filename) }
+    puts files
+
+    if files != nil
+      files.each{ |filename| Song.new_by_filename(filename) }
     end
   end
 end
