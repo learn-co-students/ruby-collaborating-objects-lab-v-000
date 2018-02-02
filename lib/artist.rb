@@ -5,19 +5,12 @@ class Artist
   def initialize(name)
     @name = name
     @songs = []
-    # binding.pry
+      # puts @@all
   end
 
   def self.all
+    # puts @@all
     @@all
-  end
-
-  def add_song(song)
-    puts song
-    # @song = song
-    @songs << song
-    song.artist = self
-    puts @songs
   end
 
   def songs
@@ -26,7 +19,7 @@ class Artist
 
   def save
     @@all << self
-    puts @@all
+    # puts @@all
   end
 
   def self.create
@@ -49,9 +42,15 @@ class Artist
     self.find_by_name(name) || self.create_by_name(name)
   end
 
+  def add_song(song)
+    # puts song
+    @songs << song
+    song.artist = self
+    # puts @songs
+  end
+
   def print_songs
     @songs.each {|s| puts s.name}
   end
-
 
 end
