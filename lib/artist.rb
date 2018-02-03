@@ -20,7 +20,6 @@ class Artist
   end
 
   def self.create_by_name(name)
-    # artist = self.create
     artist = Artist.new(name)
     artist.name = name
     artist.save
