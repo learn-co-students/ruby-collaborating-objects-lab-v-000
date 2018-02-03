@@ -10,15 +10,12 @@ class MP3Importer
 
   def files
     Dir.entries(path).select{|f| f.include?(".mp3")}
-    # binding.pry
   end
 
   def import
-    # binding.pry
-    # puts files
-
-    if files != nil
-      files.each{ |filename| if filename != nil then Song.new_by_filename(filename) end}
+    files.each do |file|
+      Song.new_by_filename(file)
     end
-  end
+   end
+
 end
