@@ -39,7 +39,8 @@ class Artist
   end
 
   def add_song(song)
-    # puts song
+    puts song.name
+    puts "In add_song"
     song.artist = self
     @songs.push(song)
     # puts @songs
