@@ -8,8 +8,9 @@ class Artist
     @songs = []
   end
 
-
-  # helper methods
+  def self.save
+    @@all << self
+  end
 
   # def self.find_or_create_by_name(name)
   #
@@ -21,7 +22,5 @@ class Artist
     @songs << song
   end
 
-  def save
-    @@all << self
-  end
+
 end
