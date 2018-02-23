@@ -1,3 +1,5 @@
+
+
 describe 'Artist' do
   let(:artist) {Artist.new('Michael Jackson')}
 
