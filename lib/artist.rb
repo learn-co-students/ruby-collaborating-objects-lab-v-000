@@ -25,7 +25,7 @@ class Artist
     artist = Artist.all.detect {|artist| artist.name == name}
     if artist == nil
       artist = self.new(name)
-      artist.save
+      # artist.save
     end
     artist
   end
