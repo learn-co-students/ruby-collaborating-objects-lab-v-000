@@ -15,16 +15,12 @@ class MP3Importer
   end
 
   def import
+
     files.each do |filename|
       song = Song.new_by_filename(filename)
-      p song.artist
-      # artist = Artist.find_or_create_by_name(song.artist)
-      # p artist.add_song(song)
-      # if song.artist == artist
-      #   song.artist.add_song
-      # end
-
+      # binding.pry
     end
+    # Artist.all.each {|x| p x}
 
   end
 
