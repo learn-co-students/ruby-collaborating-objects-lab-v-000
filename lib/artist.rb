@@ -8,10 +8,6 @@ class Artist
     @songs = []
   end
 
-  def songs
-    @songs
-  end
-
   def self.all
     @@all
   end
@@ -21,13 +17,15 @@ class Artist
   end
 
   def save
-    @@all << self if @@all.include?(self) == false
+		if @@all.include?(self) == false
+			@@all << self 
+  	end
   end
   
   def self.find_or_create_by_name(name)
-    artist = self.all.find {|artist| artist.name == name}
+    artist = Artist.all.find {|artist| artist.name == name}
     if artist == nil
-      artist = self.new(name)
+      artist = Artist.new(name)
       artist.save
       artist
     end
@@ -36,5 +34,4 @@ class Artist
   def print_songs
     @songs.each {|song| puts song.name }
   end
-
 end
