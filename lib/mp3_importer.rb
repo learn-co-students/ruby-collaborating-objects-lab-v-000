@@ -6,11 +6,12 @@ class MP3Importer
   end
 
   def files
-    Dir.entries(path)[2..-1]
+    @files = Dir.entries(path)
+    @files.delete_if { |file| file == "." || file == ".."  }
   end
 
   def import
-    files.each do |file|
+    self.files.each do |file|
       part = file.split(" - ")
       artist_name = part[0]
       song_name = part[1]
