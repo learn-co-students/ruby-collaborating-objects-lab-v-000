@@ -1,0 +1,13 @@
+
+[1mFrom:[0m /home/nitrous/code/labs/ruby-collaborating-objects-lab-v-000/lib/mp3_importer.rb @ line 18 MP3Importer#files:
+
+    [1;34m16[0m:   [32mdef[0m [1;34mfiles[0m
+    [1;34m17[0m: 
+ => [1;34m18[0m:     binding.pry
+    [1;34m19[0m:     filename = [1;34;4mDir[0m.entries(@path).find_all {|file| file.include?([31m[1;31m"[0m[31m.mp3[1;31m"[0m[31m[0m)}
+    [1;34m20[0m: [1;34m#  [["Thundercat - For Love I Come - dance.mp3",[0m
+    [1;34m21[0m: [1;34m#   "Real Estate - It's Real - hip-hop.mp3",[0m
+    [1;34m22[0m: [1;34m#   "Action Bronson - Larry Csonka - indie.mp3",[0m
+    [1;34m23[0m: [1;34m#   "Real Estate - Green Aisles - country.mp3"]][0m
+    [1;34m24[0m:   [32mend[0m
+
