@@ -8,7 +8,7 @@ describe 'Artist' do
   end
 
   describe '#name=' do
-    it 'sets the artist name' do
+    it 'sets the artis name' do
       artist.name = 'King of Pop'
       expect(artist.name).to eq('King of Pop')
     end
