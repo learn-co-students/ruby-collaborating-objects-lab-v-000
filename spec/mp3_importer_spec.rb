@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'pry'
 
 describe "MP3Importer" do
   describe '#initialize' do
@@ -30,7 +29,7 @@ describe "MP3Importer" do
     end
   end
 
-  describe '#import' do 
+  describe '#import' do
     it 'imports the files into the library by creating songs from a filename' do
       Artist.class_variable_set("@@all",[])
       test_music_path = "./spec/fixtures/mp3s"
