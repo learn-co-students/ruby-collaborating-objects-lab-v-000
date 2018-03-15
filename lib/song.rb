@@ -14,12 +14,8 @@ class Song
 
   def self.new_by_filename(filename)
     split_path = filename.split(/-|\./).collect{ |i| i.strip}
-    temp_name = Song.new(split_path[1])
-    temp_name.artist = Artist.find_or_create_by_name(split_path[0])
+    song = Song.new(split_path[1])
+    song.artist = Artist.find_or_create_by_name(split_path[0])
+    song
   end
-
-  # def genre=(genre)
-  #
-  # end
-
 end
