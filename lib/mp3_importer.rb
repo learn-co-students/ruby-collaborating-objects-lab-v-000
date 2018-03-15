@@ -1,3 +1,4 @@
+require 'pry'
 class MP3Importer
   attr_accessor :path
 
@@ -6,6 +7,15 @@ class MP3Importer
   end
 
   def files
-    Dir["/#{path}/*.mp3"]
+    Dir["#{path}/*.mp3"].collect{|path| path.split('/').last}
+  end
+
+  def import
+    files.each{ |file|
+      split_path = file.split(/-|\./).collect{ |i| i.strip}
+      temp_name = Song.new(split_path[1])
+      temp_name.artist = Artist.find_or_create_by_name(split_path[0])
+    }
+    #  = split_path[0], split_path[1], split_path[2]
   end
 end

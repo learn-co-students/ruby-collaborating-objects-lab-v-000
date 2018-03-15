@@ -15,6 +15,7 @@ class Artist
 
   def save
     @@all << self
+    @@all.uniq!
   end
 
   def print_songs
@@ -26,6 +27,6 @@ class Artist
   end
 
   def self.find_or_create_by_name(name)
-    @@all.detect{|artist| artist.name == name} || self.new(name)
+    artist = @@all.detect{|artist| artist.name == name} || artist = self.new(name)
   end
 end
