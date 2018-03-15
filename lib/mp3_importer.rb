@@ -11,10 +11,8 @@ class MP3Importer
   end
 
   def import
-    files.each{ |file|
-      split_path = file.split(/-|\./).collect{ |i| i.strip}
-      temp_name = Song.new(split_path[1])
-      temp_name.artist = Artist.find_or_create_by_name(split_path[0])
-    }
+    files.each do |filename|
+      Song.new_by_filename(filename)
+    end
   end
 end
