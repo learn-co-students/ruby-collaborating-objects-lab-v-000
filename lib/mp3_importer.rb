@@ -9,19 +9,12 @@ class MP3Importer
   end
 
   def files
-    Dir.entries(path).each do |filename|
-      #binding.pry
-      @filenames << "#{filename}"
-    end
-    @filenames.delete_if {|x| x == "." || x == ".."}
+     @filenames = Dir.entries(path).select{|file| file.include?(".mp3")}
+   end
 
-  end
-
-  def import
-    files
-    @filenames.each do |filename|
-       Song.new_by_filename(filename)
+   def import
+      files
+      @filenames.each{|song| Song.new_by_filename(song)}
     end
-  end
 
 end
