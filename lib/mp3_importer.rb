@@ -1,3 +1,5 @@
+require "pry"
+
 class MP3Importer
   attr_reader :path
 
@@ -13,16 +15,18 @@ class MP3Importer
   end
 
   def import
-    # ["Real Estate - It's Real - hip-hop.mp3"]
-    @files.each do |file|
-      parts = file.split(" - ")
-      artist_name = parts[0]
-      song_name = parts[1]
+    # binding.pry
+    self.files.each do |file|
+      song = Song.new_by_filename(file)
+      Artist.all << song.artist unless Artist.all.include?(song.artist)
 
-      a = Artist.find_or_create_by_name(artist_name)
-      a.add_song(Song.new(song_name))
-
-    end
+      end
+      # parts = file.split(" - ")
+      # artist_name = parts[0]
+      # song_name = parts[1]
+      #
+      # a = Artist.find_or_create_by_name(artist_name)
+      # a.add_song(Song.new(song_name))
   end
 
 end
