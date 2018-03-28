@@ -9,23 +9,23 @@ class Artist
   end
 
   def self.all
-    @@all
+		@@all
   end
 
-  def add_song(song)
-   @songs << song
+	def add_song(song)
+		@songs << song
   end
 
   def save
 		if @@all.include?(self) == false
-			@@all << self 
+			@@all << self
   	end
   end
-  
-  def self.find_or_create_by_name(name)
+	
+	def self.find_or_create_by_name(name)
     artist = Artist.all.find {|artist| artist.name == name}
     if artist == nil
-      artist = Artist.new(name)
+			artist = Artist.new(name)
       artist.save
       artist
     end
