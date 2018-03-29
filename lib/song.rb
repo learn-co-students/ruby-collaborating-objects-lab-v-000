@@ -1,8 +1,9 @@
+require 'pry'
+
 class Song
 
 attr_reader :name, :artist
 
-@@all = []
 
   def initialize(name)
     @name = name
@@ -12,13 +13,15 @@ attr_reader :name, :artist
     @name = name
   end
 
-def artist(song)
-  song = Artist.new(song)
-  self.artist = song
+def artist(name)
+  self.artist = Artist.find_or_create_by_name(name)
+  artist.add_song(self)
 end
 
-def self.new_by_filename
-  @@all << self
+def self.new_by_filename(file)
+  song = self.new
+  song.title = file.split(" - ")[1]
+  song
 end
 
 end
