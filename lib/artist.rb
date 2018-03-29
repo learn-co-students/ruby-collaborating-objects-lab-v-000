@@ -17,7 +17,9 @@ class Artist
   end #def songs
 
   def save
-    @@all << self
+    if !@@all.include?(self)
+      @@all << self
+    end #if
   end #def save
 
   def self.all
@@ -25,7 +27,7 @@ class Artist
   end #def all
 
   def self.find_or_create_by_name(name)
-    if artist.name == name
+    if self.all.find {|artist| artist.name == name}
       self.all.find {|artist| artist.name == name}
     else
       self.new(name)
