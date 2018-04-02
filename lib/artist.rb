@@ -5,6 +5,10 @@ class Artist
 
   @@all = []
 
+  def self.all
+    @@all
+  end
+
   def name= (name)
     @name = name
   end
@@ -25,6 +29,9 @@ class Artist
 
   def self.find_or_create_by_name(name)
     artist = self.new(name)
-    @@all << artist
+  end
+
+  def save
+    @@all << self
   end
 end
