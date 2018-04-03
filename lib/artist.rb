@@ -29,8 +29,8 @@ def self.find_or_create_by_name(name)
  artist = self.all.detect do |artist_name|
     artist_name.name == name 
   end
-    if artist
-      artist
+   if artist
+     artist
   else 
     new_artist = self.new(name)
     new_artist
