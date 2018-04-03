@@ -39,7 +39,9 @@ end
 
 
 def print_songs
-  self.songs
+  self.songs.map do |songs|
+    puts songs.name
+  end
 end
 
 
