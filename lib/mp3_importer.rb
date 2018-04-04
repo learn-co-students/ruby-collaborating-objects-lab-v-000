@@ -17,10 +17,7 @@ class MP3Importer
   end
 
   def import
-    files.each do | file_name |
-      new_song = Song.new_by_filename(file_name)
-      new_song.artist.save  # so test spec can confirm results
-    end
+    files.each { | file_name | Song.new_by_filename(file_name) }
   end
 
   def update_files

@@ -15,6 +15,7 @@ class Song
     # and now connect them
     new_song.artist = song_artist
     song_artist.add_song(new_song)
+    song_artist.save
     new_song
   end
 
