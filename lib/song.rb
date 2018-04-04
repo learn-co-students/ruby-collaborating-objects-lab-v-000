@@ -15,6 +15,10 @@ class Song
     # and now connect them
     new_song.artist = song_artist
     song_artist.add_song(new_song)
+    # In terms of the domain, spec doesn't say when an artist should be saved.   Putting it here
+    # passes the tests.  I would argue that it should be saved in initialize (anyone who says they
+    # are an artist is saved) or in add_song (once an artist has a song, they should be saved forever)
+    # but both these options run into problems with the test spec expects....
     song_artist.save
     new_song
   end
