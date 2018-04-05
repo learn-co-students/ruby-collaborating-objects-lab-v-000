@@ -21,8 +21,7 @@ class Artist
   end
 
   def self.find_or_create_by_name(name)
-    named_artist = @@all.detect{|artist| artist.name == name}
-    named_artist ||= Artist.new(name)
+    @@all.detect{|artist| artist.name == name} || Artist.new(name)
   end
 
   def print_songs
