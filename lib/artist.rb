@@ -18,9 +18,7 @@ class Artist
   def save # instance method b/c doesnt have self was called on the brett artist
   @@all << self
   end
-
-
-
+  
   def self.all #class method b/c of the self
     @@all
   end
