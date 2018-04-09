@@ -1,4 +1,4 @@
-describe 'Artist' do
+puts describe 'Artist' do
   let(:artist) {Artist.new('Michael Jackson')}
 
   describe '#initialize with #name' do
@@ -7,14 +7,14 @@ describe 'Artist' do
     end
   end
 
-  describe '#name=' do
+  puts describe '#name=' do
     it 'sets the artist name' do
       artist.name = 'King of Pop'
       expect(artist.name).to eq('King of Pop')
     end
   end
 
-  describe '#songs' do
+  puts describe '#songs' do
     it 'keeps track of an artist\'s songs' do
       song_one = Song.new("Rock With You")
       song_two = Song.new("Smooth Criminal")
@@ -24,14 +24,14 @@ describe 'Artist' do
     end
   end
 
-  describe '#save' do
+  puts describe '#save' do
     it 'adds the artist instance to the @@all class variable' do
       artist.save
       expect(Artist.all).to include(artist)
     end
   end
 
-  describe '.find_or_create_by_name' do
+  puts describe '.find_or_create_by_name' do
     it 'finds or creates an artist by name maintaining uniqueness of objects by name property' do
       artist_1 = Artist.find_or_create_by_name("Michael Jackson")
       artist_2 = Artist.find_or_create_by_name("Michael Jackson")
@@ -44,7 +44,7 @@ describe 'Artist' do
     end
   end
 
-  describe '#print_songs' do
+  puts describe '#print_songs' do
     it 'lists all of the artist\'s songs' do
       dirty_diana = Song.new("Dirty Diana")
       billie_jean = Song.new("Billie Jean")
