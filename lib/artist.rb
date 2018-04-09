@@ -13,7 +13,7 @@ def name=(name)
 end
 
 def add_song(song)
-
+  @songs << song
 end
 
 def songs
@@ -27,7 +27,7 @@ def save
 end
 
 def find_or_create_by_name(name)
-
+  if Artist.
 end
 
 def print_songs
