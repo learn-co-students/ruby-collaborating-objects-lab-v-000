@@ -32,7 +32,6 @@ class Artist
     if artist.nil?
       artist = self.new(name)
       artist.save
-
     end
     artist
   end
