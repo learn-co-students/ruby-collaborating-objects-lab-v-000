@@ -8,7 +8,7 @@ class MP3Importer
   end
 
   def files
-    Dir.entries(self.path).reject{|filename| filename =~ /^\.{1,2}$/}
+    Dir.entries(self.path).reject { |filename| filename =~ /^\.{1,2}$/ }
   end
 
   def import
