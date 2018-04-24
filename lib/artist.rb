@@ -22,7 +22,7 @@ class Artist
     end
 
     def self.find_or_create_by_name(name)
-        #motherfucker son of a bitch
+        #refactor and study this method
         if @@all.detect {|artist| artist.name == name} != nil
             @@all.detect {|artist| artist.name == name}
         else
