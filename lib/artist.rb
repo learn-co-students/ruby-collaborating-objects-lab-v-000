@@ -51,6 +51,8 @@ class Artist
   end
 
   def print_songs
-    self.songs.print
+    self.songs.collect do|song|
+       puts song.name
+    end
   end
 end
