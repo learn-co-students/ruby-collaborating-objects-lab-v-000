@@ -33,6 +33,8 @@ def self.find_or_create_by_name(name)
 end
 
 def print_songs
+  song_list = Artist.all.collect { |a| a.songs}
+  return song_list
 end
 
 end
