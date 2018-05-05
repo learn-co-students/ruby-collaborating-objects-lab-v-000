@@ -1,26 +1,18 @@
+
 class Song
 
-  attr_accessor :artist, :name
+  attr_accessor :name, :artist
 
   def initialize(name)
     @name = name
   end
 
-  # def artist_name=(name)
-  #   if (self.artist.nil?)
-  #     self.artist = Artist.new(name)
-  #   else
-  #     self.artist.name = name
-  #   end
-  # end
-
-
-
   def self.new_by_filename(filename)
-    #This will return "Black or White"
-    name = filename.split(" - ")[1]
-    song = self.new(name)
-    artist = song.artist
+    song = self.new(filename.split(" - ")[1])
+    artist = Artist.find_or_create_by_name(filename.split(" - ")[0])
+    song.artist = artist
+    artist.add_song(song)
+    song
   end
 
 
