@@ -7,26 +7,18 @@ class Song
     @name = name
   end
 
-  def self.song_from_filename(filename)
-    name = filename.split(" - ")[1]
-    name
-  end
-
-  def self.artist_from_filename(filename)
-    artist = filename.split(" - ")[0]
-    artist
-  end
-
   #.new_by_filename creates a new song instance from the passed-in file
   def self.new_by_filename(filename)
-    binding.pry
+    artist = filename.split(" - ")[0]
     song_name = filename.split(" - ")[1]
-    song_name
-    song = self.new(name)
+    song = Song.new(song_name)
+    song.artist = artist_name=(artist)
+    song
   end
 
   def artist_name=(name)
-    self.artist.name = Artist.find_or_create_by_name(name)
+    self.artist = Artist.find_or_create_by_name(name)
+    artist.add_song(self)
   end
 
 end
