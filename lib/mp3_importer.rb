@@ -11,4 +11,8 @@ class MP3Importer
     @files.select{|file| file.include?(".mp3")}
     #binding.pry
   end
+
+  def import
+    Song.new_by_filename(files)
+  end
 end
