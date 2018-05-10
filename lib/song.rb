@@ -1,13 +1,15 @@
 class Song
   attr_accessor :name, :artist
+  attr_reader :artist_name
 
   def initialize(name)
     @name = name
   end
 
   def artist_name=(artist_name)
-    artist = Artist.find_or_create_by_name(name)
-    artist.artist_name = name
+    @artist_name = artist_name
+    artist
+    #artist.add_song(self)
   end
 
   def self.new_by_filename(filename)
