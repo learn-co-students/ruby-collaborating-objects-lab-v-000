@@ -8,11 +8,12 @@ class MP3Importer
 
   def files
     @files = Dir.entries(@path)
-    @files.select{|file| file.include?(".mp3")}
+    @files = @files.select{|file| file.include?(".mp3")}
     #binding.pry
   end
 
   def import
-    Song.new_by_filename(files)
+    #binding.pry
+    files.each {|f|  Song.new_by_filename(f) }
   end
 end
