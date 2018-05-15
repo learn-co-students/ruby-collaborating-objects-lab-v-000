@@ -4,13 +4,10 @@ class MP3Importer
     @path = path
   end 
   def files 
-    
+    Dir.entries(@path).delete_if { |file_name| file_name.length < 5 }
   end 
-  def import 
-  end 
-  def size 
-  end 
-  def import(list_of_filenames)
-    list_of_filenames.each{ |filename| Song.new_by_filename(filename) }
+  
+  def import
+    self.files.each{ |filename| Song.new_by_filename(filename) }
   end
 end 
