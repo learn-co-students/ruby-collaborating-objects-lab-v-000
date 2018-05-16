@@ -27,10 +27,19 @@ def self.find_or_create_by_name(name)
   self.all.each do |artist|
     if artist.name == name
       return artist
-    else
-      Artist.new
     end
   end
+  artist = self.new(name)
+  artist.save
+  return artist
 end
+
+  def print_songs
+    songs.each do |song|
+      puts song.name
+    end
+
+  end
+
 
 end
