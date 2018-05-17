@@ -1,3 +1,4 @@
+
 require "pry"
 
 class Artist
@@ -38,8 +39,20 @@ end
     songs.each do |song|
       puts song.name
     end
-
   end
 
-
-end
+  end
+# =======
+# class Artist
+#   attr_accessor :name, :songs
+#
+#   def initialize(name)
+#     @name = name
+#     @songs << songs
+#   end
+#
+#   @songs = []
+# >>>>>>> 167c009d5607e937501addedb58a785d60e8c771
+#
+#
+# end
