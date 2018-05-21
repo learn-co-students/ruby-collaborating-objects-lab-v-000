@@ -22,14 +22,23 @@ class Artist
     @@all
   end
 
+  def self.find_by_name(artist)
+    self.all.detect do |artists|
+      artists.name == artist
+    end
+  end
+
+  def self.create_by_name(artist)
+    artist = self.new(artist)
+    artist.save
+    artist
+  end
+
   def self.find_or_create_by_name(artist)
-    binding.pry
-    if @@all.include?(artist)
-      @@all.find(artist)
+    if self.find_by_name(artist)
+      self.find_by_name(artist)
     else
-      artist = Artist.new(artist)
-      artist.save
-      artist
+      self.create_by_name(artist)
     end
   end
 
