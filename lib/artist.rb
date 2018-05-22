@@ -43,7 +43,8 @@ class Artist
   end
   
   def print_songs
-    @song.each do |song|
-      puts "This one sucks too: #{song}!!"
+    @songs.each do |songs|
+      puts "This one sucks too: #{songs}!!"
   end
+end
 end
