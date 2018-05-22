@@ -1,27 +1,25 @@
-class Song
-  attr_accessor :name, :artist
+class MP3Importer
+  attr_accessor :filenames, :path
 
-  @@all = []
-
-  def initialize(name)
-    @name = name
+  def initialize(path)
+    @path = path
+    @filenames = []
   end
 
-  def self.new_by_filename(filename)
-    artist, song = filename.split(" - ")
-    new_song = self.new(song)
-    new_song.artist_name = artist
-    new_song.save
-  end
-
-  def self.find_by_artist(artist)
-    Song.all.select do | song |
-      song.artist == artist
+  def files
+    Dir.entries(path).each do |filename|
+      @filenames << "#{filename}"
     end
+    @filenames.delete_if {|x| x == "." || x == ".."}
   end
-  
-  def self.all
-    @@all
+
+  def import
+    @filenames.each do |filename|
+      filename.split(" - ")[2] = artist_name
+      Artist.find_or_create_by_name(artist_name)
+      filename.split(" - ")[1] = song
+      Artist.add_song(song)
+    end
   end
 
   def artist_name=(name)

@@ -41,9 +41,5 @@ class Song
   def initialize(title)
     @title = title
   end
-
-  def print_songs
-    @songs.each { |song| puts song.name }
-  end 
 end
 
