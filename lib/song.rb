@@ -4,7 +4,7 @@ class Song
   @@all = []
 
   def initialize(name)
-    @name = name
+    @name = (name)
   end
 
   def self.new_by_filename(filename)
@@ -42,8 +42,7 @@ class Song
     @title = title
   end
   
-  def print_songs
-    puts @songs
+ 
   end
 end
 

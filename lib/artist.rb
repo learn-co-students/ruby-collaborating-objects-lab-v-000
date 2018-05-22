@@ -27,7 +27,7 @@ class Artist
     end
   end
 
-  def self.find(name)     #class method detects instances from @@all class variable
+  def self.find(name)    variable
     self.all.detect { |artist| artist.name == name }
   end
 
@@ -43,6 +43,7 @@ class Artist
   end
   
   def print_songs
-    puts @songs
+    @song.each do |song|
+      puts "This one sucks too: #{song}!!"
   end
 end
