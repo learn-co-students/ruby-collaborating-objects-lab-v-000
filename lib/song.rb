@@ -37,9 +37,13 @@ class Song
   def self.find_by_artist(name)
     Song.all.select { |song| song.name == name }
   end
-  
-  def print_songs
-    puts @songs.each { |song| song.to_s }
+
+  def initialize(title)
+    @title = title
   end
 
+  def print_songs
+    puts @songs.each { |song| puts song_name }
+  end 
 end
+
