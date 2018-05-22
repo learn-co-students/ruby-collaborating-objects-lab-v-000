@@ -1,33 +1,19 @@
+require "pry"
 class MP3Importer
-  attr_accessor :filenames, :path
+  attr_accessor :songs, :path
 
   def initialize(path)
-    @path = path
-    @filenames = []
+  	@path = path
   end
 
   def files
-    Dir.entries(path).each do |filename|
-      @filenames << "#{filename}"
-    end
-    @filenames.delete_if {|x| x == "." || x == ".."}
+    @files ||= Dir.glob("#{path}/*.mp3").map {|file| file.gsub("#{path}/", "")}
   end
 
   def import
-    @filenames.each do |filename|
-      filename.split(" - ")[2] = artist_name
-      Artist.find_or_create_by_name(artist_name)
-      filename.split(" - ")[1] = song
-      Artist.add_song(song)
-    end
+    self.files.each{|file_name| Song.new_by_filename(file_name)}
   end
 
-  def artist_name=(name)
-    self.artist = Artist.find_or_create_by_name(name)
-  end
-  
-  def save
-    @@all << self
-    self
-  end
-end
+
+
+end 

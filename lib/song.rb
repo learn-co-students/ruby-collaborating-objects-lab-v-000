@@ -1,49 +1,22 @@
 class Song
-  attr_accessor :name, :artist
-
-  @@all = []
+  attr_accessor :artist, :name
 
   def initialize(name)
-    @name = (name)
+    @name = name
+  end
+ 
+  def artist_name=(name)
+    self.artist = Artist.find_or_create_by_name(name)
+    artist.add_song(self)
   end
 
   def self.new_by_filename(filename)
-    artist, song = filename.split(" - ")
-    new_song = self.new(song)
-    new_song.artist_name = artist
-    new_song.save
-  end
-
-  def self.find_by_artist(artist)
-    Song.all.select do | song |
-      song.artist == artist
-    end
+    x = filename.split(" - ")
+    artist = x[0]
+    song_title = x[1]
+    song = self.new(song_title)
+    song.artist_name = artist
+    song
   end
   
-  def self.all
-    @@all
-  end
-
-  def artist_name=(name)
-    self.artist = Artist.find_or_create_by_name(name)
-  end
-  
-  def save
-    @@all << self
-    self
-  end
-
-    
-  def self.find_by_artist(name)
-    Song.all.select { |song| song.name == name }
-  end
-
-  def initialize(title)
-    @title = title
-  end
-  
-  def print_songs
-    puts @songs
-  end
-end
-
+end 
