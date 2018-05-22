@@ -42,7 +42,8 @@ class Song
     @title = title
   end
   
- 
+  def print_songs
+    puts @songs
   end
 end
 

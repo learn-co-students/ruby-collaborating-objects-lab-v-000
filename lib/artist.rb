@@ -47,4 +47,5 @@ class Artist
       puts "This one sucks too: #{songs}!!"
   end
 end
+
 end
