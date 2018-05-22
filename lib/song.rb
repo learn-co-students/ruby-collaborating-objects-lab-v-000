@@ -41,5 +41,9 @@ class Song
   def initialize(title)
     @title = title
   end
+  
+  def print_songs
+    puts @songs
+  end
 end
 
