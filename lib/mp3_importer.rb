@@ -1,18 +1,14 @@
 
 class MP3Importer
-  attr_accessor :path
-  attr_reader :files
+  attr_reader :path
   
   def initialize(file_path)
     @path = file_path
   end
   
   def files
-    # "./db/mp3s/*.mp3" - path for all files
-    results = Dir.glob("#{self.path}/*.mp3")
-
-    # .delete_prefix("./db/mp3s/") - better way but I'm not risking updating from 2.3.1 to 2.5.x in the browser IDE
-    @files = results.collect{ |filename| filename.sub('./spec/fixtures/mp3s/', '') }
+      # .delete_prefix("#{self.path}/") - is better than .sub but I'm not risking updating from 2.3.1 to 2.5.x in the browser IDE
+    @files ||= Dir.glob("#{self.path}/*.mp3").collect{ |filename| filename.sub("#{self.path}/", '') }
   end
 
   def import
