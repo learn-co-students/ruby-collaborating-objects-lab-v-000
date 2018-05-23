@@ -15,11 +15,12 @@ class Song
     # @artist.add_song(self)
   end
 
-  def new_by_filename(filename)
-    # use the split trick
-    # make new 
-    # set artist_name (may need custom getter) 
-    # return instance
+  def self.new_by_filename(filename)
+    parts = filename.split(' - ')
+    song_title = parts[1]
+    musician = parts[0]
+    new_song = Song.new(song_title)
+    new_song.artist = musician  
+    new_song
   end
-
 end
