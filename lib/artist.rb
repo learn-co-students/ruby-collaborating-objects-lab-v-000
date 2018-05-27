@@ -39,7 +39,23 @@ class Artist
     end
   end
 
-# rspec ./spec/artist_spec.rb
+  # this is a very elegant solution:
+  #
+  # def self.find_or_create_by_name(name)
+  #     self.find(name) ? self.find(name) : self.create(name)
+  # end
+  #
+  # def self.find(name)
+  #     self.all.find {|artist| artist.name == name }
+  # end
+  #
+  # def self.create(name)
+  #     self.new(name).tap {|artist| artist.save}
+  # end
+  #
+  # def save
+  #     @@all << self
+  # end
 
   def print_songs
     @songs.each {|song| puts song.name}
