@@ -30,9 +30,9 @@ class Artist
   def self.find_or_create_by_name(name)
     new = Artist.new(name)
     already_artist = @@all.select {|artist| artist.name == new.name}
-    if already_artist[0] != new
+    if already_artist[0] != nil
       already_artist[0]
-    elsif already_artist[0] == []
+    elsif already_artist == []
       new.save
       @@all.last
       # new # would also work here
