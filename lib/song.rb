@@ -6,20 +6,18 @@ class Song
   end
 
   def self.new_by_filename(filename)
-    # removes .mp3 from filename and splits into an array, stores array items in variables 
-    array = filename.gsub(".mp3", "").split(" - ")
-    artist_name = array[0]
-    name = array[1]
-    genre = array[2]
-
+    # removes .mp3 from filename and splits into an array, stores variables
+    artist_name, song_name, genre = filename.gsub(".mp3", "").split(" - ")
     # creates a new song from the song name
-    song = Song.new(name)
+    song = self.new(song_name)
     # stores artist instance as song's artist
-    song.artist = Artist.find_or_create_by_name(artist_name)
     # adds artist to array of all artists
+    song.artist = Artist.find_or_create_by_name(artist_name)
+    # adds artist object to Artist.all class array
     song.artist.save
-    # adds song to artist's collection
+    # add song object to artist's instance array
     song.artist.add_song(song)
+    # returns song instance
     song
   end
 end
