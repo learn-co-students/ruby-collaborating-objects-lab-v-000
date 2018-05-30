@@ -21,6 +21,7 @@ class Artist
     if (artist = @@all.detect {|artists| artists.name == name})
     else
       artist = Artist.new(name)
+      artist.save
     end
     artist
   end
