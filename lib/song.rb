@@ -17,10 +17,8 @@ class Song
     artist = file_name[0]
     song = file_name[1]
     genre = file_name[2]
-    #binding.pry
     instance = self.new(song)
     instance.artist_name(artist)
-    #binding.pry
     instance
   end
 end
