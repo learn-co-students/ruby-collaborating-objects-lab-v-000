@@ -19,7 +19,7 @@ class Song
     genre = file_name[2]
     #binding.pry
     instance = self.new(song)
-    instance.artist = instance.artist_name(artist)
+    instance.artist_name(artist)
     #binding.pry
     instance
   end
