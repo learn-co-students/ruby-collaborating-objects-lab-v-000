@@ -6,7 +6,8 @@ class Artist
   def initialize(name)
     @name = name
     @songs = []
-  end
+    @@all << self
+end
 
   def self.all
     @@all    
@@ -14,6 +15,7 @@ class Artist
 
   def add_song(song)
     @songs << song
+    song.artist = self
   end
   
   def save
@@ -21,16 +23,11 @@ class Artist
   end
   
   def self.find_or_create_by_name(name)
-    self.find(name) ? self.find(name) : self.create(name)
-  end
-
-  def self.find(name)
-    self.all.find {|artist| artist.name == name }
-  end
-
-
-  def self.create(name)
-    self.new(name).tap {|artist| artist.save}
+    if @@all.detect { |artist| artist.name == name }
+      @@all.detect { |artist| artist.name == name }
+    else
+      artist = Artist.new(name)
+    end
   end
   
   def print_songs
