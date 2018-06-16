@@ -9,7 +9,6 @@ class MP3Importer
 
   def files
     files = Dir.chdir(@path) {|path| Dir.glob("*.mp3")}
-    # binding.pry
   end
 
   def import
