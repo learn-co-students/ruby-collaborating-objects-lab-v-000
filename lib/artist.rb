@@ -1,4 +1,4 @@
-# Will come back to this later...
+
 
 require 'pry'
 
@@ -11,7 +11,7 @@ class Artist
   def initialize(name)
     @name = name
     @songs = []
-    save
+    
   end
 
   def add_song(song_name)
@@ -26,10 +26,21 @@ class Artist
     @@all
   end
 
-  def self.find_or_create_by_name(artist_name)
-    @@all.each {|artist| return artist if artist.name == artist_name}
-    Artist.new(artist_name)
+  def self.find_or_create_by_name(name) # changed argument from artist_name
+   self.find(name) ? self.find(name) : self.create(name)
   end
+
+  def self.find(name)
+    self.all.find {|artist| artist.name == name }
+    #binding.pry
+  end
+
+
+  def self.create(name)
+    self.new(name).tap {|artist| artist.save} # research tap method
+    #binding.pry
+  end
+
 
   def print_songs
     songs.each {|song| puts song.name}
