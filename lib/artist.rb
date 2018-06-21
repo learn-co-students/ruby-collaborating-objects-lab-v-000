@@ -46,3 +46,7 @@ class Artist
 
 
 end
+
+#Always look out for return values
+#Hunt to find where the error is. Line numbers and tests are so simple now.
+#pry it up, step by step.

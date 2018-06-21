@@ -10,6 +10,7 @@ class MP3Importer
       file.gsub("#{path}/","") #path and the / after gets replaced by an empty string
     }
   end  #regex is used to access the path
+  #https://ruby-doc.org/core-1.9.3/Dir.html
     #gsub is a method that REPLACES things "hello".gsub("h","1") -> "1ello"
 
     #my other way to solve down here
