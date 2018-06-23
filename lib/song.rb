@@ -26,6 +26,7 @@ end
     @name = name
   end
  
+#problem with this method 
   def self.new_by_filename(filename) #class method to create a new song object
     incoming_song = filename.chomp(".mp3")
     info_array = incoming_song.split(" - ")
@@ -41,7 +42,7 @@ end
     new_song.save
   end
 
-
+#had problem with this method too
   def artist_name=(name)
     self.artist = Artist.find_or_create_by_name(name)
   end
