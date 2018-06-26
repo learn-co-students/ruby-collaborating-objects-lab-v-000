@@ -1,3 +1,4 @@
+require "pry"
 class Artist
   
   attr_accessor :name, :songs
@@ -20,9 +21,9 @@ class Artist
   def self.all
     @@all
   end
-  
+
   def find_or_create_by_name(name)
-    if self.find name = name
+    if self.find(name)
       self.find(name)
     else
       self.create(name)
@@ -41,6 +42,7 @@ class Artist
   
   def print_songs
     self.songs.each {| song | song.name}
+    puts song
   end
   
   
