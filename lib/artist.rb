@@ -1,3 +1,4 @@
+require'pry'
 class Artist
     attr_accessor :name, :songs
     @@all = []
@@ -7,28 +8,39 @@ class Artist
     end
 
     def name=(name)
-        self.name = name
+        @name = name
     end
 
     def add_song(song)
-        # @song << song
-        # song.artist = self
-        @@all << song
+        @songs << song
+        song.artist = self
+        # @@all << song
+    end
+
+    def self.all
+        @@all
     end
 
     def save
-        @@all << self
+        self.class.all << self
+    end
+
+    def self.find(name)
+        self.all.find {|artist| artist.name == name}
+    end
+
+    def self.create(name)
+        artist = Artist.new(name)
+        artist.save
+        artist
     end
 
     def self.find_or_create_by_name(name)
-        if self.artist.nil?
-            self.artist = Artist.new(name)
-        else
-            self.artist.name = name
-        end
+        self.find(name) || self.create(name)
     end
 
     def print_songs
-        @@all.each {|song| puts songs.name}
+        songs.each {|song| puts song.name}
     end
+
 end
