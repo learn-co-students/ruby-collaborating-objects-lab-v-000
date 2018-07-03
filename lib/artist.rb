@@ -20,7 +20,11 @@ class Artist
   end
 
   def print_songs
-    puts @songs.name.to_s
+    song_names = []
+    @songs.each do |song|
+      song_names << song.name
+    end
+    print song_names.join("\n") << "\n"
   end
 
   def save
