@@ -1,4 +1,6 @@
-describe 'Song' do 
+require 'pry'
+
+describe 'Song' do
   let(:song) {Song.new('Man in the Mirror')}
   let(:file_name) {'Michael Jackson - Black or White - pop.mp3'}
 
@@ -23,11 +25,13 @@ describe 'Song' do
     end
   end
 
-  describe '.new_by_filename' do 
-    it 'creates a new instance of a song from the file that\'s passed in' do 
+  describe '.new_by_filename' do
+    it 'creates a new instance of a song from the file that\'s passed in' do
       new_instance = Song.new_by_filename(file_name)
+      # binding.pry
       expect(new_instance.name).to eq('Black or White')
       expect(new_instance.artist.name).to eq('Michael Jackson')
+
     end
   end
 end
