@@ -13,7 +13,6 @@ class Artist
     
   def add_song(new_song)
     @songs.push(new_song) unless @songs.include?(new_song)
-    #Song.artist = self unless Song.artist == (self)
   end
   
   def self.all
@@ -24,13 +23,6 @@ class Artist
     @@all.push(self)
     self
   end
-    
-  # def self.create(name)
-  #   artist = self.new(name)
-  #   artist.save
-  #   artist
-  #   # binding.pry
-  # end
     
   def self.find_by_name(name)
     @@all.find {|artist| artist.name == name}
