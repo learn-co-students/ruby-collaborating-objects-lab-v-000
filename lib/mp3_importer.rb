@@ -13,6 +13,13 @@ attr_accessor :path
     end
   end
 
+  # def files
+  #   @files ||= Dir.glob("#{path}/*.mp3").collect do
+  #   |f| f.gsub("#{path}/", "")
+  #   binding.pry
+  # end
+  # end
+
   def import
     self.files.each do |some_filename|
       Song.new_by_filename(some_filename)
