@@ -14,14 +14,8 @@ class Artist
   end
 
   def add_song(song)
-    # song = Song.new(title)
-    # song.artist = self
     @songs << song
   end
-
-  # def songs
-  #   @@all.find {|s| s.artist == artist}
-  # end
 
   def save
     @@all << self
