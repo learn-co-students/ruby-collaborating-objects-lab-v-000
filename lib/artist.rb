@@ -27,7 +27,12 @@ class Artist
   end
   
   def add_song(song)
+    # binding.pry
+    # tell the artist about its song
     @songs << song
+    # tell the song it belongs to the artist
+    song.artist = self
+    
   end
   
   def save
