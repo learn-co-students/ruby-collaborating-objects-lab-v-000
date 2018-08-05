@@ -1,3 +1,4 @@
+require 'pry'
 class Song
   attr_accessor :name, :artist
 
@@ -11,7 +12,10 @@ class Song
     artist, song = filename.split(" - ")
     new_song = self.new(song)
     new_song.artist_name = artist
+    #binding.pry
+    new_song.artist.add_song(new_song)
     new_song.save
+    #this method was not pulling information from the @song[] array in order to provide the test with a false statement that the array was not empty.  
   end
 
   def self.find_by_artist(artist)
