@@ -5,8 +5,8 @@ class Artist
   
   @@all = []
   
-  attr_accessor :name
-  attr_reader :songs
+  attr_accessor :name, :songs
+
   
   def initialize(name)
     @name = name
@@ -30,13 +30,14 @@ class Artist
   
   def self.find_or_create_by_name(name)
     if self.all.find{|person| person.name == name} == nil
-      artist = Artist.new(name) 
+      artist = Artist.create(name) 
     else self.all.find{|person| person.name == name}
     # binding.pry
     end
   end 
   
   def print_songs
+    binding.pry
     @songs.each do |name|
       puts "#{@name}"
     end
