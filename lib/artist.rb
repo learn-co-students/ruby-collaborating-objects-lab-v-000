@@ -23,6 +23,10 @@ class Artist
   def self.all 
     @@all 
   end
+  
+  def self.create(name)
+    self.new(name).tap {|artist| artist.save}
+  end
 
   def save
     @@all << self
@@ -37,18 +41,10 @@ class Artist
   end 
   
   def print_songs
-    binding.pry
     @songs.each do |name|
       puts "#{@name}"
     end
-      
-    
   end
-    
-  
-  
-  
-  
-  
   
 end
+
