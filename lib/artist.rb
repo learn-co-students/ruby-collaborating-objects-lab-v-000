@@ -27,16 +27,19 @@ class Artist
   end
   
   def save
-    @@all << self
+    @@all << self 
   end
+  
+  def self.create(name)
+    new_artist = self.new(name)
+    new_artist.save
+    new_artist
+  end
+    
+    
 
   def self.find_or_create_by_name(artist_name)
-    if @@all.find {|artist| artist.name == artist_name} == nil 
-      new_artist = self.new(artist_name)
-      new_artist
-    else 
-      @@all.find {|artist| artist.name == artist_name}
-    end
+    @@all.find {|artist| artist.name == artist_name} || self.create(artist_name)
   end
   
   def print_songs
