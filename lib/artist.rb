@@ -1,28 +1,34 @@
 class Artist
-  attr_accessor :name
-  attr_reader :song
+  attr_accessor :name, :songs
   
   @@all= []
-  @@songs = []
   
   
   def initialize(name)
     @name = name
+    @songs = [] # a given artist should start, or be initialized, with a songs collection that is empty. Then a method will be written that adds songs to that collection - def add_song(song).
   end
   
-  def song(song)
-    @song=song
-    @@songs << song
+# to keep track of an artist's songs:    
+ 
+  def add_song(song)
+    @songs << song
+  end
+
+# to add the artist instance to the @@all class variable
+
+  def self.all
+    @@all
   end
   
   def save
     @@all << self
   end
-  
-
-  def add_song(song)
-    @songs << song
-  end
  
-  
+# to list all of the artist's songs 
+
+ def print_songs
+   @songs
+ end
+ 
 end
