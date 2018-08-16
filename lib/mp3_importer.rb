@@ -1,15 +1,15 @@
 class MP3Importer
-  attr_accessor :path
+  attr_reader :path
 
-  def initialize (path)
+  def initialize(path)
     @path = path
-
-    def files
-      Dir.entries(path).reject {|f| f == "." || f == "- -"}
-    end
   end
 
-    def import
-      files.each { |f| Song.new_by_filename(f) }
-    end
+  def files
+    @files ||= Dir.glob("#{path}/*.mp3").collect{ |f| f.gsub("#{path}/", "") }
   end
+
+  def import
+    files.each{|f| Song.new_by_filename(f)}
+  end
+end
