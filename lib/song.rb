@@ -7,7 +7,8 @@ class Song
     @name=name
   end
   
-  def artist_name=(artist_name)
+def artist_name=(artist_name)
+  @artist_name = artist_name
     if self.artist == nil
        self.artist = Artist.find_or_create_by_name(artist_name)
     else 
@@ -16,16 +17,16 @@ class Song
   end 
   
   def self.new_by_filename(filename)
-    arr1 = []
-    arr1 = filename.split(" - ")
-    artist_name_file = arr1[0]
-    song_name = arr1[1]
-    #puts song_name
+    long_song_name = []
+    long_song_name = filename.split(" - ")
+    artist_name_extracted = long_song_name[0]
+    song_name = long_song_name[1]
     
-    new_song = self.new(artist_name_file)
-    new_song.name = song_name
-    new_song.artist_name = artist_name_file
-    new_song
+    new_song_instance = self.new(artist_name_extracted)
+    new_song_instance.name = song_name
+    new_song_instance.artist_name = artist_name_extracted
+    new_song_instance
+    
   end 
 
   
