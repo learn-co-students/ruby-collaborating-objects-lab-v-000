@@ -25,10 +25,23 @@ class Artist
     @@all << self
   end
  
-# to list all of the artist's songs 
-
- def print_songs
-   @songs
- end
- 
+def self.create_by_name(artist_name)
+    created_artist = self.new(artist_name)
+    created_artist #to return the instance, not the string
+  end 
+  
+  
+  def self.find_by_name(artist_name)
+    @@all.detect{|artist_names| artist_names.name == artist_name}
+  end 
+  
+  def self.find_or_create_by_name(artist_name)
+    self.find_by_name(artist_name) || self.create_by_name(artist_name)
+  end 
+  
+  def print_songs
+    @songs.map do |song|
+      puts "#{song.name}"
+    end
+  end
 end
