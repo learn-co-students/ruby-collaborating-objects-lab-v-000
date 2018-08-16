@@ -32,7 +32,7 @@ def self.create_by_name(artist_name)
   
   
   def self.find_by_name(artist_name)
-    @@all.detect{|artist_names| artist_names.name == artist_name}
+    @@all.detect{|a| a.name == artist_name}
   end 
   
   def self.find_or_create_by_name(artist_name)
@@ -40,8 +40,8 @@ def self.create_by_name(artist_name)
   end 
   
   def print_songs
-    @songs.map do |song|
-      puts "#{song.name}"
+    @songs.map do |s|
+      puts "#{s.name}"
     end
   end
 end
