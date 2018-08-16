@@ -14,8 +14,9 @@ def self.all #when you call a method self is the receiver of the method call
 end #returns all artists in the array
 
   def add_song(song)
-   @songs << song
-  end
+   @songs << song unless @songs.include?(song)#no duplicates in array
+   song.artist = self unless song.artist == self #here we need to tell the song about the artist, keeps us out of loop
+ end #only gets called 2 times
             #instance methods signifies the receiver of an instance
   def save #save an artist, and instance method is used, we are saving an instance of artist
     @@all.push(self)
@@ -39,5 +40,4 @@ end
   def print_songs
     @songs.each {|s| puts s.name }
   end
-end
 end
