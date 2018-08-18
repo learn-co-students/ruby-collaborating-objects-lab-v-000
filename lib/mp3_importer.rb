@@ -15,3 +15,10 @@ class MP3Importer
   end
 
 end
+
+# Taken from stack overflow:
+
+# @_current_user ||= {SOMETHING}
+# This is saying, set @_current_user to {SOMETHING} if it is nil, false, or undefined. Otherwise set it to @_current_user, or in other words, do nothing. An expanded form:
+
+# @_current_user || @_current_user = {SOMETHING}
