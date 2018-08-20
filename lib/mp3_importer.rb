@@ -8,8 +8,6 @@ class MP3Importer
     binding.pry 
   end
   
-  
-
   def files
     #entries method: Returns an array containing all of the filenames in the given directory.
     @filecollection ||= Dir.entries(@path).select {|filename| !File.directory?(song) && song.end_with?(".mp3")} 
@@ -17,7 +15,7 @@ class MP3Importer
   end
 
   def import
-    filecollection.each {|song| Song.new_by_filename(song)}
+    filecollection.each {|song| Song.new_by_filename(song)}    #We're creating new instances of the Song class 
     # files.each {|song| Song.new_by_filename(song)}
   end
 
