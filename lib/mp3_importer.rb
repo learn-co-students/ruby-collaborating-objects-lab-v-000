@@ -1,17 +1,24 @@
+require 'pry'
 class MP3Importer
 
-  attr_accessor :path
+  attr_accessor :path, :filecollection
 
   def initialize(path)
     @path = path
+    binding.pry 
   end
+  
+  
 
   def files
-    @files ||= Dir.entries(@path).select {|song| !File.directory?(song) && song.end_with?(".mp3")}
+    #entries method: Returns an array containing all of the filenames in the given directory.
+    @filecollection ||= Dir.entries(@path).select {|filename| !File.directory?(song) && song.end_with?(".mp3")} 
+    #directory is another name for a folder, and we're not looking for folders, only file names, and specifically file names that end with .mp3
   end
 
   def import
-    files.each {|song| Song.new_by_filename(song)}
+    filecollection.each {|song| Song.new_by_filename(song)}
+    # files.each {|song| Song.new_by_filename(song)}
   end
 
 end
