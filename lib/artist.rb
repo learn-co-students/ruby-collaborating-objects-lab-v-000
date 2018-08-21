@@ -8,16 +8,15 @@ class Artist
     @songs = []
   end
 
-  # Instance method that takes a song instance from the Song class
-  # and adds it to the artist's songs array
-  def add_song(song)
-    song.artist = self
-    @songs << song
-  end
-
   # Class method that displays all artist instances
   def self.all
     @@all
+  end
+
+  # Instance method that takes a song instance from the Song class
+  # and adds it to the artist's songs array
+  def add_song(song)
+    @songs << song
   end
 
   # Add an artist instance to the @@all class variable.
@@ -41,7 +40,7 @@ class Artist
   # instance variable, then iterate over the array, printing
   # each song name with a line break following.
   def print_songs
-    self.songs.each {|song| puts "#{song.name}\n"}
+    self.songs.each {|song| puts song.name}
   end
 
 end

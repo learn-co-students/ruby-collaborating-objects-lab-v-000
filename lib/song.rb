@@ -3,7 +3,6 @@ class Song
 
   def initialize(name)
     @name = name
-    @artist = self.artist
   end
 
   # Create a new song instance using the files imported from the MP3Importer class.
@@ -18,6 +17,14 @@ class Song
     song
   end
 
+  ## Alternate Song.new_by_filename(file_name) Method ##
+  # def self.new_by_filename(file_name)
+  #   artist, song = file_name.split(" - ")
+  #   new_song = self.new(song)
+  #   new_song.artist_name = artist
+  #   new_song
+  # end
+
   # This is a helper method meant to associate the new song instance with the
   # artist from the artist_name variable (which was parsed from the file_name
   # variable). Use the Artist class's #find_or_create_by_name method with an
@@ -26,7 +33,7 @@ class Song
   # instance using the Artist class's #add_song method.
   def artist_name=(artist_name)
     self.artist = Artist.find_or_create_by_name(artist_name)
-    self.artist.add_song(self)
+    artist.add_song(self)
   end
 
 end
