@@ -26,6 +26,8 @@ class Artist
     @@all.push(self)
     self
   end
+  
+  #creates an artist by name
  
   def self.create_by_name(artist_name)
     self.new(artist_name).save
@@ -39,6 +41,25 @@ class Artist
   def self.find_or_create_by_name(artist_name)
     self.find_by_name(artist_name) || self.create_by_name(artist_name)
   end 
+  
+  # alternate code using the tertiary operator
+  
+  # def self.find_or_create_by_name(name)
+  #   self.find(name) ? self.find(name) : self.create(name)
+  # end
+  
+  # if_this_is_a_true_value ? then_the_result_is_this : else_it_is_this (from Stack Overflow)
+  
+  # This is what subsequently would come afterwards:
+  
+  # def self.find(name)
+  #   self.all.find {|artist| artist.name == name }
+  # end
+
+
+  # def self.create(name)
+  #   self.new(name).tap {|artist| artist.save}
+  # end
   
   def print_songs
     @songs.map do |s|
