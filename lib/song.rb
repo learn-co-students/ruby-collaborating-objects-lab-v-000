@@ -1,3 +1,5 @@
+require 'pry'
+
 class Song
   attr_accessor :genre, :name
   attr_reader :artist
@@ -20,7 +22,13 @@ class Song
 
   def artist=(artist)
     @artist = artist
-    artist.add_song(self) unless artist.songs.include?(self)
+    artist.add_song(self) unless artist.songs.include?(self) 
+    
+    #Taken from artist.rb
+    #def add_song(song)
+    #@songs.push(song)
+    
+    # .songs method is a reader taken from artist.rb
   end
 
   def self.new_by_filename(filename)
@@ -32,3 +40,4 @@ class Song
   end
 
 end
+

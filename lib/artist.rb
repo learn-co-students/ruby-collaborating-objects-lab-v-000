@@ -1,3 +1,5 @@
+require 'pry'
+
 class Artist
   attr_accessor :name
   attr_reader :songs
@@ -16,18 +18,18 @@ class Artist
     @songs.push(song)
   end
 
-# to add the artist instance to the @@all class variable
+# to add each artist instance to the @@all class variable
 
-  def self.all
-    @@all
-  end
-  
-  def save
+   def save
     @@all.push(self)
     self
   end
   
-  #creates an artist by name
+  def self.all
+    @@all
+  end
+  
+   #creates an artist by name
  
   def self.create_by_name(artist_name)
     self.new(artist_name).save
@@ -41,6 +43,7 @@ class Artist
   def self.find_or_create_by_name(artist_name)
     self.find_by_name(artist_name) || self.create_by_name(artist_name)
   end 
+  
   
   # alternate code using the tertiary operator
   
@@ -67,6 +70,10 @@ class Artist
     end
   end
 end
+
+
+  binding.pry
+  puts "goodbye"
 
 # alternate solution
 
