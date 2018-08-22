@@ -1,36 +1,56 @@
+require 'pry'
 class Artist
+  
   attr_accessor :name, :songs
+  
   @@all = []
-  def self.all
-    @@all
-  end
+  
   def initialize(name)
     @name = name
     @songs = []
   end
+  
+  def self.all
+    @@all
+  end
+  
   def add_song(song)
   @songs << song
   end
+  
   def save
     @@all << self
+    @@all.uniq! {|artist| artist.name}
+    self
   end
-  def self.find(find_it)
-    song = @@all.find{|song| song == find_it}
-    song
+  
+  def self.find(name)
+    artist = @@all.find do |artist|
+      artist.name == name 
+    end
+    artist
   end
+  
   def self.create(create_it)
-    artist = Artist.new
-    artist.name = create_it
+    artist = Artist.new(create_it)
     artist.save
     artist
   end
-  def self.find_or_create_by_name(string)
-    found = self.find(string)
-   created = self.create(string)
+  
+  def self.find_or_create_by_name(name)
+    found = self.find(name)
     if found
       return found
-     else 
-       return created
-     end
+    else 
+      created = self.create(name)
+      return created
+    end
   end
+  
+  def print_songs
+    @songs.each do |song_object|
+      puts song_object.name
+    end
+  end
+  
 end
