@@ -5,14 +5,16 @@ class Song
     @name = name
   end
 
-  def self.new_by_filename(filename)
-    song_name = filename.split(" - ")[1]
+  def artist_name(filename)
     artist_name = filename.split(" - ")[0]
-    song = Song.new(song_name)
-    song.artist = Artist.new(artist_name)
+    @artist = Artist.find_or_create_by_name(artist_name)
+  end
+
+  def self.new_by_filename(filename)
+    song = Song.new(filename.split(" - ")[1])
+    song.artist_name(filename)
     song.artist.add_song(song)
     song
-#    binding.pry
   end
 
 end
