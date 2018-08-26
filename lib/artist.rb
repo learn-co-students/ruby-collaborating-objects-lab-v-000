@@ -23,6 +23,26 @@ class Artist
   def save
     self.class.all << self
   end
+  
+    def self.find_or_create_by_name(name)   
+    if self.find(name)
+      self.find(name)
+    else
+      self.create(name)
+    end
+  end
+  
+  def self.find(name)
+    self.all.find do |x|
+      x.name == name
+    end
+  end
+  
+  def self.create(name)
+    a = Artist.new(name)
+    a.save
+    a
+  end
 
 end
 
