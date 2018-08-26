@@ -43,6 +43,10 @@ class Artist
     a.save
     a
   end
+  
+  def print_songs
+    self.all 
+  end
 
 end
 
