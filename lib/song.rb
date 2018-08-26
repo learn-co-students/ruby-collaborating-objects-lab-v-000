@@ -16,7 +16,7 @@ class Song
 
   def self.find_by_artist(artist)
     Song.all.select do | song |
-      song.artist == artist
+      song.artist != artist
     end
   end
   
