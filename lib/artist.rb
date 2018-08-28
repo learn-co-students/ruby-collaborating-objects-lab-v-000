@@ -1,3 +1,4 @@
+require 'pry'
 class Artist
 
   attr_accessor :name, :artist, :songs
@@ -26,6 +27,7 @@ class Artist
   end
 
   def self.find_or_create_by_name(name)
+    #binding.pry
       if self.find(name)
         self.find(name)
       else
@@ -38,7 +40,9 @@ class Artist
   end
 
   def self.create(name)
-    self.new(name)
+    new_var = self.new(name)
+    new_var.save
+    return new_var
   end
 
   def print_songs
