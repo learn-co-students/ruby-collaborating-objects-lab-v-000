@@ -6,14 +6,15 @@ class Song
   end 
   
   def self.new_by_filename(filename)
-    artist, name = filename.split("-")
-    name = self.new(name.strip)
-    
+    artist, name = filename.split("-").map(&:strip)
+    name = self.new(name)
   end 
+
   
-  def name.artist=(artist)
-    Artist.find_or_create_by_name(artist)
-    Artist.add_song(name)
+  def artist_name=(name)
+    self.artist = Artist.find_or_create_by_name(name)
+    artist.add_song(self)
   end
+
   
  end
