@@ -30,7 +30,7 @@ class Artist
   # to the argument name, return that artist instance. If not, create
   # a new artist instance using the name in the method argument.
   def self.find_or_create_by_name(name)
-    @@all.each {|artist| return artist if artist.name == name}
+    @@all.find {|artist| return artist if artist.name == name}
     new_artist = Artist.new(name)
     new_artist.save
     new_artist
@@ -40,7 +40,7 @@ class Artist
   # instance variable, then iterate over the array, printing
   # each song name with a line break following.
   def print_songs
-    self.songs.each {|song| puts song.name}
+    @songs.each {|song| puts song.name}
   end
 
 end
