@@ -17,7 +17,8 @@ class Artist
   end 
   
   def add_song(song)
-    @songs << song 
+    @songs << song
+    
   end 
   
   def songs 
@@ -39,7 +40,6 @@ class Artist
   end
     
   def print_songs
-    songs.each{|song| print song.name}
-  
-  end 
+    puts  @songs.collect {|song| song.name}
+ end 
 end 
