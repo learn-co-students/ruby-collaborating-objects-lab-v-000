@@ -6,7 +6,7 @@ class MP3Importer
   end
   
   def files 
-    Dir.entries(path).reject {|entry| entry == "." || entry == ".."}
+    Dir.entries(self.path).reject {|entry| entry == "." || entry == ".."}
   end 
   
   def import
