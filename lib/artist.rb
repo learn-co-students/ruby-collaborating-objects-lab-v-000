@@ -20,15 +20,18 @@ class Artist
     self.class.all << self
   end
   
-  def self.find_or_create_by_name(name)
+  def self.find_or_create_by_name(artist_name)
  
-    artist = self.retrieve_artist(name)
+    artist = self.retrieve_artist(artist_name)
+    
     if artist.nil?
-      artist = self.new(name)
+      artist = self.new(artist_name)
       artist.save
     end
     
     artist
+    
+    # artist ||= self.new(artist_name) # If I do this w/out using artist.save, I'll never be able to find this artist again!
   end
   
   def self.retrieve_artist(name)
