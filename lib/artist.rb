@@ -9,7 +9,7 @@ attr_accessor :name, :songs
   end
   
   def add_song(song)
-    binding.pry
+    #binding.pry
     song.artist = self
     @songs << song
     @songs
