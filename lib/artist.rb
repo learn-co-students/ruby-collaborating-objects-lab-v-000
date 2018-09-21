@@ -28,7 +28,7 @@ class Artist
   end
 
   def self.create_by_name(name)
-    self.new(name).tap { |song| song.save }
+    new(name).tap { |song| song.save }
   end
 
   def print_songs
