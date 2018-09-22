@@ -26,7 +26,19 @@ attr_accessor :name, :songs
   end
   
   def find_or_create_by_name
-    
+    @@all.uniq
+  end
+  
+  def self.find_or_create_by_name(new_song)
+    @@all.find do |song|
+      if song.name == new_song
+        return song.name
+      else
+        new_song = Artist.new(new_song)
+        @@all << new_song.name
+        return new_song
+      end
+    end
   end
   
 end
