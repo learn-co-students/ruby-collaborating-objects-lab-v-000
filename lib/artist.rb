@@ -41,8 +41,8 @@ attr_accessor :name, :songs
     end
   end
   
-  def self.print_songs
-    @@all.each {|song| puts song}
+  def print_songs
+    @songs.each {|s| puts s.name}
   end
   
 end
