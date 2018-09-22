@@ -7,7 +7,10 @@ class Song
     @artist = artist
   end
   
-  
+  def self.new_by_filename(fileName)
+    song = fileName.split("-")[1].strip
+    fileName = Song.new(song)
+  end
   
   
 end
