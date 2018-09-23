@@ -13,7 +13,6 @@ class Song
     
     #song.artist = Artist.new(file[0])
     
-    
   end
   
   
