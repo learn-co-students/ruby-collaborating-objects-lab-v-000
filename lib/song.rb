@@ -4,12 +4,16 @@ class Song
   
   def initialize(name)
     @name = name
-    @artist = artist
   end
   
   def self.new_by_filename(fileName)
-    song = fileName.split("-")[1].strip
-    fileName = Song.new(song)
+    file = fileName.split("-").map {|f| f.strip}
+    
+    song = Song.new(file[1])
+    
+    #song.artist = Artist.new(file[0])
+    
+    
   end
   
   
