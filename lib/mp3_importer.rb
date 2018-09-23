@@ -10,9 +10,8 @@ class MP3Importer
   end
   
   def files
-   Dir.new(@path).reject {|s| s == '.'}
+   Dir.new(@path).reject {|s| s == '.' || s== ".."}
   end
-    #binding.pry
   
   def import
   
