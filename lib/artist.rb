@@ -30,14 +30,14 @@ attr_accessor :name, :songs
   end
   
   def self.find_or_create_by_name(new_artist)
-    @@all.find do |artist|
-      if artist.name == new_artist
-        return artist
-      else
+    searchedArtist = @@all.find do |artist|
+      artist.name == new_artist
+    end
+    
+    if !searchedArtist
         new_artist = Artist.new(new_artist)
         @@all << new_artist
         return new_artist
-      end
     end
   end
   

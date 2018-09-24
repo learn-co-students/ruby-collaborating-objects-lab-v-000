@@ -10,11 +10,13 @@ class Song
     file = fileName.split("-").map {|f| f.strip}
     
     song = Song.new(file[1])
+    song.artist_name=(file[0])
+    song
   end
   
   def artist_name=(name)
-    Artist.find_or_create_by_name(name)
-    
+    self.artist = Artist.find_or_create_by_name(name)
+    self.artist.add_song(self)
     
   end
   
