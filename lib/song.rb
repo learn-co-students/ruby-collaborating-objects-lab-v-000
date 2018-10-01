@@ -5,11 +5,11 @@ class Song
 
   def initialize(name)
     @name = name
-    # @artist = artist
+    @artist = artist
   end
 
-  # def self.artist
-  #   binding.pry
+  def self.artist
+  #
   # end
 
   # def self.new_by_filename
