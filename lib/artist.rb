@@ -22,8 +22,17 @@ class Artist
     @@all << self
   end
 
-  def self.create_by_name
-
+  def self.find_or_create_by_name(artist_1)
+    array = Artist.find.all do {|artist| name == artist_1}
+      binding.pry
+    array = artist_1 || Artist.create_by_name(artist_1)
+    new_artist = self.new(artist_1)
+    new_artist
+    end
   end
+
+
+
+
 
 end
