@@ -1,5 +1,6 @@
 require 'pry'
 class Artist
+  
   @@all = []
 
   attr_accessor :name, :songs
@@ -22,17 +23,11 @@ class Artist
     @@all << self
   end
 
-  def self.find_or_create_by_name(artist_1)
-    array = Artist.find.all do {|artist| name == artist_1}
-      binding.pry
-    array = artist_1 || Artist.create_by_name(artist_1)
-    new_artist = self.new(artist_1)
-    new_artist
-    end
+  def self.find_or_create_by_name(artist_name)
+    Artist.all.find {|artist| name == artist_name} || Artist.new(artist_name)
   end
-
-
-
-
+  
+  def print_songs
+  end
 
 end
