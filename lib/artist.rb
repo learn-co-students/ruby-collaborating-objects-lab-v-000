@@ -30,7 +30,10 @@ class Artist
   end
   
   def print_songs
-    puts self.add_song
+    self.songs = add_song(songs)
+    
+    puts self.songs
+    
   end
 
 end
