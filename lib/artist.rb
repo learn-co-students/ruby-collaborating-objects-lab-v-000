@@ -29,7 +29,7 @@ class Artist
   end
   
   def print_songs
-    
+    Artist.print_songs
   end
 
 end
