@@ -1,4 +1,4 @@
-require 'pry'
+lerequire 'pry'
 class Song
 
   attr_accessor :name, :artist
