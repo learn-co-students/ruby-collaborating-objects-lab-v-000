@@ -5,18 +5,20 @@ class Song
 
   def initialize(name)
     @name = name
-    @artist = artist
-  end
-  
-  def self.artist
   end
  
   def self.new_by_filename(file_name)
-  array = file_name.split( "-" )
-  array[0] = artist
-  array[1] = song
-  array[2] = genre
-  self.create_by_name(file_name)
+    array = file_name.split(" - ")
+    #binding.pry
+    artist = array[0]
+    song = array[1]
+    genre = array[2]
+    artist_instance = Artist.find_or_create_by_name(artist)
+    new_instance = Song.new(song)
+    artist_instance.add_song(new_instance)
+    new_instance.artist = artist_instance
+    new_instance
+    
   
   
   end
