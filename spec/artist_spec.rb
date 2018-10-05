@@ -46,6 +46,7 @@ describe 'Artist' do
 
   describe '#print_songs' do
     it 'lists all of the artist\'s songs' do
+      #binding.pry
       dirty_diana = Song.new("Dirty Diana")
       billie_jean = Song.new("Billie Jean")
       artist.add_song(dirty_diana)
