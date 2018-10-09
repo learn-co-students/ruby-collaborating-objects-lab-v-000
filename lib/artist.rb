@@ -22,7 +22,7 @@ class Artist
   end 
       
   def save 
-    @@all << artist.self  
+    @@all << self  
   end 
   
   
@@ -34,12 +34,6 @@ class Artist
   def print_songs #instance method iterates through @songs of an instance of Artist
     self.songs.each {|song| song.name}
   end 
-  
 
-  def print_songs
-    puts @songs.name 
-  end 
-  
-  
   
 end 
