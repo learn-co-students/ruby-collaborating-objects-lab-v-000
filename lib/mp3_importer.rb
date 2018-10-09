@@ -1,13 +1,19 @@
-class MP3_importer
+class MP3Importer
 
-  def initialize('./spec/fixtures')  #set the path attribute 
+attr_accessor :path 
+
+  def initialize(path)
+    @path = path 
   end 
   
   def files 
+    Dir.chdir(@path) do | path |
+        Dir.glob("*.mp3")
+    end 
   end
   
-  def import 
-    Song.new_by_filename(some_filename)
+  def import(files)
+    Song.new.files
   end 
 
 end 
