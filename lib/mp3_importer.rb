@@ -12,7 +12,7 @@ attr_accessor :path
     end 
   end
   
-  def import(files)
+  def import
     Song.new.files
   end 
 
