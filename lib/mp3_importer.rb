@@ -5,13 +5,15 @@ class MP3Importer
     @path = filepath
   end 
     
-  def files 
-  
-  
+  def files  
+  @files = Dir.entries(@path)
+  @files.delete_if { |file| file == "." || file == ".."  } 
   end 
 
     
-  
+  def import 
+    
+  end 
   
   
 end 
