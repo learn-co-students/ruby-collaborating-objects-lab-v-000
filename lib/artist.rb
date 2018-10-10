@@ -7,6 +7,7 @@ class Artist
   def initialize(name)
     @name = name 
     @songs = []
+    @@all << self 
   end 
   
   def self.all
@@ -17,7 +18,7 @@ class Artist
      if self.all.detect { |artist| artist.name == name } 
        self.all.detect { |artist| artist.name == name } 
     else
-      self.new(name)
+      self.new(name) 
     end   
   end 
       
