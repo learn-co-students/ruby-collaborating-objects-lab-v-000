@@ -1,5 +1,3 @@
-require 'pry'
-
 class MP3Importer 
   attr_accessor :path
   
@@ -14,7 +12,9 @@ class MP3Importer
      end
   end 
 
-  def import 
-    
+  def import
+    files.map do |x|
+      Song.new_by_filename(x)
+    end 
   end 
 end 
