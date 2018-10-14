@@ -1,5 +1,3 @@
-require 'pry'
-
 class Artist 
   attr_accessor :name, :songs, :song 
   
@@ -34,6 +32,8 @@ class Artist
   end
 
   def print_songs 
-    @songs
+    self.songs.each do |x|
+      puts x.name
+    end 
   end 
 end 
