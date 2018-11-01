@@ -1,5 +1,6 @@
+
 class Artist
-attr_accessor :name, :song, :songs
+attr_accessor :name, :songs
 
 @@all = []
 
@@ -10,6 +11,14 @@ end
 
 def add_song(song)
   self.songs << song
+end
+
+def self.all #instead of def all which is an instance method we use self to make it a class method
+  @@all
+end
+
+def save
+  @@all << self
 end
 
 end
