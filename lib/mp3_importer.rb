@@ -15,5 +15,3 @@ class MP3Importer
     end 
   end
 end
-
-#Dir.new(@path).reject {|s| s == '.' || s== ".."}
