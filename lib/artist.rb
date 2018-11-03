@@ -6,6 +6,7 @@ class Artist
   def initialize(name)
     @name = name
     @songs = []
+    @@all << self
   end
   
   def add_song(song)
@@ -21,7 +22,7 @@ class Artist
   end
 
   def self.find_or_create_by_name(name)
-    self.all.find  {|n| n.name == name} || Artist.new(name)
+    self.all.find {|n| n.name == name} || Artist.new(name)
   end
   
   def print_songs
