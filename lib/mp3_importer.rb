@@ -9,8 +9,8 @@ class MP3Importer
     Dir.new(@path)
   end
 
-  def import(list_of_filenames)
-    list_of_filenames.each do |filename|
+  def import(filenames)
+    filenames.each do |filename|
       Song.new_by_filename(filename)
     end 
   end
