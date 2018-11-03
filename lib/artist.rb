@@ -24,10 +24,12 @@ class Artist
   end
 
   def self.find_or_create_by_name(name)
-    if (name.nil?)
-      name = Artist.new(name)
-    else
-      #artist.name = name
+    @@all.find do |n| 
+      if n.name == name
+        n
+      else
+        new_name = Artist.new(name)
+      end
     end
   end
   
