@@ -14,14 +14,18 @@ class Artist
     @songs << song
     @songs
   end
+  
+  def self.all
+    @@all
+  end
 
-  def self.save
+  def save
     @@all << self
   end
 
   def self.find_or_create_by_name(name)
-    if (artist.nil?)
-      artist = Artist.new(name)
+    if (name.nil?)
+      name = Artist.new(name)
     else
       artist.name = name
     end
