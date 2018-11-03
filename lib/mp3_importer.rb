@@ -1,10 +1,12 @@
 class MP3Importer
-  attr_accessor :path
+  attr_accessor :path, :filenames
   def initialize(path)
     @path = path
+    @filenames = []
   end
 
   def files
+    Dir.new(@path)
   end
 
   def import(list_of_filenames)
@@ -13,3 +15,5 @@ class MP3Importer
     end 
   end
 end
+
+#Dir.new(@path).reject {|s| s == '.' || s== ".."}
