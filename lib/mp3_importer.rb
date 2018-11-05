@@ -2,7 +2,7 @@ require 'pry'
 
 class MP3Importer
   
-  attr_accessor :path, :a
+  attr_accessor :path, :a, :files
   
   def initialize(path)
     @path = path  
@@ -14,20 +14,20 @@ class MP3Importer
     puts "wd=...#{Dir.getwd.sub(/.*ruby(.*)/, '\1')}"
     current_dir = Dir.getwd
     Dir.chdir(@path)
-    files = Dir.glob("*.mp3")
+    @files = Dir.glob("*.mp3")
     Dir.chdir(current_dir)
-    files
+    @files
   end
     
+  binding.pry 
+  def import 
   
-  def import(files) 
-   
-    files.each do |file|
+    @files.each do |file|
       b = file.split(" - ")
       c = b[0]
       d = b[1]
       e = b[2]
-      @a << b
+      Song.new_by_filename(file)
     end 
   end 
   

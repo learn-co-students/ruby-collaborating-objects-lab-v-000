@@ -27,7 +27,9 @@ class Artist
     if @@all.find{|obj| obj.name == name}
       return @@all.find{|obj| obj.name == name}
     else 
-      Artist.new(name)
+      y = Artist.new(name)
+      @@all << y 
+      y
     end 
       
   end 
