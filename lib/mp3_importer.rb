@@ -17,18 +17,16 @@ class MP3Importer
     @files = Dir.glob("*.mp3")
     Dir.chdir(current_dir)
     @files
+   
   end
     
-  binding.pry 
+   
   def import 
   
-    @files.each do |file|
-      b = file.split(" - ")
-      c = b[0]
-      d = b[1]
-      e = b[2]
+    files.each do |file|
       Song.new_by_filename(file)
     end 
+  
   end 
   
   
