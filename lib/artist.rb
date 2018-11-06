@@ -21,4 +21,16 @@ def save
   @@all << self
 end
 
+def self.find_or_create_by_name(artist)
+  #iterate over all current songs in @@all array
+  if artist == Artist.name
+    Artist.name
+  else
+    artist = Artist.new(artist)
+
+  end
+end
+
+
+
 end
