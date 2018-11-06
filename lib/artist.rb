@@ -6,7 +6,7 @@ attr_accessor :name, :songs
 
 def initialize(name)
   @name = name
-  @songs = [] #research why @songs but not @@songs
+  @songs = []
 end
 
 def add_song(song)
@@ -32,5 +32,8 @@ def self.find_or_create_by_name(name)
 end
 
 
+def print_songs
+  puts @songs.collect {|song| song.name}
+end
 
 end
