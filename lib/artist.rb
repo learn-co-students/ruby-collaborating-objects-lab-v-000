@@ -21,13 +21,13 @@ def save
   @@all << self
 end
 
-def self.find_or_create_by_name(artist)
-  #iterate over all current songs in @@all array
-  if artist == Artist.name
+def self.find_or_create_by_name(name)
+  @@all.find do |name|
+  if name == Artist.name
     Artist.name
   else
-    artist = Artist.new(artist)
-
+    name = Artist.new(name)
+  end
   end
 end
 
