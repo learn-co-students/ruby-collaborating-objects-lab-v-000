@@ -6,9 +6,10 @@ def initialize(name)
 end
 
 def self.new_by_filename(filename)
- #filename = Song.new(filename) returns entire filename rather than song name
- filename.chomp("-")
- puts filename
+ song_details = filename.chomp(".mp3").split(" - ")
+ song = Song.new(song_details[1])
+ song.artist = song_details[0]
+ song
 end
 
 end
