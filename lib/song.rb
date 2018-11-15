@@ -1,3 +1,5 @@
+require 'pry'
+
 class Song #creates a class
 attr_accessor :name, :artist #each class created has two attributes
 
@@ -12,9 +14,10 @@ end
 
 
 def self.new_by_filename(filename)
+#binding.pry
  song_details = filename.chomp(".mp3").split(" - ")
  song = Song.new(song_details[1])
- song.artist_name = Artist.find_or_create_by_name(song_details[0])
+ song.artist_name = song_details[0]
  #song.artist_name = song_details[0] #this was the one that was orignally passing with only 5 errors left
  song
 end

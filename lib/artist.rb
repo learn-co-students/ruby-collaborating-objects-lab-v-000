@@ -10,7 +10,7 @@ def initialize(name) #object is initialized with an argument name
 end
 
 def add_song(song)
-  self.songs << song
+  @songs << song
 end
 
 def self.all #instead of def all which is an instance method we use self to make it a class method
@@ -21,20 +21,31 @@ def save
   @@all << self #shoveling each instantiated object's self onto the empty hash created above
 end
 
-def self.find_or_create_by_name(name) #argument of name to be found or created
-  @@all.find do |name|  #iterating over each obect in @@all and setting each to equal 'name'
-    if name == Artist.name #if the name is equal to the artists name already created
-      Artist.name #return the artists name
-    else
-      name = Artist.new(name) #if not, let the name be equal to a new artist with the argument originally provided
-    end
-  end
+def self.find_or_create_by_name(name)
+self.find(name) ? self.find(name) : self.create(name)
 end
+
+def self.find(name)
+  self.all.find {|artist| artist.name == name}
+end
+
+def self.create(name)
+  self.new(name).tap {|artist| artist.save}
+end
+
+#def self.find_or_create_by_name(name) #argument of name to be found or created
+#  @@all.find do |name|  #iterating over each obect in @@all and setting each to equal 'name'
+#    if name == Artist.name #if the name is equal to the artists name already created
+#      Artist.name #return the artists name
+#    else
+#      name = Artist.new(name) #if not, let the name be equal to a new artist with the argument originally provided
+#    end
+#  end
+#end
 
 
 def print_songs
   puts @songs.collect {|song| song.name} #iterates over each variable in @songs array, names each object 'song' and returns name
-
 end
 
 end
