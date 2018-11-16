@@ -29,10 +29,11 @@ def self.find(name) #operating on the objects self passing in argument to be com
   self.all.find {|artist| artist.name == name} #using find method on all selves, iterating over all selves in @@all, calling each artist and asking if artist.name is equal to name passed as argument
 end
 
-def self.create(name)
-  self.new(name).tap {|artist| artist.save}
+def self.create(name) #operating on objects self and passing name to be operated on
+  self.new(name).tap {|artist| artist.save} #creating a new self with name passed; tap yields name to block, calling self artist; artist is saved with existing save method
 end
 
+#old method written which did not work below
 #def self.find_or_create_by_name(name) #argument of name to be found or created
 #  @@all.find do |name|  #iterating over each obect in @@all and setting each to equal 'name'
 #    if name == Artist.name #if the name is equal to the artists name already created
