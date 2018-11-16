@@ -7,7 +7,7 @@ def initialize(path)
 end
 
 def files
- Dir.glob
+ Dir.glob(*argument of pattern here to find MP3 file) {block here is to execute on files returned by glob}
 end
 
 def import
