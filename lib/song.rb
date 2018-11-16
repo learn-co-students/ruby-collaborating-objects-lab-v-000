@@ -13,13 +13,12 @@ def artist_name=(name) #writer method sets variable artist_name to equal argumen
 end
 
 
-def self.new_by_filename(filename)
+def self.new_by_filename(filename) #passing in filename (used binding.pry to find out what filename looks like)
 #binding.pry
- song_details = filename.chomp(".mp3").split(" - ")
- song = Song.new(song_details[1])
- song.artist_name = song_details[0]
- #song.artist_name = song_details[0] #this was the one that was orignally passing with only 5 errors left
- song
+ song_details = filename.chomp(".mp3").split(" - ") #chomp returns a string with record separator removed; .split splits the string into array of substrings
+ song = Song.new(song_details[1]) #let song equal a new instance of song class created with argument equal to [1] in array of substring created above
+ song.artist_name = song_details[0] #let the artist of the song object equal to [0] in array of substring
+ song #return the song variable created above
 end
 
 
