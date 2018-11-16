@@ -7,7 +7,7 @@ def initialize(path)
 end
 
 def files
-
+ Dir.glob
 end
 
 def import
