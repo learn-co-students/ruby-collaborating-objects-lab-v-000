@@ -7,7 +7,7 @@ def initialize(path) #initialized w/ a path to parse MP3 files from
 end
 
 def files
-  Dir.glob('*.mp3').collect {|file|}
+ @files = Dir.glob("#{@path}/*.mp3").collect {|file|}
 end
 
 def import
