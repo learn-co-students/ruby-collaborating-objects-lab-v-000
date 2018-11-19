@@ -1,3 +1,5 @@
+require 'pry'
+
 class MP3Importer
 
 attr_accessor :path
@@ -7,7 +9,9 @@ def initialize(path) #initialized w/ a path to parse MP3 files from
 end
 
 def files
- @files = Dir.glob("#{@path}/*.mp3").collect {|file|}
+#binding.pry
+ @files = Dir.glob("#{@path}/*.mp3").collect {|file| file.gsub("#{@path}/", "")}
+
 end
 
 def import
