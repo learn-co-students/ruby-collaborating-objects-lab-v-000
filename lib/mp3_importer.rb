@@ -25,7 +25,11 @@ class MP3Importer
 
   def files
     #Dir.chdir("#{@path}") #change working dir to path given at initialize
-    files << (Dir["#{@path}*.mp3"].split("/")).last
+    Dir["#{@path}/*.mp3"]
+    #files
+    #= files.map do |string|
+    #  string.split("/").last
+    # end
 binding.pry
 	end
 
