@@ -1,3 +1,4 @@
+require 'pry'
 class MP3Importer
 	attr_accessor :path
 
@@ -9,8 +10,6 @@ class MP3Importer
 # path will be ./spec/fistures/mp3s'
 # code must respond to:
 
-	#path = \Users\pm_local\.atom\.learn-ide\home\pmknyc\ruby-collaborating-objects-lab-v-000
-
 # MP3Importer.new('./spec/fixtures').import
 # takes string path arg, must add on wildcard value
 # for all mp3 files , then in #files parse out filename
@@ -21,15 +20,16 @@ class MP3Importer
 
 # ??at #initialize, new importer has a path
 # then when run #import, that method calls the #files method
-# to look in object's path,parse out only the filename, then #import
+# to look in object's path,parse out only the filename then import
 # proceeds to create new Song from filename
-	def files
-		files = []
-		ls "#{@path}/*.mp3"
+
+  def files
+    #Dir.chdir("#{@path}") #change working dir to path given at initialize
+    files << (Dir["#{@path}*.mp3"].split("/")).last
+binding.pry
 	end
 
 	def import
-    glob( pattern, [flags] ) → matches
 		files.each {|filename| Song.new_by_filename(filename)}
 	end
 
