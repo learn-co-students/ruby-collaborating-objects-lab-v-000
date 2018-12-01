@@ -20,7 +20,8 @@ class Song # belongs to Artist
   def self.new_by_filename(filename)
     song = self.new
     song.name = filename.split(" - ")[1]
-    self.artist if artist
+    song.artist = filename.split(" - ")[0]
     song
+  end
   #class end below
 end
