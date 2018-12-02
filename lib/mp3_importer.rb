@@ -21,7 +21,9 @@ class MP3Importer
 # proceeds to create new Song from filename
 
   def files
-		@files = Dir.glob("#{@path}/*.mp3")
+		(Dir.glob("#{@path}/*.mp3")).map do |path_filename|
+		  @files = File.basename(path_filename)
+			end
   end
 
 	def import
