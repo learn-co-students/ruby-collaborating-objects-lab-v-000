@@ -24,14 +24,15 @@ class MP3Importer
 		(Dir.glob("#{@path}/*.mp3")).map do |path_filename|
 		  @files = File.basename(path_filename)
 			end
-  end
+	#	Dir.glob("#{@path}/*.mp3")
+		#	@files =
+#  Dir.glob(File.basename("#{@path}/*.mp3"),base:"#{@path}")
+	end
 
 	def import
 		self.files.each do |filename|
       Song.new_by_filename
-    end
-
+  	end
 	end
-
 #class end below
 end

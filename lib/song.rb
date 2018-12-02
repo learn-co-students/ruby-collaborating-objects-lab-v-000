@@ -14,16 +14,15 @@ class Song # belongs to Artist
   end
 
 # sets artist as instance var & method for song
-#  def artist
-#    @artist #tells song its artist name
-#  end
+  def artist
+    @artist #tells song its artist name
+  end
 
   def self.new_by_filename(filename)
-    #@name  = filename.split(" - ")[1]
-    #@artist = filename.split(" - ")[0]
     song = self.new(filename.split(" - ")[1])
-    song.artist = (filename.split(" - ")[0])
-  #  binding.pry
+    song.artist = Artist.create_by_name(filename.split(" - ")[0])
+    song.artist.songs << song
+    song
   end
   #class end below
 end
