@@ -1,6 +1,9 @@
+require 'pry'
+
+
 class Artist
   
-  attr_accessor :name, :artist, :all
+  attr_accessor :artist, :name
   attr_reader :songs
   
   @@all = []
@@ -22,20 +25,36 @@ class Artist
     @@all
   end
   
-  def find_or_create_by_name(name)
-    
-  #   describe '.find_or_create_by_name' do
-  #   it 'finds or creates an artist by name maintaining uniqueness of objects by name property' do
-  #     artist_1 = Artist.find_or_create_by_name("Michael Jackson")
-  #     artist_2 = Artist.find_or_create_by_name("Michael Jackson")
-  #     expect(artist_1).to eq(artist_2)
-  #   end
-
-  #   it 'Creates new instance of Artist if none exist' do
-  #     artist_1 = Artist.find_or_create_by_name("Drake")
-  #     expect(artist_1.class).to eq(Artist)
-  #   end
-  # end
-    
+  #start
+  
+  def self.find_or_create_by_name(name)
+    self.find(name) ? self.find(name) : self.create(name)
   end
+
+  def self.find(name)
+    self.all.find {|artist| artist.name == name }
+  end
+
+
+  def self.create(name)
+    self.new(name).tap {|artist| artist.save}
+  end
+  
+  #end 
+  
+  # Original code 
+  # def self.find_or_create_by_name(name)
+
+  #   if self.all.find(name)  { |artist| artist.name == name }
+  #     self.all.find(name) { |artist| artist.name == name }
+  #   else 
+  #     self.new(name).tap { |artist| artist.save}
+  #   end
+    
+  # end
+
+  def print_songs
+    @songs.map {  |song| puts song.name }
+  end
+
 end
