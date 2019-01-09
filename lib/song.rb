@@ -3,7 +3,6 @@
 class Song
   attr_accessor :name, :artist
 
-
   def initialize(name)
     @name = name
   end
@@ -11,11 +10,6 @@ class Song
   def artist_name=(name)
     self.artist = Artist.find_or_create_by_name(name)
     artist.add_song(self)
-    #if (self.artist.nil?)
-    #  self.artist.Artist.new(name) #create artist instance
-    #else
-    #  self.artist.name = name #assign artist's name as a string into an artist object
-    #end
   end
 
   def self.new_by_filename(file)

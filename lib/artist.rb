@@ -13,8 +13,7 @@ class Artist
     @@all
   end
 
-
-  def add_song(song)
+  def add_song(song) #tells artist about its songs
     @songs << song
     song.artist = self
   end
