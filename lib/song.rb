@@ -1,4 +1,4 @@
-require 'spec_helper'
+
 require 'pry'
 
 class Song
@@ -8,15 +8,20 @@ class Song
     @name = song_name
   end
 
+  def artist_name(name)
+    self.artist = Artist.find_or_create_by_name(name)
+    artist.add_song(self)
+  end
+
   def self.new_by_filename(file_name)
-  file_song = self.new(file_name.split(/\s-\s/)[1])
-  artist_name = file_name.split(/\s-\s/)[0]
-  file_song
+    file_song = file_name.split(/\s-\s/)
+    song  = self.new(file_song[1])
+    file_artist = file_song[0]
+    song.artist_name(file_artist)
+    song
   end
 
-  def artist_name(artist_name)
-    self.artist.all = Artist.find_or_create_by_name(artist_name)
-    self.artist.add_song(self)
+  def save
+    song
   end
-
 end
