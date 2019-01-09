@@ -21,7 +21,4 @@ class Song
     song
   end
 
-  def save
-    song
-  end
 end
