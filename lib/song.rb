@@ -14,12 +14,6 @@ class Song
     artist, song = filename.split(" - ")
     new_song = self.new(song)
     new_song.artist_name= artist
-    
-    #new_file = filename.split(" - ")
-    #new_song = new_file[1].chomp(".mp3")
-    #artist = new_file[0]
-    #new_song.artist = artist
-    
     new_song
   end
 end 
