@@ -1,15 +1,15 @@
 class MP3Importer
   attr_accessor :path
 
-  def initialize(path)
+  def initialize
     @path = path
   end
 
   def files
-
+    Dir.filenames('./spec/fixtures') {|file| file.split(" - ")}
   end
 
-  def import(filename)
-    Song.new_by_filename
+  def import(filenames)
+
   end
 end
