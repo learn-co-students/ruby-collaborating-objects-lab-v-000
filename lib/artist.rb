@@ -1,5 +1,5 @@
 class Artist
-  attr_accessor :name
+  attr_accessor :name, :songs
 
   @@all = []
 
@@ -33,6 +33,7 @@ class Artist
       end
     end
   end
+
   def print_songs
     @songs.map {|song| puts song.name}
   end

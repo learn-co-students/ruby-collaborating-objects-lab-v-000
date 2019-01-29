@@ -6,10 +6,13 @@ class MP3Importer
   end
 
   def files
-    Dir.filenames('./spec/fixtures') {|file| file.split(" - ")}
+    def size
+
+    end
   end
 
   def import(filenames)
-
+    Dir.filenames('./spec/fixtures') {|file| file.split(" - ")}
+    song = file.new
   end
 end
