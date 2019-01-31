@@ -16,25 +16,19 @@ class Artist
     @songs
   end
 
-  def self.all
-    @@all
-  end
-
   def save
     @@all << self
   end
 
-  def self.find_or_create_by_name(name)
-    self.all.find do |artist|
-      if artist.name.nil?
-        artist = Artist.new(name)
-      else
-        artist.name = name
-      end
-    end
+  def self.all
+    @@all
+  end
+
+  def self.find_or_create_by_name(artist_name)
+    self.all.find {|artist| artist.name == artist_name} || self.new(artist_name)
   end
 
   def print_songs
-    @songs.map {|song| puts song.name}
+    @songs.each {|song| puts song.name}
   end
 end
