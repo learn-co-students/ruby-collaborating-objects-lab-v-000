@@ -1,16 +1,14 @@
 class Song
-  attr_accessor :name, :artist
+  attr_accessor :name, :artist, :filename
 
   def initialize(name)
     @name = name
-  end
-
-  def artist
     @artist = artist
   end
 
-  def new_by_filename(file_name)
-    song = Song.new(file_name)
+  def new_by_filename(filename)
+    song = Song.new(filename)
+    @filename = filename
   end
 
 end
