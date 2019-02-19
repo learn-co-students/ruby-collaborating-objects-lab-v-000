@@ -5,11 +5,9 @@ class MP3Importer
     @path = path
   end
 
-  def files
+  def self.files
   end
 
-  def import
-    mp3i = MP3Importer.new(path)
-    @path = path
+  def self.import
   end
 end #<----class end
