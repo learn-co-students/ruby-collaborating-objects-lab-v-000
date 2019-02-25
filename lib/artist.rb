@@ -11,10 +11,6 @@ class Artist
     @@all
   end
 
-  def songs
-    @songs
-  end
-
   def add_song(song)
     @songs << song
   end
@@ -23,11 +19,16 @@ class Artist
     @@all << self
   end
 
-  def find_or_create_by_name(artist)
+  def self.find_or_create_by_name(artist)
+    match = @@all.detect { |artist_object| artist_object.name == artist }
+    # iterate through all artists' @name and check if it matches argument
+    # I use #detect as it returns nil if no match is found - in this way it becomes a flag (I'm hoping that's cool)
+    match != nil ? match : Artist.new(artist)
+    # if a match doesn't exist, create a new Artist object with the argument as its initialized @name
   end
 
   def print_songs
-    print self.songs.name
+    print self.songs
   end
 
 end #<--- class end

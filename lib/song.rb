@@ -5,14 +5,6 @@ class Song # create songs & send artist name STRING to ARTIST CLASS
     @artist = artist
   end
 
-  def name
-    @name
-  end
-
-  def artist
-    @artist
-  end
-
   def self.new_by_filename(filename)
     #parse the file for the song and artist
     file_split = filename.split(/-/)
