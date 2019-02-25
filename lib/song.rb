@@ -17,14 +17,14 @@ class Song # create songs & send artist name STRING to ARTIST CLASS
 
     #create new song instance
     song_object = Song.new(song_name)
-    ######Song.artist(artist_name) # uses the helper method - which refers to the find_or_create in the Artist class
 
     #associate new song with an artist
     song_object.artist = Song.artist_helper(artist_name)
-    #song_object.artist.name = artist_name
+
+    #associate new song with an artist - helpermethod Song.artist()
 
     #return new song instance
-    song_object
+
   end
 
 end

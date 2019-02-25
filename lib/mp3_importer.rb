@@ -1,3 +1,4 @@
+
 class MP3Importer
   attr_accessor :path
 
@@ -5,9 +6,10 @@ class MP3Importer
     @path = path
   end
 
-  def self.files
+  def files
+    Dir::entries[".mp3"](path)
   end
 
-  def self.import
+  def import
   end
 end #<----class end

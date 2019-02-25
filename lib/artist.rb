@@ -30,9 +30,7 @@ class Artist
   end
 
   def print_songs
-    matches = ""
-    @songs.find_all { |song_object| matches << song_object.name.to_s }
-    print matches.to_s
+    @songs.find_all { |song_object| puts song_object.name }
   end
 
 end #<--- class end
