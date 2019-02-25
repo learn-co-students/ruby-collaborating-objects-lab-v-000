@@ -5,7 +5,7 @@ class Song # create songs & send artist name STRING to ARTIST CLASS
     @artist = artist
   end
 
-  def artist_find_or_create(name)
+  def artist_find_or_create(name) ######DOES THIS NEED TO EXIST OR CAN I CALL STRAIGHT FROM ARTIST CLASS????
     Artist.find_or_create_by_name(name)
   end
 
@@ -23,7 +23,7 @@ class Song # create songs & send artist name STRING to ARTIST CLASS
 
 
     #return new song instance
-
+    self
   end
 
 end
