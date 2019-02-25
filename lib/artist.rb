@@ -5,6 +5,7 @@ class Artist
   def initialize(name)
     @name = name #setter
     @songs = []
+
   end
 
   def self.all #class method - class reader
@@ -19,16 +20,19 @@ class Artist
     @@all << self
   end
 
-  def self.find_or_create_by_name(artist)
-    match = @@all.detect { |artist_object| artist_object.name == artist }
+  def self.find_or_create_by_name(name)
+    match = @@all.detect { |artist_object| artist_object.name == name }
     # iterate through all artists' @name and check if it matches argument
     # I use #detect as it returns nil if no match is found - in this way it becomes a flag (I'm hoping that's cool)
-    match != nil ? match : Artist.new(artist)
+
+    match != nil ? match : Artist.new(name)
     # if a match doesn't exist, create a new Artist object with the argument as its initialized @name
   end
 
   def print_songs
-    print self.songs
+    matches = ""
+    @songs.find_all { |song_object| matches << song_object.name.to_s }
+    print matches.to_s
   end
 
 end #<--- class end

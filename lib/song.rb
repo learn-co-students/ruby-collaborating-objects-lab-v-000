@@ -5,7 +5,7 @@ class Song # create songs & send artist name STRING to ARTIST CLASS
     @artist = artist
   end
 
-  def self.artist(artist_n_to_find) # this is supposed to be a helper method
+  def self.artist_helper(artist_n_to_find) # this is supposed to be a helper method
     Artist.find_or_create_by_name(artist_n_to_find) # refers to the method created in the Artist class
   end
 
@@ -17,10 +17,11 @@ class Song # create songs & send artist name STRING to ARTIST CLASS
 
     #create new song instance
     song_object = Song.new(song_name)
-    Song.artist(artist_name) # uses the helper method - which refers to the find_or_create in the Artist class
+    ######Song.artist(artist_name) # uses the helper method - which refers to the find_or_create in the Artist class
 
     #associate new song with an artist
-    song_object.artist = artist_name
+    song_object.artist = Song.artist_helper(artist_name)
+    #song_object.artist.name = artist_name
 
     #return new song instance
     song_object
