@@ -5,10 +5,6 @@ class Song # create songs & send artist name STRING to ARTIST CLASS
     @artist = artist
   end
 
-  def artist_find_or_create(name) ######DOES THIS NEED TO EXIST OR CAN I CALL STRAIGHT FROM ARTIST CLASS????
-    Artist.find_or_create_by_name(name)
-  end
-
   def self.new_by_filename(filename)
     #parse the file for the song and artist
     file_split = filename.split(/-/)
@@ -19,11 +15,13 @@ class Song # create songs & send artist name STRING to ARTIST CLASS
     song_object = Song.new(song_name)
 
     #associate new song instance with an artist
-    song_object.artist_find_or_create(artist_name)
-
+    artist_object = Artist.find_or_create_by_name(artist_name)
+    artist_object.save
+    song_object.artist = artist_object
+    artist_object.add_song(song_name)
 
     #return new song instance
-    self
+    song_object
   end
 
-end
+end #<----class end
