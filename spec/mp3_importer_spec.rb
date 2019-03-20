@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'pry'
 
-puts describe "MP3Importer" do
+ describe "MP3Importer" do
   describe '#initialize' do
     it 'accepts a file path to parse mp3 files from' do
       test_music_path = "./spec/fixtures/mp3s"

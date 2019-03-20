@@ -1,21 +1,21 @@
-puts describe 'Song' do
+describe 'Song' do
   let(:song) {Song.new('Man in the Mirror')}
   let(:file_name) {'Michael Jackson - Black or White - pop.mp3'}
 
-puts describe '#initialize with #name' do
+ describe '#initialize with #name' do
     it 'accepts a name for the song' do
       expect(song.name).to eq('Man in the Mirror')
     end
   end
 
-  puts describe '#name=' do
+   describe '#name=' do
     it 'sets the song name' do
       song.name = 'Thriller'
       expect(song.name).to eq('Thriller')
     end
   end
 
-  puts describe '#artist=' do
+   describe '#artist=' do
     it 'sets the artist object to belong to the song' do
       new_artist_object = Artist.new('King of Pop')
       song.artist = new_artist_object
@@ -23,7 +23,7 @@ puts describe '#initialize with #name' do
     end
   end
 
-  puts describe '.new_by_filename' do
+ describe '.new_by_filename' do
     it 'creates a new instance of a song from the file that\'s passed in' do
       new_instance = Song.new_by_filename(file_name)
       expect(new_instance.name).to eq('Black or White')
