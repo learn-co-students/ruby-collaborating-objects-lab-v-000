@@ -26,10 +26,21 @@ class Artist
   end
 
   def self.find_or_create_by_name(name)
+      artist_1 = Artist.new(name)
+      artist_2 = Artist.new(name)
       if @@all.detect { |a| a == self.name }
-      else Artist.new(name)
+      else artist = Artist.new(name)
+         artist.name = self
     end
   end
+
+
+  # def add_song_by_name(name)
+  #   song = Song.new(name)
+  #   @songs << song
+  #   song.artist = self
+  # end
+
   # binding.pry
 
 # This class method should take the name that is passed in (remember, it will be a string), and do one of two things.
