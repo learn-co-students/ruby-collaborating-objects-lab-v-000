@@ -26,12 +26,12 @@ class Artist
   end
 
   def self.find_or_create_by_name(name)
-    # if self.all.eql?(self.name)
-      if @@all.detect(self.name)
+      if @@all.detect { |a| a == self.name }
       else Artist.new(name)
     end
-    # binding.pry
   end
+  # binding.pry
+
 # This class method should take the name that is passed in (remember, it will be a string), and do one of two things.
 #   1. Find the artist instance that has that name
 # or
