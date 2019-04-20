@@ -1,3 +1,4 @@
+require 'pry'
 class Artist
   attr_accessor :name
   @@all = []
@@ -29,6 +30,7 @@ class Artist
       if @@all.detect(self.name)
       else Artist.new(name)
     end
+    # binding.pry
   end
 # This class method should take the name that is passed in (remember, it will be a string), and do one of two things.
 #   1. Find the artist instance that has that name
