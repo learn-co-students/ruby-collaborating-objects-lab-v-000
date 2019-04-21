@@ -27,7 +27,7 @@ class Artist
 
   def self.find_or_create_by_name(name)
       if @@all.detect { |a| a.instance_variable_get(@name) }
-      else artist = Artist.new(name)
+      else Artist.new(name)
     end
   end
 
