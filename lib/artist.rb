@@ -14,7 +14,7 @@ class Artist
 
   def add_song(song)
     @songs << song
-    # song.artist = self
+    song.artist = self
   end
 
   def self.all
@@ -26,13 +26,11 @@ class Artist
   end
 
   def self.find_or_create_by_name(name)
-      artist_1 = Artist.new(name)
-      artist_2 = Artist.new(name)
-      if @@all.detect { |a| a == self.name }
+      if @@all.detect { |a| a.instance_variable_get(@name) }
       else artist = Artist.new(name)
-         artist.name = self
     end
   end
+
 
 
   # def add_song_by_name(name)
