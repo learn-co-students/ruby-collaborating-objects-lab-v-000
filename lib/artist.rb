@@ -49,13 +49,13 @@ class Artist
 
 
    def self.find_or_create_by_name(name)
-        if @@all.include?(self.name)
-          self
-  #     if self.name == self.name
-  #       self
-        elsif self.name == nil
+        # if @@all.include?(self.name)
+        #   self.name
+      if self.name == self.name
+      @@all.detect { |a| a.instance_variable_get(:@name) }
+        elsif self.name.nil?
          artist = Artist.new(name)
-          artist.name
+          artist
        end
      end
 end
