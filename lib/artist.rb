@@ -25,11 +25,11 @@ class Artist
   @@all << self
   end
 
-  def self.find_or_create_by_name(name)
-      if @@all.detect { |a| a.instance_variable_get(name) }
-      else Artist.new(name)
-    end
-  end
+  # def self.find_or_create_by_name(name)
+  #     if @@all.detect { |a| a.instance_variable_get(:@name) }
+  #     else artist = Artist.new(name)
+  #   end
+  # end
 
 
 
@@ -48,12 +48,14 @@ class Artist
 #   Either way, the return value of the method will be an instance of an artist with the name attribute filled out.
 
 
-  # def self.find_or_create_by_name(name)
+   def self.find_or_create_by_name(name)
+        if @@all.include?(self.name)
+          self
   #     if self.name == self.name
   #       self
-  #     elsif self.name.nil?
-  #       artist = Artist.new(name)
-  #       artist
-  #     end
-  #   end
+        elsif self.name == nil
+         artist = Artist.new(name)
+          artist.name
+       end
+     end
 end
