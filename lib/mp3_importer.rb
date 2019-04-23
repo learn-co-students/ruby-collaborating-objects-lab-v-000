@@ -7,7 +7,7 @@ class MP3Importer
 
   def files
     # path.size
-    Dir["/path/to/search/.mp3"]
+    path.length
   end
 
 end
