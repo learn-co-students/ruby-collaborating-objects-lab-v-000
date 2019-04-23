@@ -7,7 +7,7 @@ class MP3Importer
 
   def files
     # path.size
-    path.length
+    path.include?(/^.+\.(mp3)$/)
   end
 
 end
