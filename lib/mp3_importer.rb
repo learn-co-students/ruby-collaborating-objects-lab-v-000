@@ -1,17 +1,13 @@
 class MP3Importer
-  attr_accessor :path, :file_name
+  attr_accessor :path
 
   def initialize(path)
-    @path = path
-    @file_name = file_name
+  @path = path
   end
 
   def files
-    # file = File.basename(".mp3")
-    file = File.basename(".mp3")
+    file = File.basename(path)
     file
-
-    # Dir["/path/*.mp3"].each {|file| require file }
   end
 
 end
