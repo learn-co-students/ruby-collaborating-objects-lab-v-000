@@ -6,10 +6,13 @@ class MP3Importer
 
   def initialize(path)
   @path = path
+  # @some_filename = some_filename
   end
 
   def files
-    File.basename(".mp3")
+    # File.basename(".mp3")
+    Dir.entries(path).select {|f| !File.directory? f}
+    # Pathname.glob(path)
 
     # file = Dir.entries("mp3")
     # file = Pathname("mp3")
@@ -18,7 +21,12 @@ class MP3Importer
   end
 
   def import
+    # while path.size
     Song.new_by_filename(some_filename)
+    Song.new_by_filename(some_filename)
+    Song.new_by_filename(some_filename)
+    Song.new_by_filename(some_filename)
+
   end
 
 end
