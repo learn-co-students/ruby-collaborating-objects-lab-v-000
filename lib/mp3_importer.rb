@@ -9,14 +9,7 @@ class MP3Importer
   end
 
   def files
-     File.basename(path)
-
-
-    # Pathname(path).each_filename.to_a
-    # File.basename(path)
-
-    # File.read(path)
-
+    File.basename(".mp3")
 
     # file = Dir.entries("mp3")
     # file = Pathname("mp3")
