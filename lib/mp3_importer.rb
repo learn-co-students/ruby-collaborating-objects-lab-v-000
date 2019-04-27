@@ -1,7 +1,7 @@
 require 'pathname'
 
 class MP3Importer
-  attr_accessor :path, :some_filename
+  attr_accessor :path, :file_name
 
   def initialize(path)
   @path = path
@@ -19,7 +19,7 @@ class MP3Importer
   end
 
   def import
-     4.times {Song.new_by_filename(some_filename)}
+     4.times {Song.new_by_filename(file_name)}
   end
 
 end
