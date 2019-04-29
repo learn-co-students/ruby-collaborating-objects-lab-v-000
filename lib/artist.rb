@@ -36,11 +36,11 @@ class Artist
       # if self.name == self.name
         @@all.detect { |a| a.instance_variable_get(:@name) }
         # @@all.detect { |a| a.scan(/^(\w+ \w+)/).join }
-      else Artist.new(name.scan(/^(\w+ \w+)/).join)
+      else Artist.new(name)
         # artist
       end
    end
-  #  = Song.new(file_name.scan(/^(\w+ \w+)/).join)
+  #  = Artist.new(file_name.scan(/^(\w+ \w+)/).join)
    def print_songs
       @songs.each { |a| puts a.name }
      # binding.pry

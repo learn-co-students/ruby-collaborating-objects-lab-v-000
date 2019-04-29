@@ -4,13 +4,8 @@ class Song
 
   def initialize(name)
     @name = name
-    # @artist = artist
     @@all << self
   end
-
-  # def artist=
-  #   # @artist = Artist
-  # end
 
   def self.all
     @@all
@@ -21,7 +16,8 @@ class Song
     #  = Song.new(name.scan(/^(\w+ \w+)/).join)
     # new_instance = Song.new(name.scan(/^(\w+ \w+)/).join)
     # artist_name(name)
-    new_instance.artist = Artist.new(name)
+    new_instance.artist = Song.new(name.scan(/(\w+\s\w+\s\w+)/).join)
+
   end
 
   # We'll also want to associate that new song with an artist. To do this we'll use a helper method: `Song#artist()`.
