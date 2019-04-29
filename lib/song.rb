@@ -4,8 +4,13 @@ class Song
 
   def initialize(name)
     @name = name
+    # @artist = artist
     @@all << self
   end
+
+  # def artist=
+  #   # @artist = Artist
+  # end
 
   def self.all
     @@all
@@ -13,6 +18,7 @@ class Song
 
   def self.new_by_filename(file_name)
     new_instance = Song.new(file_name.scan(/(\w+\s\w+\s\w+)/).join)
+    # new_instance = Song.new(file_name.scan(/^(\w+ \w+)/).join)
     # artist_name(name)
   end
 
