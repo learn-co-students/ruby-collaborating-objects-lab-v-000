@@ -38,7 +38,7 @@ class Song
 
   def artist_name
       self.artist.name
-    end
+  end
 
   # crazy_in_love.artist_name
   #   # => "Jay-Z"
