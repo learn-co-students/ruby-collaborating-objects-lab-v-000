@@ -13,6 +13,8 @@ class Song
 
   def self.new_by_filename(file_name)
     new_instance = Song.new(file_name.scan(/(\w+\s\w+\s\w+)/).join)
+    new_artist = new_instance.artist
+    new_artist
 
     #  = Song.new(name.scan(/^(\w+ \w+)/).join)
     # new_instance = Song.new(name.scan(/^(\w+ \w+)/).join)
@@ -22,6 +24,7 @@ class Song
   end
 
   # We'll also want to associate that new song with an artist. To do this we'll use a helper method: `Song#artist()`.
+
   # We can set an individual instance of Song equal to an instance of the Artist class like this:
   # ninetynine_problems = Song.new("99 Problems", "rap")
   # jay_z = Artist.new("Jay-Z")
