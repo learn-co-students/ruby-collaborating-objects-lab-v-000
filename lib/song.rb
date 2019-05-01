@@ -11,14 +11,18 @@ class Song
     @@all
   end
 
+  def artist(artist_name)
+
+  end
+
   def self.new_by_filename(file_name)
     new_instance = Song.new(file_name.scan(/(\w+\s\w+\s\w+)/).join)
 
     #  = Song.new(name.scan(/^(\w+ \w+)/).join)
     # new_instance = Song.new(name.scan(/^(\w+ \w+)/).join)
-    # artist_name(name)
+    artist(new_instance)
     # new_instance.artist = Song.new(file_name.scan(/(\w+\s\w+\s\w+)/).join)
-
+    new_instance
   end
 
   # We'll also want to associate that new song with an artist. To do this we'll use a helper method: `Song#artist()`.
@@ -42,7 +46,7 @@ class Song
 
   # crazy_in_love.artist_name
   #   # => "Jay-Z"
-  # 
+  #
   # Much better. Notice that we used the self keyword inside the #artist_name method to refer to the instance of
   # Song on which the method is being called. Then we call #artist on that song instance.
   # This would return the Artist instance associated to the song. Chaining a call to #name after that is equivalent
