@@ -13,14 +13,12 @@ class Song
 
   def self.new_by_filename(file_name)
     new_instance = Song.new(file_name.scan(/(\w+\s\w+\s\w+)/).join)
-    new_artist = new_instance.artist
-    new_artist
 
-    #  = Song.new(name.scan(/^(\w+ \w+)/).join)
+    new_instance.artist
+    new_instance
     # new_instance = Song.new(name.scan(/^(\w+ \w+)/).join)
     # artist_name(name)
     # new_instance.artist = Song.new(file_name.scan(/(\w+\s\w+\s\w+)/).join)
-
   end
 
   # We'll also want to associate that new song with an artist. To do this we'll use a helper method: `Song#artist()`.
@@ -34,14 +32,15 @@ class Song
   # ninetynine_problems.artist.name
   #   # => "Jay-Z"
 
-  def artist_name=(name)
-    Artist.find_or_create_by_name(name)
-    Artist.add_song(song)
-  end
-
-  def artist_name
-      self.artist.name
-  end
+  # def artist_name=(name)
+  #   Artist.find_or_create_by_name(name)
+  #   Artist.add_song(song)
+  # end
+  #
+  # def artist(file_name)
+  #   file_name.scan(/^(\w+ \w+)/).join
+  #     # self.artist.name
+  # end
 
   # crazy_in_love.artist_name
   #   # => "Jay-Z"
@@ -50,6 +49,4 @@ class Song
   # Song on which the method is being called. Then we call #artist on that song instance.
   # This would return the Artist instance associated to the song. Chaining a call to #name after that is equivalent
   # to saying: call #name on the return value of self.artist, i.e. call #name on the artist of this song.
-
-
 end
