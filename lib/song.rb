@@ -16,7 +16,7 @@ class Song
 
     new_instance.artist
     new_instance
-    # new_instance = Song.new(name.scan(/^(\w+ \w+)/).join)
+    # new_instance = Song.new(file_name.scan(/^(\w+ \w+)/).join)
     # artist_name(name)
     # new_instance.artist = Song.new(file_name.scan(/(\w+\s\w+\s\w+)/).join)
   end
@@ -32,10 +32,10 @@ class Song
   # ninetynine_problems.artist.name
   #   # => "Jay-Z"
 
-  # def artist_name=(name)
-  #   Artist.find_or_create_by_name(name)
-  #   Artist.add_song(song)
-  # end
+  def artist_name=(name)
+    Artist.find_or_create_by_name(name)
+    Artist.add_song(song)
+  end
   #
   # def artist(file_name)
   #   file_name.scan(/^(\w+ \w+)/).join
