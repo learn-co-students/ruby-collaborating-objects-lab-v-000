@@ -36,7 +36,7 @@ class Artist
       # if self.name == self.name
         @@all.detect { |a| a.instance_variable_get(:@name) }
         # @@all.detect { |a| a.scan(/^(\w+ \w+)/).join }
-      else Artist.new(file_name)
+      else Artist.new(name)
         file_name.scan(/^(\w+ \w+)/)
         file_name
       end
