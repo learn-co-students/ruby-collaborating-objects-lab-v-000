@@ -31,11 +31,12 @@ class Song
 
   def artist_name=(name)
     Artist.find_or_create_by_name(name)
-    Artist.add_song(song)
+    Artist.add_song(name)
   end
+end
   #
-  # def artist(file_name)
-  #   file_name.scan(/^(\w+ \w+)/).join
+  # def artist(name)
+  #   name.scan(/^(\w+ \w+)/).join
   #     # self.artist.name
   # end
 
@@ -46,4 +47,3 @@ class Song
   # Song on which the method is being called. Then we call #artist on that song instance.
   # This would return the Artist instance associated to the song. Chaining a call to #name after that is equivalent
   # to saying: call #name on the return value of self.artist, i.e. call #name on the artist of this song.
-end

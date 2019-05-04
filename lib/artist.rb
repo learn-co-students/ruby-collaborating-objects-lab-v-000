@@ -34,12 +34,13 @@ class Artist
    def self.find_or_create_by_name(name)
       if self.name.eql?(self.name)
       # if self.name == self.name
-      @@all.detect { |a| a.instance_variable_get(:@name)}
+      new_instance = @@all.detect { |a| a.instance_variable_get(:@name)}
         # @@all.detect { |a| a.scan(/^(\w+ \w+)/).join }
-      else Artist.new(name)
+      else new_instance = Artist.new(name)
         # name.scan(/^(\w+ \w+)/)
         # name
       end
+      new_instance
    end
   #  = Artist.new(file_name.scan(/^(\w+ \w+)/).join)
    def print_songs
