@@ -32,16 +32,25 @@ class Artist
 #   Either way, the return value of the method will be an instance of an artist with the name attribute filled out.
 
    def self.find_or_create_by_name(name)
-      if self.name.eql?(self.name)
-      # if self.name == self.name
-      new_instance = @@all.detect { |a| a.instance_variable_get(:@name)}
-        # @@all.detect { |a| a.scan(/^(\w+ \w+)/).join }
-      else new_instance = Artist.new(name)
-        # name.scan(/^(\w+ \w+)/)
-        # name
-      end
-      new_instance
+     if self.find(name)
+       self.find(name)
+     else
+       self.create(name)
+     end
    end
+
+   def self.create(name)
+     self.new(name).tap do |artist|
+       artist.name == name
+     end
+   end
+
+   def self.find(name)
+     self.all.find do |artist|
+       artist.name == name
+     end
+   end
+
   #  = Artist.new(file_name.scan(/^(\w+ \w+)/).join)
    def print_songs
       @songs.each { |a| puts a.name }
