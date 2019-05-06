@@ -14,7 +14,8 @@ class Song
 
   def self.new_by_filename(name)
     new_instance = Song.new(name.scan(/(\w+\s\w+\s\w+)/).join)
-    new_instance.artist
+    artist_instance = Artist.new(name.scan(/^(\w+ \w+)/).join)
+    new_instance.artist = artist_instance
     new_instance
   end
 
