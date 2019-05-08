@@ -6,15 +6,17 @@ class Artist
   def initialize(name)
     @name = name
     @songs = []
+
   end
 
   def songs
     @songs
+
   end
 
   def add_song(song)
     @songs << song
-    # song.artist = selfz
+    # song.artist = self
   end
 
   def self.all
@@ -54,7 +56,6 @@ class Artist
   #  = Artist.new(file_name.scan(/^(\w+ \w+)/).join)
    def print_songs
       @songs.each { |a| puts a.name }
-     # binding.pry
    end
-
+  #  binding.pry
 end
