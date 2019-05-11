@@ -1,17 +1,15 @@
 require 'pry'
 class Artist
-  attr_accessor :name, :file_name
+  attr_accessor :name
   @@all = []
 
   def initialize(name)
     @name = name
     @songs = []
-
   end
 
   def songs
     @songs
-
   end
 
   def add_song(song)
@@ -54,25 +52,17 @@ class Artist
    end
 
   # def self.find_or_create_by_name(name)
-  #     self.all.find do |artist|
-  #       artist.name == name
-  #       end
-  #
-  # #     # if self.name == self.name
-  # #     # new_instance = @@all.detect { |a| a.instance_variable_get(:@name)}
-  # #       # @@all.detect { |a| a.scan(/^(\w+ \w+)/).join }
-  #     else
-  #       self.new(name).tap do |artist|
-  #            artist.name == name
-  #          end
-  # #          # new_instance = Artist.new(name)
-  # #          # name.scan(/^(\w+ \w+)/)
-  # #          # name
+  #   if artist.name
+  #   self.all.find do |artist|
+  #   artist.name == name
+  #   end
+  #   else
+  #     self.new(name).tap do |artist|
+  #     artist.name == name
   #     end
+  #   end
   #  end
 
-
-  #  = Artist.new(file_name.scan(/^(\w+ \w+)/).join)
    def print_songs
       @songs.each { |a| puts a.name }
    end

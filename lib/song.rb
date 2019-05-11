@@ -1,5 +1,5 @@
 class Song
-  attr_accessor :artist, :name, :file_name, :mp3mporter
+  attr_accessor :artist, :name
   @@all = []
 
   def initialize(name)
