@@ -19,7 +19,11 @@ def files
 end
 
 def import
+<<<<<<< HEAD
  files.each {|file| Song.new_by_filename(file)} #iterating over each file produced in method above, naming each item array file and
+=======
+ files.each {|file| Song.new_by_filename(file)} #iterating over each file produced in method above, naming each item array file and 
+>>>>>>> ac75275a64cfce85a5a4c8aef4da45e83fffeee5
  #producing a new Song object with new_by_filename method; creation information is passed via file argument
 end
 
