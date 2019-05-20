@@ -14,6 +14,7 @@ class Artist
 	
 	def add_song(song)
 		@songs << song
+# binding.pry
 		song.artist = self
 # binding.pry
 	end
@@ -26,7 +27,6 @@ class Artist
 		@@all << self
 	end
 	
-# need this method to save any new obj's created in @@all
 	def self.create_by_name(artist_name)
 		new_artist = self.new(artist_name)
 		new_artist.save
@@ -43,3 +43,9 @@ class Artist
 	end
 end
 
+=begin
+brittany_spears = Artist.new('Brittany Spears')
+brittany_spears.add_song('Toxic')
+brittany_spears.add_song('Baby One More Time')
+brittany_spears.add_song('Oops! I Did It Again')
+=end

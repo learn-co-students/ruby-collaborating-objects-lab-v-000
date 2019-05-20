@@ -6,11 +6,17 @@ class Song
 		@name = name
 	end
 
+
 	def self.new_by_filename(filename)
+# can only pass obj's on methods, not str's
+# all new str's must be set 2 an obj
+# line 16 sets 'song_title' -> song (obj)
+# line 17 sets 'artist_name' -> artist (obj)
 		song_title = filename.split(' - ')[1] # str
 		artist_name = filename.split(' - ')[0] # str
 		song = self.new(song_title)
 		song.artist = Artist.find_or_create_by_name(artist_name)
+		puts song.artist
 		song.artist.add_song(song)
 # binding.pry
 		song

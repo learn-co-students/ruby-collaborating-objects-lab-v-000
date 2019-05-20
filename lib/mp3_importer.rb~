@@ -3,11 +3,11 @@ class MP3Importer
 	attr_accessor :path
 	
 	def initialize(path)
+# binding.pry
 		@path = path
 	end
+# binding.pry
 
-# 1) loads all mp3 files in the path directory
-# 2) get ride of path, only show 'filename.mp3'
 	def files
 		Dir.glob("#{self.path}/*.mp3").map { |filename| File.basename(filename) }
 # binding.pry
@@ -21,3 +21,7 @@ class MP3Importer
 	end
 
 end
+
+test = MP3Importer.new('/home/zcdrake/dev/ruby/obj_properties/ruby-collaborating-objects-lab-v-000/spec/fixtures/mp3s/Action Braonson-LarryCsonka-indie.mp3')
+
+test.files
