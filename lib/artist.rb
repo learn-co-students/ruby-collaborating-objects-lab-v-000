@@ -14,6 +14,7 @@ attr_accessor :name
     @songs << song
     #binding.pry
     song.artist = self
+    song.name = name
   end
 
   def songs
@@ -40,7 +41,7 @@ attr_accessor :name
  end
 
   def print_songs
-    puts @songs.name
+    puts @song.name
   end
 
 end
