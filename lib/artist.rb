@@ -12,6 +12,7 @@ attr_accessor :name
 
   def add_song(song)
     @songs << song
+    #binding.pry
     song.artist = self
   end
 
@@ -30,15 +31,16 @@ attr_accessor :name
   end
 
   def self.find_or_create_by_name(name)
-  @artist = @@all.find { |nameo| nameo == name}
-
-  if @artist = nil
-    artist = self.new
-      artist.name = name
-      artist
+  @artist = @@all.find { |artist| artist.name == name}
+  if @artist == nil
+    artist = self.new(name)
   else
    @artist
   end
  end
+
+  def print_songs
+    puts @songs.name
+  end
 
 end
