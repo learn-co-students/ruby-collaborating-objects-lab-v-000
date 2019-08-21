@@ -1,7 +1,7 @@
 require "pry"
 class Artist 
   
-  attr_accessor :name
+  attr_accessor :name, :song
   
   @@all = []
   
@@ -9,28 +9,56 @@ class Artist
     @name = name
     @songs = []
     @@all << self
-    #binding.pry
-  end
-  
-  def songs 
-    @songs
   end
   
   def add_song(song = @song)
     @songs << song
   end
-
-  def self.find_or_create_by_name(name = @name)
-    #binding.pry
-    if (self.name.nil?)
-      self.new.name = @name
-      Artist.name
-    else
-      Artist.name
-    end
+  
+  def songs
+    @songs
   end
-
+  
   def self.all
     @@all
   end
+  
+  def self.find_or_create_by_name(name = @name)
+    #binding.pry
+    if @@all.include?(self.name)
+      self
+    else
+      self.new.name = name
+    end
+  end
 end
+
+  
+#def self.find_or_create_by_name(name = @name)
+    #if self.name = "Artist"
+      #add_song
+      
+      #@@all.include?(name)
+      #self.name
+    #else
+      
+      
+
+  
+  #def self.find_or_create_by_name(name = @name)
+    #binding.pry
+    #if (self.name.nil?)
+      #self.new.name = @name
+      #self.name
+    #else
+      #self.name
+    #end
+  #end
+  
+  #def artist_name=(name)
+    #if (self.artist.nil?)
+      #self.artist = Artist.new(name)
+    #else
+      #self.artist = name
+    #end
+  #end

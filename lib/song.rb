@@ -1,6 +1,6 @@
 class Song 
   
-  attr_accessor :name, :artist
+  attr_accessor :name, :artist, :filename
   
   @@all = []
   
@@ -11,17 +11,18 @@ class Song
   end
   
   def self.new_by_filename(filename)
-    @name = name
+    @filename = filename
     song = self.new  
     song.name = filename.split(" - ")[1]
     song
   end
   
   def artist_name=(name)
+    #binding.pry
     if (self.artist.nil?)
       self.artist = Artist.new(name)
     else
-      self.artist.name = name
+      self.artist = name
     end
   end
   
