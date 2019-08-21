@@ -16,7 +16,7 @@ class Artist
   end
   
   def songs
-    @songs
+    Song.all.select {|songy| songy.artist == "#{@name}"}
   end
   
   def self.all
@@ -26,9 +26,15 @@ class Artist
   def self.find_or_create_by_name(name = @name)
     #binding.pry
     if @@all.include?(self.name)
-      self
+      self.name
     else
-      self.new.name = name
+      self.new(name)
+    end
+  end
+  
+  def print_songs
+    @songs.each do |item|
+      puts item.name
     end
   end
 end
@@ -60,5 +66,15 @@ end
       #self.artist = Artist.new(name)
     #else
       #self.artist = name
+    #end
+  #end
+  
+  
+    #def songs
+    #song_array = [ ]
+    #Song.all.each do |item|
+      #if item.artist != nil && item.artist == @name
+        #puts item
+      #end
     #end
   #end

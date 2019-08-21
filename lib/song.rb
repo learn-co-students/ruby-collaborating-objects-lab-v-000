@@ -30,3 +30,14 @@ class Song
     @@all
   end
 end
+
+
+  #def artist_name=(name)
+    #binding.pry
+    #if (self.artist.nil?)
+      #self.artist = Artist.new(name)
+    #else
+      #self.artist = name
+    #end
+  #end
+  
