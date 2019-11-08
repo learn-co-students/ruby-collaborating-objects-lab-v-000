@@ -4,7 +4,6 @@ class Song
 
   def initialize(name)
     @name = name
-    #@artist = artist
   end
 
   # def self.new_with_artist(title, artist)
@@ -20,12 +19,13 @@ class Song
     #Artist.find_or_create_by_name(artist)
     #Artist.find_or_create_by_name(artist).song << title
     #Artist.new(artist)
-    Song.new(title)
+    song = Song.new(title)
+    song.artist = Artist.find_or_create_by_name(artist)
     #self.artist.name = artist
     #binding.pry
     #Song.new(title)
     #Song.new(title).artist = Artist.new(artist)
-
+    song
     #binding.pry
   end
 
