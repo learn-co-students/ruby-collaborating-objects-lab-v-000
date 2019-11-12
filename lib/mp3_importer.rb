@@ -7,7 +7,8 @@ class MP3Importer
 
   end
   def files
-    @@filenames=Dir.entries(path).grep(/[\w\s\d-]*.mp3\z/)
+    #filtering only mp3 files with artist, song and genre in their name.
+    @@filenames=Dir.entries(path).grep(/[\w\s-][\w\s-][\w\s].mp3\z/)
   end
 
   def import
