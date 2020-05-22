@@ -20,18 +20,15 @@ class Song
 
   def self.new_by_filename(file)
     parsed_file = file.split(" - ")
-    Song.new.name = parsed_file[0]
-    Song.new.artist = parsed_file[1]
+    new_song_artist = parsed_file[0]
+    new_song_name = parsed_file[1]
+    new_song = Song.new(new_song_name)
+    new_song.artist_name=(new_song_artist)
+    new_song
   end
 
   def artist_name=(name)
-    if Artist.all.include?(name)
-      self.artist = name
-    else
-      Artist.new(name)
-      self.artist = name
-    end
-    binding.pry
+    self.artist = Artist.find_or_create_by_name(name)
   end
 
 end

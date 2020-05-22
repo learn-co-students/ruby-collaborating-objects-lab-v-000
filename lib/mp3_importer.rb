@@ -1,3 +1,5 @@
+require 'pry'
+
 class MP3Importer
   attr_accessor :path
 
@@ -6,11 +8,12 @@ class MP3Importer
   end
 
   def files
-    @path << Dir[MP3Importer.new('./spec/fixtures').import]
+    file_name = Dir.glob("#{path}/*.mp3")
+    file_name.collect{|file| (file.split("/"))[-1]}
   end
 
   def import
-
+    files.each{|file| Song.new_by_filename(file)}
   end
 
 end
