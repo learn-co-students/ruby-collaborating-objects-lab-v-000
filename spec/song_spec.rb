@@ -41,6 +41,8 @@ describe 'Song' do
     it 'creates a new instance of a song from the file that\'s passed' do
       file_name = 'Michael Jackson - Black or White - pop.mp3'
       new_instance = Song.new_by_filename(file_name)
+      puts new_instance
+
       expect(new_instance.name).to eq('Black or White')
     end
 
