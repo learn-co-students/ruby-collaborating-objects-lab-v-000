@@ -1,3 +1,5 @@
+require "pry"
+
 describe 'Artist' do
 
   before(:example) {
@@ -66,6 +68,7 @@ describe 'Artist' do
     it 'finds or creates an artist by name maintaining uniqueness of objects by name property' do
       artist_1 = Artist.find_or_create_by_name("Michael Jackson")
       artist_2 = Artist.find_or_create_by_name("Michael Jackson")
+      # binding.pry
       expect(artist_1).to eq(artist_2)
     end
 
