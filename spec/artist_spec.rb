@@ -1,3 +1,6 @@
+require 'spec_helper'
+require 'pry'
+
 describe 'Artist' do
 
   before(:example) {
